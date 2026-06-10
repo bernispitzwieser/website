@@ -1,0 +1,13 @@
+Brassdorfer – Bildplatzierung Update
+
+Geändert wurde vor allem CSS/Inline-Variablen für Hero- und Inhaltsbilder:
+
+- Hero-Bilder nutzen jetzt CSS-Variablen für Desktop- und Mobile-Fokus.
+- Startseiten-Hero ist am Handy wieder ein echter Hero, nicht nur Foto oben/Text unten.
+- Unterseiten-Hero wird am Handy niedriger und ruhiger gecroppt.
+- Bandfoto in Startseite/Über uns bekommt festere Seitenverhältnisse und bessere object-position.
+- Mitgliederfotos bekommen eine bessere vertikale Positionierung, damit Köpfe/Gesichter weniger ungünstig abgeschnitten werden.
+
+Nur die hier enthaltenen Dateien ersetzen. Den img-Ordner musst du nicht löschen oder neu hochladen.
+
+Hinweis: Die Presse-Seite war in den zuletzt hochgeladenen Dateien nicht enthalten; diese ZIP aktualisiert die mitgelieferten aktuellen Dateien.

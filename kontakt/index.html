@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#111214">
 <title>Kontakt | Brassdorfer</title>
 <meta name="description" content="Schreib uns einfach unverbindlich eine Nachricht und wir melden uns bei Dir!">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,7 +60,7 @@ h3{font-size:1.15rem;letter-spacing:.05em}
 /* Hero */
 .hero{position:relative;min-height:74vh;display:flex;align-items:flex-end;isolation:isolate}
 .hero.small{min-height:42vh}
-.hero::before{content:"";position:absolute;inset:0;background:var(--hero) center 28%/cover no-repeat;z-index:-2;filter:grayscale(18%)}
+.hero::before{content:"";position:absolute;inset:0;background:var(--hero) var(--hero-pos, center 28%)/cover no-repeat;z-index:-2;filter:grayscale(18%)}
 .hero::after{content:"";position:absolute;inset:0;background:var(--hero-overlay);z-index:-1}
 .hero-in{width:100%;padding:80px 0 56px}
 .hero .tag{font-family:"Oswald",sans-serif;font-weight:500;letter-spacing:.3em;text-transform:uppercase;font-size:.95rem;color:var(--gold)}
@@ -265,28 +264,93 @@ html,body{max-width:100%;overflow-x:hidden}
 .legal-text{color:var(--muted);display:grid;gap:16px}.legal-text h2{color:var(--text);font-size:1.45rem;margin-top:10px}.legal-text h3{color:var(--gold);margin-top:10px}.legal-text ul{padding-left:22px;display:grid;gap:6px}.legal-text a{color:var(--text)}.legal-text a:hover{color:var(--gold)}
 
 
-/* ─── Feinschliff (Mobil & Details) ─── */
-.chev{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
-details[open] .chev{transform:none;color:var(--gold)}
-.ev-body .row b{color:var(--text)}
-@media(max-width:680px){
-  .badge{display:none} /* Markierung schnitt am Handy ab – Goldbalken links zeigt den nächsten Auftritt */
-  .wrap{padding:0 18px}
-  .nav{padding:10px 18px}
-  .brand img{width:40px}
-  .brand span{font-size:1.15rem}
-  details.ev summary{grid-template-columns:60px 1fr auto;gap:12px;padding:14px 16px}
-  .ev-date{padding-right:12px}
-  .ev-date .d{font-size:1.55rem}
-  .ev-body{padding:0 16px 16px}
-  .chev{font-size:.62rem}
-  .sec{padding:48px 0}
-  .members{gap:16px}
-  .gallery{gap:10px}
-  .cta-row{width:100%}
-  .cta-row .btn{flex:1 1 auto;text-align:center}
-  .framed{box-shadow:none}
+
+/* Bildplatzierung – Feinschliff 2026-06
+   Ziel: Desktop bleibt großflächig, Handy wirkt weniger abgeschnitten und weniger "Foto oben/Text unten". */
+.hero{overflow:hidden}
+.hero::before{
+  background-position:var(--hero-pos, center 28%);
+  transform:scale(1.015);
+  transform-origin:center;
 }
+.hero.hero-home{--hero-pos:center 24%;--hero-mobile-pos:center 18%}
+.hero.small{--hero-pos:center 31%;--hero-mobile-pos:center 30%}
+
+.cols img.framed{
+  width:100%;
+  min-height:360px;
+  max-height:520px;
+  object-fit:cover;
+  object-position:var(--img-pos, center 34%);
+}
+.member img{object-position:center 22%}
+.gallery img{object-position:center 34%}
+
+@media(max-width:860px){
+  .cols img.framed{
+    min-height:auto;
+    max-height:none;
+    aspect-ratio:16/10;
+    object-position:var(--img-mobile-pos, center 32%);
+  }
+}
+
+@media(max-width:680px){
+  .hero::before{
+    background-position:var(--hero-mobile-pos, center 30%);
+    background-size:cover;
+    transform:scale(1.02);
+  }
+  .hero.small{
+    min-height:clamp(310px,48svh,420px);
+  }
+  .hero.small .hero-in{
+    padding:96px 0 44px;
+  }
+
+  .hero.hero-home{
+    min-height:clamp(590px,82svh,700px);
+    display:flex;
+    align-items:flex-end;
+  }
+  .hero.hero-home::before{
+    inset:0;
+    height:auto;
+    background-position:var(--hero-mobile-pos, center 18%);
+    background-size:cover;
+  }
+  .hero.hero-home::after{
+    inset:0;
+    height:auto;
+    background:linear-gradient(180deg,rgba(17,18,20,.16),rgba(17,18,20,.08) 30%,rgba(17,18,20,.66) 68%,rgba(17,18,20,.98));
+  }
+  .hero.hero-home .hero-in{
+    padding:150px 0 44px;
+  }
+
+  .cols img.framed{
+    aspect-ratio:4/3;
+    object-position:var(--img-mobile-pos, center 30%);
+  }
+  .member img{
+    aspect-ratio:4/5;
+    object-position:center 18%;
+  }
+}
+
+@media(max-width:480px){
+  .hero.hero-home{
+    min-height:clamp(560px,80svh,660px);
+  }
+  .hero.hero-home .hero-in{
+    padding:140px 0 38px;
+  }
+  .hero.small{
+    min-height:clamp(285px,44svh,380px);
+  }
+  .cols img.framed{aspect-ratio:1.22/1}
+}
+
 </style>
 </head>
 <body>
@@ -311,7 +375,7 @@ details[open] .chev{transform:none;color:var(--gold)}
 
 <main>
 
-  <section class="hero small" style="--hero: url('../img/hero-kontakt.jpg')">
+  <section class="hero small" style="--hero: url('../img/hero-kontakt.jpg'); --hero-pos:center 35%; --hero-mobile-pos:center 31%">
     <div class="wrap hero-in">
       <p class="tag">… des brasst!</p>
       <h1>Kontakt</h1>

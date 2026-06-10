@@ -2,7 +2,7 @@
 // Hier kannst du eure Termine zentral bearbeiten.
 // Nach dem Speichern übernehmen Startseite und Events-Seite die Termine automatisch.
 // Wichtig: Datum im Format JJJJ-MM-TT schreiben, z. B. "2026-07-03".
-// Ort und Info werden beim Aufklappen eines Termins angezeigt.
+// Ort ist optional und wird aktuell NICHT auf der Website angezeigt.
 
 window.BRASSDORFER_AUFTRITTE = [
   {
