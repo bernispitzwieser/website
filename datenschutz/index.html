@@ -160,6 +160,14 @@ footer a:hover{color:var(--gold)}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}html{scroll-behavior:auto}}
+
+/* ═══ VORSCHAU: Farbvarianten – nach der Entscheidung diesen Block,
+   den Umschalter unten im <body> und das Theme-Script löschen ═══ */
+html[data-theme="b"]{--bg:#0a0a0b;--bg2:#101012;--card:#161618;--gold:#e2b54a;--gold-dim:#c39a33}
+html[data-theme="c"]{--bg:#171411;--bg2:#1d1915;--card:#241d16;--gold:#c9a052;--gold-dim:#a98336;--line:rgba(255,255,255,.11)}
+.themeswitch{position:fixed;bottom:14px;right:14px;z-index:99;background:rgba(10,10,10,.85);backdrop-filter:blur(4px);border:1px solid var(--line);border-radius:99px;padding:6px 8px 6px 14px;display:flex;gap:6px;align-items:center;font-size:.72rem;letter-spacing:.05em;color:var(--muted)}
+.themeswitch button{font:inherit;color:var(--text);background:none;border:1px solid var(--line);border-radius:99px;padding:4px 10px;cursor:pointer}
+.themeswitch button[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#15130c;font-weight:700}
 </style>
 </head>
 <body>
@@ -238,5 +246,26 @@ if(b){b.addEventListener('click',function(){var o=m.classList.toggle('open');b.s
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 </script>
+
+<!-- ═══ VORSCHAU-UMSCHALTER: nach der Farb-Entscheidung diesen Block löschen ═══ -->
+<div class="themeswitch" role="group" aria-label="Farbvariante wählen">
+  Farbe:
+  <button data-t="a" aria-pressed="true">A</button>
+  <button data-t="b" aria-pressed="false">B</button>
+  <button data-t="c" aria-pressed="false">C</button>
+</div>
+<script>
+(function(){
+  function apply(t){
+    if(t==='a'){delete document.documentElement.dataset.theme}else{document.documentElement.dataset.theme=t}
+    document.querySelectorAll('.themeswitch button').forEach(function(b){b.setAttribute('aria-pressed', b.dataset.t===t)});
+    try{localStorage.setItem('bd-theme',t)}catch(e){}
+  }
+  var saved='a'; try{saved=localStorage.getItem('bd-theme')||'a'}catch(e){}
+  apply(saved);
+  document.querySelectorAll('.themeswitch button').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.t)})});
+})();
+</script>
+<!-- ═══ Ende Vorschau-Umschalter ═══ -->
 </body>
 </html>
