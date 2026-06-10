@@ -15,7 +15,7 @@
   --text:#f1efe9; --muted:#a3a39c;
   --gold:#d4a843; --gold-dim:#b48a2e; --gold-contrast:#15130c; --cta-bg:rgba(212,168,67,.16); --cta-border:rgba(212,168,67,.48); --cta-hover:rgba(212,168,67,.24);
   --header:rgba(15,16,18,.94); --menu-bg:#111214; --input:#141518; --footer:#0e0f11;
-  --hero-overlay:linear-gradient(180deg,rgba(17,18,20,.55),rgba(17,18,20,.25) 45%,rgba(17,18,20,.97));
+  --hero-overlay:linear-gradient(180deg,rgba(17,18,20,.55) 0%,rgba(17,18,20,.15) 35%,rgba(17,18,20,.42) 68%,#111214 100%);
   --cta-overlay:rgba(17,18,20,.9);
   --max:1240px; --nav-max:1480px; --r:10px;
 }
@@ -60,7 +60,7 @@ h3{font-size:1.15rem;letter-spacing:.05em}
 /* Hero */
 .hero{position:relative;min-height:74vh;display:flex;align-items:flex-end;isolation:isolate}
 .hero.small{min-height:42vh}
-.hero::before{content:"";position:absolute;inset:0;background:var(--hero) var(--hero-pos, center 28%)/cover no-repeat;z-index:-2;filter:grayscale(18%)}
+.hero::before{content:"";position:absolute;inset:0;background:var(--hero) var(--hero-pos, center 28%)/cover no-repeat;z-index:-2;filter:none}
 .hero::after{content:"";position:absolute;inset:0;background:var(--hero-overlay);z-index:-1}
 .hero-in{width:100%;padding:80px 0 56px}
 .hero .tag{font-family:"Oswald",sans-serif;font-weight:500;letter-spacing:.3em;text-transform:uppercase;font-size:.95rem;color:var(--gold)}
@@ -390,6 +390,10 @@ html,body{max-width:100%;overflow-x:hidden}
   }
 }
 
+.hero-in{text-shadow:0 2px 18px rgba(0,0,0,.45)}
+.ev-body .row b{color:var(--text)}
+body{overflow-x:hidden}
+@media(max-width:680px){.badge{display:none}details.ev summary{grid-template-columns:60px 1fr auto;gap:12px}.ev-date{padding-right:12px}.ev-date .d{font-size:1.55rem}}
 </style>
 </head>
 <body>
@@ -539,7 +543,11 @@ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
     const info = (ev.info || "").trim();
     const isNext = index === 0;
     const action = isNext ? '<span class="badge">Nächster Auftritt</span>' : '<span class="chev" aria-hidden="true">Mehr Infos</span>';
-    const body = info ? `<div class="ev-body"><div class="row"><span>${escapeHtml(info)}</span></div></div>` : `<div class="ev-body"><div class="row"><span>Weitere Infos folgen.</span></div></div>`;
+    const ort = (ev.ort || "").trim();
+    const rows = [];
+    if (ort) rows.push(`<div class="row"><span><b>Ort:</b> ${escapeHtml(ort)}</span></div>`);
+    if (info) rows.push(`<div class="row"><span>${escapeHtml(info)}</span></div>`);
+    const body = `<div class="ev-body">${rows.join("") || '<div class="row"><span>Weitere Infos folgen.</span></div>'}</div>`;
     return `<details data-date="${escapeHtml(ev.datum)}" class="ev${isNext ? ' next' : ''}">
       <summary>
         <span class="ev-date"><span class="d">${day}</span><span class="m">${month}</span></span>
