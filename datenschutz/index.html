@@ -13,7 +13,10 @@
 :root{
   --bg:#111214; --bg2:#17181b; --card:#1d1f23; --line:rgba(255,255,255,.09);
   --text:#f1efe9; --muted:#a3a39c;
-  --gold:#d4a843; --gold-dim:#b48a2e;
+  --gold:#d4a843; --gold-dim:#b48a2e; --gold-contrast:#15130c;
+  --header:rgba(15,16,18,.94); --menu-bg:#111214; --input:#141518; --footer:#0e0f11;
+  --hero-overlay:linear-gradient(180deg,rgba(17,18,20,.55),rgba(17,18,20,.25) 45%,rgba(17,18,20,.97));
+  --cta-overlay:rgba(17,18,20,.9);
   --max:1240px; --r:10px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -32,7 +35,7 @@ h3{font-size:1.15rem;letter-spacing:.05em}
 .lead{color:var(--muted);max-width:68ch}
 
 /* Header */
-.hdr{position:sticky;top:0;z-index:50;background:rgba(15,16,18,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hdr{position:sticky;top:0;z-index:50;background:var(--header);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav{max-width:var(--max);margin:0 auto;padding:10px clamp(20px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:16px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .brand img{width:48px}
@@ -44,21 +47,21 @@ h3{font-size:1.15rem;letter-spacing:.05em}
 .burger{display:none;background:none;border:1px solid var(--line);color:var(--text);font-size:1.3rem;padding:7px 12px;border-radius:8px;cursor:pointer}
 @media(max-width:880px){
   .burger{display:block}
-  .menu{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;background:#111214;border-bottom:1px solid var(--gold);padding:10px 24px 18px}
+  .menu{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--menu-bg);border-bottom:1px solid var(--gold);padding:10px 24px 18px}
   .menu.open{display:flex}
 }
 
 /* Buttons – Gold nur für die eine Hauptaktion */
 .btn{display:inline-block;font-weight:600;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:13px 24px;border-radius:var(--r);border:1px solid var(--line);color:var(--text);background:transparent;cursor:pointer;font-family:inherit;transition:border-color .15s,color .15s,background .15s}
 .btn:hover{border-color:var(--gold);color:var(--gold)}
-.btn-gold{background:var(--gold);border-color:var(--gold);color:#15130c;font-weight:700}
-.btn-gold:hover{background:var(--gold-dim);border-color:var(--gold-dim);color:#15130c}
+.btn-gold{background:var(--gold);border-color:var(--gold);color:var(--gold-contrast);font-weight:700}
+.btn-gold:hover{background:var(--gold-dim);border-color:var(--gold-dim);color:var(--gold-contrast)}
 
 /* Hero */
 .hero{position:relative;min-height:74vh;display:flex;align-items:flex-end;isolation:isolate}
 .hero.small{min-height:42vh}
 .hero::before{content:"";position:absolute;inset:0;background:var(--hero) center 28%/cover no-repeat;z-index:-2;filter:grayscale(18%)}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,18,20,.55),rgba(17,18,20,.25) 45%,rgba(17,18,20,.97));z-index:-1}
+.hero::after{content:"";position:absolute;inset:0;background:var(--hero-overlay);z-index:-1}
 .hero-in{width:100%;padding:80px 0 56px}
 .hero .tag{font-family:"Oswald",sans-serif;font-weight:500;letter-spacing:.3em;text-transform:uppercase;font-size:.95rem;color:var(--gold)}
 .hero h1{margin:8px 0 16px}
@@ -128,7 +131,7 @@ form{display:grid;gap:16px}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:620px){.frow{grid-template-columns:1fr}}
 label{display:grid;gap:6px;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-input,textarea{font:inherit;color:var(--text);background:#141518;border:1px solid var(--line);border-radius:8px;padding:12px 13px}
+input,textarea{font:inherit;color:var(--text);background:var(--input);border:1px solid var(--line);border-radius:8px;padding:12px 13px}
 input:focus,textarea:focus{outline:none;border-color:var(--gold)}
 textarea{min-height:130px;resize:vertical}
 .contact-info{display:grid;gap:12px}
@@ -138,12 +141,12 @@ textarea{min-height:130px;resize:vertical}
 .ci p, .ci a{font-size:.95rem;color:var(--muted)}
 
 /* CTA-Band */
-.cta{border-top:1px solid var(--line);text-align:center;padding:clamp(60px,9vw,100px) 24px;background:linear-gradient(rgba(17,18,20,.9),rgba(17,18,20,.9)),var(--cta,none) center/cover}
+.cta{border-top:1px solid var(--line);text-align:center;padding:clamp(60px,9vw,100px) 24px;background:linear-gradient(var(--cta-overlay),var(--cta-overlay)),var(--cta,none) center/cover}
 .cta h2{margin-bottom:10px}
 .cta p{color:var(--muted);max-width:56ch;margin:0 auto 26px}
 
 /* Footer */
-footer{border-top:1px solid var(--line);background:#0e0f11;padding:48px 0 24px;font-size:.93rem}
+footer{border-top:1px solid var(--line);background:var(--footer);padding:48px 0 24px;font-size:.93rem}
 .fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:36px;margin-bottom:36px}
 @media(max-width:760px){.fgrid{grid-template-columns:1fr}}
 footer h3{font-size:.85rem;letter-spacing:.18em;color:var(--gold);margin-bottom:12px}
@@ -161,13 +164,42 @@ footer a:hover{color:var(--gold)}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}html{scroll-behavior:auto}}
 
-/* ═══ VORSCHAU: Farbvarianten – nach der Entscheidung diesen Block,
-   den Umschalter unten im <body> und das Theme-Script löschen ═══ */
-html[data-theme="b"]{--bg:#0a0a0b;--bg2:#101012;--card:#161618;--gold:#e2b54a;--gold-dim:#c39a33}
-html[data-theme="c"]{--bg:#171411;--bg2:#1d1915;--card:#241d16;--gold:#c9a052;--gold-dim:#a98336;--line:rgba(255,255,255,.11)}
-.themeswitch{position:fixed;bottom:14px;right:14px;z-index:99;background:rgba(10,10,10,.85);backdrop-filter:blur(4px);border:1px solid var(--line);border-radius:99px;padding:6px 8px 6px 14px;display:flex;gap:6px;align-items:center;font-size:.72rem;letter-spacing:.05em;color:var(--muted)}
-.themeswitch button{font:inherit;color:var(--text);background:none;border:1px solid var(--line);border-radius:99px;padding:4px 10px;cursor:pointer}
-.themeswitch button[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#15130c;font-weight:700}
+
+/* Mobile-Feinschliff: verhindert abgeschnittene Texte/Bilder und macht Event-Badges handytauglich */
+html,body{max-width:100%;overflow-x:hidden}
+.hero,.cta{overflow:hidden;color:#f1efe9}
+.hero h1,.hero .lead,.hero .tag,.cta h2,.cta p{max-width:100%}
+.hero h1,.cta h2{color:#f1efe9;overflow-wrap:anywhere}
+.cta p{color:#cfcdc6}
+.hero .btn:not(.btn-gold),.cta .btn:not(.btn-gold){color:#f1efe9}
+.ev-title{min-width:0}
+.ev-title h3{overflow-wrap:anywhere}
+@media(max-width:680px){
+  body{font-size:16px}
+  .wrap{padding-left:18px;padding-right:18px}
+  .nav{padding-left:16px;padding-right:16px}
+  .brand img{width:42px}
+  .brand span{font-size:1.08rem;letter-spacing:.06em}
+  .hero{min-height:62vh;background-position:center top}
+  .hero.small{min-height:34vh}
+  .hero::before{background-position:center top}
+  .hero-in{padding:58px 0 42px}
+  .hero .tag{font-size:.78rem;letter-spacing:.16em}
+  h1{font-size:clamp(2rem,12vw,3rem)}
+  .cta-row{gap:10px}
+  .btn{max-width:100%;padding:12px 18px;font-size:.78rem;white-space:normal;text-align:center}
+  details.ev summary{grid-template-columns:62px minmax(0,1fr);gap:12px;padding:16px}
+  .ev-date{padding-right:12px}
+  .ev-date .d{font-size:1.55rem}
+  .ev-date .m{font-size:.66rem;letter-spacing:.11em}
+  .badge,.chev{grid-column:2;justify-self:start;margin-top:5px}
+  .badge{font-size:.58rem;letter-spacing:.1em;padding:3px 8px;white-space:normal;line-height:1.25}
+  .ev-body{padding:0 16px 18px 16px}
+  .ev-body .row{font-size:.92rem}
+  .framed{width:100%;height:auto}
+  .gallery{gap:10px}
+}
+
 </style>
 </head>
 <body>
@@ -247,25 +279,5 @@ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isInter
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 </script>
 
-<!-- ═══ VORSCHAU-UMSCHALTER: nach der Farb-Entscheidung diesen Block löschen ═══ -->
-<div class="themeswitch" role="group" aria-label="Farbvariante wählen">
-  Farbe:
-  <button data-t="a" aria-pressed="true">A</button>
-  <button data-t="b" aria-pressed="false">B</button>
-  <button data-t="c" aria-pressed="false">C</button>
-</div>
-<script>
-(function(){
-  function apply(t){
-    if(t==='a'){delete document.documentElement.dataset.theme}else{document.documentElement.dataset.theme=t}
-    document.querySelectorAll('.themeswitch button').forEach(function(b){b.setAttribute('aria-pressed', b.dataset.t===t)});
-    try{localStorage.setItem('bd-theme',t)}catch(e){}
-  }
-  var saved='a'; try{saved=localStorage.getItem('bd-theme')||'a'}catch(e){}
-  apply(saved);
-  document.querySelectorAll('.themeswitch button').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.t)})});
-})();
-</script>
-<!-- ═══ Ende Vorschau-Umschalter ═══ -->
 </body>
 </html>
