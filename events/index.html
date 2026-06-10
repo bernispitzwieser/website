@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111214">
 <title>Events | Brassdorfer</title>
 <meta name="description" content="Hier findest du Auftritte und Veranstaltungen, bei denen ihr uns hören könnt.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -263,6 +264,29 @@ html,body{max-width:100%;overflow-x:hidden}
 .social-inline{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}.social-inline a{display:inline-flex;align-items:center;gap:8px;color:var(--muted);text-decoration:none}.social-inline svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}.social-inline a:hover{color:var(--gold)}
 .legal-text{color:var(--muted);display:grid;gap:16px}.legal-text h2{color:var(--text);font-size:1.45rem;margin-top:10px}.legal-text h3{color:var(--gold);margin-top:10px}.legal-text ul{padding-left:22px;display:grid;gap:6px}.legal-text a{color:var(--text)}.legal-text a:hover{color:var(--gold)}
 
+
+/* ─── Feinschliff (Mobil & Details) ─── */
+.chev{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+details[open] .chev{transform:none;color:var(--gold)}
+.ev-body .row b{color:var(--text)}
+@media(max-width:680px){
+  .badge{display:none} /* Markierung schnitt am Handy ab – Goldbalken links zeigt den nächsten Auftritt */
+  .wrap{padding:0 18px}
+  .nav{padding:10px 18px}
+  .brand img{width:40px}
+  .brand span{font-size:1.15rem}
+  details.ev summary{grid-template-columns:60px 1fr auto;gap:12px;padding:14px 16px}
+  .ev-date{padding-right:12px}
+  .ev-date .d{font-size:1.55rem}
+  .ev-body{padding:0 16px 16px}
+  .chev{font-size:.62rem}
+  .sec{padding:48px 0}
+  .members{gap:16px}
+  .gallery{gap:10px}
+  .cta-row{width:100%}
+  .cta-row .btn{flex:1 1 auto;text-align:center}
+  .framed{box-shadow:none}
+}
 </style>
 </head>
 <body>
@@ -410,8 +434,12 @@ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
     const month = monthShort[ev._date.getMonth()];
     const info = (ev.info || "").trim();
     const isNext = index === 0;
-    const action = isNext ? '<span class="badge">Nächster Auftritt</span>' : '<span class="chev" aria-hidden="true">Mehr Infos</span>';
-    const body = info ? `<div class="ev-body"><div class="row"><span>${escapeHtml(info)}</span></div></div>` : `<div class="ev-body"><div class="row"><span>Weitere Infos folgen.</span></div></div>`;
+    const action = isNext ? '<span class="badge">Nächster Auftritt</span>' : '<span class="chev" aria-hidden="true">Mehr Infos ▾</span>';
+    const ort = (ev.ort || "").trim();
+    const rows = [];
+    if (ort) rows.push(`<div class="row"><span><b>Ort:</b> ${escapeHtml(ort)}</span></div>`);
+    if (info) rows.push(`<div class="row"><span>${escapeHtml(info)}</span></div>`);
+    const body = `<div class="ev-body">${rows.join("") || '<div class="row"><span>Weitere Infos folgen.</span></div>'}</div>`;
     return `<details data-date="${escapeHtml(ev.datum)}" class="ev${isNext ? ' next' : ''}">
       <summary>
         <span class="ev-date"><span class="d">${day}</span><span class="m">${month}</span></span>
