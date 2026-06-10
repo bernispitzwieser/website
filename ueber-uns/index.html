@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Über uns | Brassdorfer</title>
+<meta name="description" content="Wir sind die Brassdorfer, eine neunköpfige Brassband aus dem schönen Oberösterreich.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="https://static.wixstatic.com/media/40d91f_f42200a2e81e46f297a1f666a362c9f6~mv2.png">
+<style>
+:root{
+  --bg:#111214; --bg2:#17181b; --card:#1d1f23; --line:rgba(255,255,255,.09);
+  --text:#f1efe9; --muted:#a3a39c;
+  --gold:#d4a843; --gold-dim:#b48a2e;
+  --max:1240px; --r:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Inter",system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:16.5px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--text)}
+a:hover{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+h1,h2,h3{font-family:"Oswald","Arial Narrow",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.03em;line-height:1.08}
+h1{font-size:clamp(2.4rem,5.5vw,4.4rem)}
+h2{font-size:clamp(1.7rem,3.4vw,2.5rem)}
+h3{font-size:1.15rem;letter-spacing:.05em}
+.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.lead{color:var(--muted);max-width:68ch}
+
+/* Header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(15,16,18,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{max-width:var(--max);margin:0 auto;padding:10px clamp(20px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:48px}
+.brand span{font-family:"Oswald",sans-serif;font-weight:600;font-size:1.3rem;letter-spacing:.08em;text-transform:uppercase}
+.menu{display:flex;align-items:center;gap:4px;list-style:none}
+.menu a{display:block;padding:10px 13px;font-size:.84rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--text)}
+.menu a:hover{color:var(--gold)}
+.menu a[aria-current=page]{color:var(--gold);box-shadow:inset 0 -2px 0 var(--gold)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--text);font-size:1.3rem;padding:7px 12px;border-radius:8px;cursor:pointer}
+@media(max-width:880px){
+  .burger{display:block}
+  .menu{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;background:#111214;border-bottom:1px solid var(--gold);padding:10px 24px 18px}
+  .menu.open{display:flex}
+}
+
+/* Buttons – Gold nur für die eine Hauptaktion */
+.btn{display:inline-block;font-weight:600;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:13px 24px;border-radius:var(--r);border:1px solid var(--line);color:var(--text);background:transparent;cursor:pointer;font-family:inherit;transition:border-color .15s,color .15s,background .15s}
+.btn:hover{border-color:var(--gold);color:var(--gold)}
+.btn-gold{background:var(--gold);border-color:var(--gold);color:#15130c;font-weight:700}
+.btn-gold:hover{background:var(--gold-dim);border-color:var(--gold-dim);color:#15130c}
+
+/* Hero */
+.hero{position:relative;min-height:74vh;display:flex;align-items:flex-end;isolation:isolate}
+.hero.small{min-height:42vh}
+.hero::before{content:"";position:absolute;inset:0;background:var(--hero) center 28%/cover no-repeat;z-index:-2;filter:grayscale(18%)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,18,20,.55),rgba(17,18,20,.25) 45%,rgba(17,18,20,.97));z-index:-1}
+.hero-in{width:100%;padding:80px 0 56px}
+.hero .tag{font-family:"Oswald",sans-serif;font-weight:500;letter-spacing:.3em;text-transform:uppercase;font-size:.95rem;color:var(--gold)}
+.hero h1{margin:8px 0 16px}
+.hero p.lead{color:#cfcdc6;margin-bottom:26px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+
+/* Sektionen */
+.sec{padding:clamp(56px,8vw,92px) 0;border-top:1px solid var(--line)}
+.sec.alt{background:var(--bg2)}
+.sec-head{margin-bottom:36px}
+.sec-head h2{margin-bottom:10px}
+.cols{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,60px);align-items:center}
+@media(max-width:860px){.cols{grid-template-columns:1fr}}
+.framed{border-radius:var(--r);border:1px solid var(--line)}
+
+/* Mitglieder */
+.members{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:980px){.members{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.members{grid-template-columns:1fr}}
+.member{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:transform .16s,border-color .16s}
+.member:hover{transform:translateY(-4px);border-color:rgba(212,168,67,.55)}
+.member img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.member .mb{padding:18px 20px 22px}
+.member h3{margin-bottom:2px}
+.role{font-size:.74rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.member p{font-size:.93rem;color:var(--muted)}
+
+/* Termine – aufklappbar */
+.events{display:grid;gap:12px}
+details.ev{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+details.ev[open]{border-color:rgba(212,168,67,.5)}
+details.ev summary{display:grid;grid-template-columns:86px 1fr auto;gap:20px;align-items:center;padding:18px 22px;cursor:pointer;list-style:none}
+details.ev summary::-webkit-details-marker{display:none}
+.ev-date{font-family:"Oswald",sans-serif;line-height:1.05;border-right:1px solid var(--line);padding-right:18px;text-align:center}
+.ev-date .d{font-size:1.9rem;font-weight:600;display:block}
+.ev-date .m{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.ev-title h3{margin-bottom:1px}
+.ev-title .hint{font-size:.82rem;color:var(--muted)}
+.chev{font-size:.9rem;color:var(--muted);transition:transform .18s}
+details[open] .chev{transform:rotate(180deg);color:var(--gold)}
+.ev-body{padding:0 22px 20px 128px;display:grid;gap:10px}
+@media(max-width:680px){
+  details.ev summary{grid-template-columns:70px 1fr auto;gap:14px}
+  .ev-body{padding-left:22px}
+}
+.ev-body .row{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.95rem;color:var(--muted)}
+.ev-body .row b{color:var(--text);font-weight:600}
+.ev-body a{color:var(--gold)}
+details.ev.next summary{box-shadow:inset 3px 0 0 var(--gold)}
+.badge{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(212,168,67,.5);border-radius:99px;padding:3px 10px;white-space:nowrap}
+details.ev.past{opacity:.5}
+
+/* Galerie / Karten */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.cards3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.card h3{margin-bottom:8px}
+.card p{font-size:.95rem;color:var(--muted)}
+.card .btn{margin-top:16px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:860px){.gallery{grid-template-columns:repeat(2,1fr)}}
+.gallery img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;border:1px solid var(--line);transition:transform .18s}
+.gallery a:hover img{transform:scale(1.02)}
+
+/* Formular (optisch – bleibt in Wix euer Formular) */
+form{display:grid;gap:16px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:620px){.frow{grid-template-columns:1fr}}
+label{display:grid;gap:6px;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+input,textarea{font:inherit;color:var(--text);background:#141518;border:1px solid var(--line);border-radius:8px;padding:12px 13px}
+input:focus,textarea:focus{outline:none;border-color:var(--gold)}
+textarea{min-height:130px;resize:vertical}
+.contact-info{display:grid;gap:12px}
+.ci{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px}
+.ci .ic{color:var(--gold);font-size:1.2rem;line-height:1.4}
+.ci h3{font-size:.95rem;margin-bottom:1px}
+.ci p, .ci a{font-size:.95rem;color:var(--muted)}
+
+/* CTA-Band */
+.cta{border-top:1px solid var(--line);text-align:center;padding:clamp(60px,9vw,100px) 24px;background:linear-gradient(rgba(17,18,20,.9),rgba(17,18,20,.9)),var(--cta,none) center/cover}
+.cta h2{margin-bottom:10px}
+.cta p{color:var(--muted);max-width:56ch;margin:0 auto 26px}
+
+/* Footer */
+footer{border-top:1px solid var(--line);background:#0e0f11;padding:48px 0 24px;font-size:.93rem}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:36px;margin-bottom:36px}
+@media(max-width:760px){.fgrid{grid-template-columns:1fr}}
+footer h3{font-size:.85rem;letter-spacing:.18em;color:var(--gold);margin-bottom:12px}
+footer ul{list-style:none;display:grid;gap:7px}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--gold)}
+.fbrand p{color:var(--muted);max-width:40ch;margin-top:8px}
+.soc{display:flex;gap:10px;margin-top:14px}
+.soc a{display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--line);border-radius:50%;font-size:.75rem;font-weight:700;color:var(--muted);text-decoration:none}
+.soc a:hover{border-color:var(--gold);color:var(--gold)}
+.fbottom{border-top:1px solid var(--line);padding-top:20px;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;color:#7c7c76}
+.fbottom a{color:#9b9b94}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a class="brand" href="../">
+      <img src="https://static.wixstatic.com/media/40d91f_f42200a2e81e46f297a1f666a362c9f6~mv2.png/v1/fill/w_146,h_106,al_c,q_85,enc_auto/logo.png" alt="Brassdorfer Logo">
+      <span>Brassdorfer</span>
+    </a>
+    <button class="burger" aria-expanded="false" aria-controls="menu">☰</button>
+    <ul class="menu" id="menu">
+      <li><a href="../">Home</a></li>
+      <li><a href="./" aria-current="page">Über uns</a></li>
+      <li><a href="../events/">Events</a></li>
+      <li><a href="../presse/">Presse</a></li>
+      <li><a href="../kontakt/">Kontakt</a></li>
+      <li style="margin-left:6px"><a class="btn btn-gold" href="../kontakt/#anfrage">Anfragen</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero small" style="--hero: url('https://static.wixstatic.com/media/40d91f_e99b66f29f844167ae1edd96fb88fa14~mv2.jpg/v1/fill/w_1920,h_900,al_c,q_85,enc_auto/h.jpg')">
+    <div class="wrap hero-in">
+      <p class="tag">… des brasst!</p>
+      <h1>Über uns</h1>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap cols">
+      <div class="reveal">
+        <p class="eyebrow">Wer wir sind</p>
+        <h2>Brassband aus Oberösterreich</h2>
+        <p class="lead">Wir sind die Brassdorfer, eine neunköpfige Brassband aus dem schönen Oberösterreich. Mit kraftvollen Bläsersätzen, mitreißenden Grooves und jeder Menge Spielfreude bringen wir unsere Musik auf die Bühne – und direkt ins Herz unseres Publikums. Unser Repertoire verbindet traditionelle Brass-Klänge mit modernen Einflüssen und einzigartigen Arrangements. Egal ob auf Festivals, Stadtfesten oder privaten Feiern – wir sorgen für Stimmung und unvergessliche musikalische Erlebnisse.</p>
+        <p class="lead" style="margin-top:12px">Musik ist unsere Leidenschaft, die Bühne unser Zuhause – und das Beste daran? Wir dürfen sie mit euch teilen!</p>
+      </div>
+      <div class="reveal">
+        <img class="framed" src="https://static.wixstatic.com/media/40d91f_1e85d2945c874cd0bd0b669724e67b25~mv2.jpg/v1/fill/w_900,h_620,al_c,q_85,enc_auto/g.jpg" alt="Die Brassdorfer" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Die Besetzung</p>
+        <h2>Unsere Bandmitglieder</h2>
+      </div>
+      <div class="members">
+        <article class="member reveal">
+          <img src="https://static.wixstatic.com/media/40d91f_f900b08f02614b04b6d8c516e7042dfc~mv2.jpg/v1/fill/w_520,h_694,al_c,q_85,enc_auto/m.jpg" alt="Tobias Schnaitl – Trompete und Gesang" loading="lazy">
+          <div class="mb"><h3>Tobias Schnaitl</h3><p class="role">Trompete und Gesang</p><p>Auch wenn Tobias Tomaten über alles hasst, sieht er ansonsten selten rot. Tobias ist spätestens nach seinem ersten Entspannungs-Schluck Bier bei egal welchem Auftritt direkt Herr der Lage und arrangiert sich nicht nur mit jedem Brautpaar, Veranstalter und Tontechniker, sondern auch unsere Stücke perfekt bis ins Detail.</p></div>
+        </article>
+        <article class="member reveal">
+          <img src="https://static.wixstatic.com/media/40d91f_690966fe10cc40569b72eefa0315b9df~mv2.jpg/v1/fill/w_520,h_694,al_c,q_85,enc_auto/m.jpg" alt="Patricia Habl – Trompete und Gesang" loading="lazy">
+          <div class="mb"><h3>Patricia Habl</h3><p class="role">Trompete und Gesang</p><p>Aufgrund ihrer Größe leicht zu übersehen aber niemals zu überhören. Wie man sie in aller Kürze beschreiben könnte: ein musikalisches Talent mit optimaler Raumausnutzung. Neben ihren Gesangs- und Trompeten-Künsten ist wohl ihre größte Stärke, bei 8 (jungen) Burschen nicht die Nerven zu verlieren.</p></div>
+        </article>
+        <article class="member reveal">
+          <img src="https://static.wixstatic.com/media/40d91f_5895cb2ce60c4e639c7f2337a8646b60~mv2.jpg/v1/fill/w_520,h_694,al_c,q_85,enc_auto/m.jpg" alt="Bernhard Spitzwieser – Trompete" loading="lazy">
+          <div class="mb"><h3>Bernhard Spitzwieser</h3><p class="role">Trompete</p><p>Unser Legionär aus St. Radegund konnte früh seinen Traum verwirklichen und in den Brassdorfer Stammkader eintreten. Trotz zahlreicher Verletzungen war es ihm irgendwie möglich, sich in der wilden Welt der Trompeter zu behaupten und auch zu beweisen: die Betreuung der Lichttechnik hat er im kleinen Finger.</p></div>
+        </article>
+        <article class="member reveal">
+          <img src="https://static.wixstatic.com/media/40d91f_d2355ce9db8443618725a7019b0afb76~mv2.jpg/v1/fill/w_520,h_694,al_c,q_85,enc_auto/m.jpg" alt="Michael Auer – Tenorhorn" loading="lazy">
+          <div class="mb"><h3>Michael Auer</h3><p class="role">Tenorhorn</p><p>Er ist der Obstler in der Spritzerflasche, der die PS richtig auf die Straße bringt. Michi hat Talent für Zwei, übt für Drei und bejammert dafür seinen Ansatz viermal so viel. Außerdem umfasst sein Verantwortungsbereich möglicherweise den wichtigsten Teil überhaupt: er ist Reiseorganisator für unsere Bandausflüge.</p></div>
+        </article>
+        <article class="member reveal">
+          <img src="https://static.wixstatic.com/media/40d91f_57e31ec212274caeaea73e18b3995510~mv2.jpg/v1/fill/w_520,h_694,al_c,q_85,enc_auto/m.jpg" alt="Dominik Esterbauer – Posaune" loading="lazy">
+          <div class="mb"><h3>Dominik Esterbauer</h3><p class="role">Posaune</p><p>Der Mann vom Tarsdorfer Hochplateau. Selbst Reinhold Messner schaffte bisher nicht den Aufstieg in diese unerforschte Gegend. Dank seines Aufwachsens in dieser abgeschiedenen Region konnte er seine Fähigkeiten in Band-Management, Excel-Skills und Posaunen-Performance zur Höchstform entwickeln.</p></div>
+        </article>
+        <article class="member reveal">
+          <img src="https://static.wixstatic.com/media/40d91f_22b4cd6ec35a41de9e8f75811dcd48d5~mv2.jpg/v1/fill/w_520,h_694,al_c,q_85,enc_auto/m.jpg" alt="Thomas Wengler – Bassposaune" loading="lazy">
+          <div class="mb"><h3>Thomas Wengler</h3><p class="role">Bassposaune</p><p>Unser Bassposaunist ist ein sympathisches Überraschungsei – niemand weiß, ob man ihn zuerst am Fußballplatz, hinter dem Laptop oder im Proberaum antrifft. In der Musik hat er seinen Glauben in der Dreifaltigkeit verankert: Laut – Tief – Schub.</p></div>
+        </article>
+        <article class="member reveal">
+          <img src="https://static.wixstatic.com/media/40d91f_2fb32db3fa9e4c27824ec1536d23508a~mv2.jpg/v1/fill/w_520,h_694,al_c,q_85,enc_auto/m.jpg" alt="Daniel Lipp – Tenorhorn und Posaune" loading="lazy">
+          <div class="mb"><h3>Daniel Lipp</h3><p class="role">Tenorhorn und Posaune</p><p>Sein Motto: „The Sky is the limit“ – dieses bezieht sich bei ihm nicht nur auf die Körpergröße, sondern er ist auch ein Überflieger auf der Posaune – weswegen er bei uns meist das Tenorhorn spielt.</p></div>
+        </article>
+        <article class="member reveal">
+          <img src="https://static.wixstatic.com/media/40d91f_71cc7b294ffa42dd8b1319ecedb0dc85~mv2.jpg/v1/fill/w_520,h_694,al_c,q_85,enc_auto/m.jpg" alt="Ralph Buchholzer – Tuba" loading="lazy">
+          <div class="mb"><h3>Ralph Buchholzer</h3><p class="role">Tuba</p><p>Ralph ist als Pinzgauer die Höhen gewohnt, als Tubist fühlt er sich allerdings in den Tiefen wohler, weswegen er sich offiziell auch als Subwoofer identifiziert. Da er mit seiner Energie sein Instrument oft zum Glühen bringt, kommt er – gut vorbereitet – gleich mit 2 Tuben zum Auftritt, um Verbrennungen zu vermeiden. Als Berufssoldat kennt er keine Furcht, außer: Geburtstagsfeiern in St. Radegund.</p></div>
+        </article>
+        <article class="member reveal">
+          <img src="https://static.wixstatic.com/media/40d91f_180875b8d0f64446a3b3cb0236bfbee2~mv2.jpg/v1/fill/w_520,h_694,al_c,q_85,enc_auto/m.jpg" alt="Michael Helmberger – Schlagzeug" loading="lazy">
+          <div class="mb"><h3>Michael Helmberger</h3><p class="role">Schlagzeug</p><p>In seiner frühen Kindheit fiel er in einen Kessel mit Zaubertrank (oder Opas Bierfass – die Überlieferung ist hier sehr ungenau), danach wurde er jahrelang immer wieder im Stall aufgefunden, wo er Ringkämpfe mit Stieren austrug. Aus der Not heraus kauften ihm seine Eltern ein Schlagzeug, was den Beginn seiner einzigartigen Karriere markierte und auch die Tierarztkosten senkte.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <a class="brand" href="../">
+          <img src="https://static.wixstatic.com/media/40d91f_f42200a2e81e46f297a1f666a362c9f6~mv2.png/v1/fill/w_146,h_106,al_c,q_85,enc_auto/logo.png" alt="">
+          <span>Brassdorfer</span>
+        </a>
+        <p>Wir verbinden traditionelle Blasmusik mit modernen Brass-Grooves und einzigartigen Arrangements.</p>
+        <div class="soc">
+          <a href="https://www.instagram.com/brass_dorfer/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          <a href="https://www.facebook.com/brassdorfer/" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+          <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+      <div>
+        <h3>Seiten</h3>
+        <ul>
+          <li><a href="../ueber-uns/">Über uns</a></li>
+          <li><a href="../events/">Events</a></li>
+          <li><a href="../presse/">Presse</a></li>
+          <li><a href="../kontakt/">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Kontakt</h3>
+        <ul>
+          <li><a href="mailto:brassdorfer@gmx.at">brassdorfer@gmx.at</a></li>
+          <li><a href="tel:+436643804114">+43 664 3804114</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>© 2026 Brassdorfer</span>
+      <span><a href="../impressum/">Impressum</a> · <a href="../datenschutz/">Datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+var b=document.querySelector('.burger'),m=document.querySelector('.menu');
+if(b){b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)})}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>
