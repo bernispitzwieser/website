@@ -17,7 +17,7 @@
   --header:rgba(15,16,18,.94); --menu-bg:#111214; --input:#141518; --footer:#0e0f11;
   --hero-overlay:linear-gradient(180deg,rgba(17,18,20,.55),rgba(17,18,20,.25) 45%,rgba(17,18,20,.97));
   --cta-overlay:rgba(17,18,20,.9);
-  --max:1240px; --r:10px;
+  --max:1240px; --nav-max:1480px; --r:10px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -36,7 +36,7 @@ h3{font-size:1.15rem;letter-spacing:.05em}
 
 /* Header */
 .hdr{position:sticky;top:0;z-index:50;background:var(--header);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.nav{max-width:var(--max);margin:0 auto;padding:10px clamp(20px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav{max-width:var(--nav-max);margin:0 auto;padding:10px clamp(20px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:16px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .brand img{width:48px}
 .brand span{font-family:"Oswald",sans-serif;font-weight:600;font-size:1.3rem;letter-spacing:.08em;text-transform:uppercase}
@@ -100,8 +100,10 @@ details.ev summary::-webkit-details-marker{display:none}
 .ev-date .m{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
 .ev-title h3{margin-bottom:1px}
 .ev-title .hint{font-size:.82rem;color:var(--muted)}
-.chev{font-size:.9rem;color:var(--muted);transition:transform .18s}
-details[open] .chev{transform:rotate(180deg);color:var(--gold)}
+.chev{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:7px 11px;font-size:0;color:var(--muted);transition:border-color .15s,color .15s;background:rgba(255,255,255,.02)}
+.chev::after{content:"Mehr Infos";font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+details[open] .chev{border-color:rgba(212,168,67,.55);color:var(--gold)}
+details[open] .chev::after{content:"Weniger"}
 .ev-body{padding:0 22px 20px 128px;display:grid;gap:10px}
 @media(max-width:680px){
   details.ev summary{grid-template-columns:70px 1fr auto;gap:14px}
