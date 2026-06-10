@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#111214">
-<title>Kontakt | Brassdorfer</title>
-<meta name="description" content="Schreib uns einfach unverbindlich eine Nachricht und wir melden uns bei Dir!">
+<title>Presse | Brassdorfer</title>
+<meta name="description" content="Hier kannst du Bilder, unser Logo und viele weitere Infos herunterladen.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -302,65 +302,55 @@ details[open] .chev{transform:none;color:var(--gold)}
       <li><a href="../">Home</a></li>
       <li><a href="../ueber-uns/">Über uns</a></li>
       <li><a href="../events/">Events</a></li>
-      <li><a href="../presse/">Presse</a></li>
-      <li><a href="./" aria-current="page">Kontakt</a></li>
-      <li style="margin-left:6px"><a class="btn btn-gold" href="#anfrage">Anfragen</a></li>
+      <li><a href="./" aria-current="page">Presse</a></li>
+      <li><a href="../kontakt/">Kontakt</a></li>
+      <li style="margin-left:6px"><a class="btn btn-gold" href="../kontakt/#anfrage">Anfragen</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
 
-  <section class="hero small" style="--hero: url('../img/hero-kontakt.jpg')">
+  <section class="hero small" style="--hero: url('../img/hero-presse.jpg')">
     <div class="wrap hero-in">
       <p class="tag">… des brasst!</p>
-      <h1>Kontakt</h1>
+      <h1>Presse &amp; Downloads</h1>
     </div>
   </section>
 
-  <section class="sec" id="anfrage">
-    <div class="wrap cols" style="align-items:flex-start">
-      <div class="reveal">
-        <h2>Schreibt uns</h2>
-        <p class="lead">Interesse geweckt? Schreib uns einfach, wir melden uns bei dir!</p>
-
-        <!-- FORMULAR (FormSubmit): sendet Website-Anfragen an Bernhard.
-             Wichtig: Beim ersten Test-Versand muss die Zieladresse einmal bestätigt werden. -->
-        <form style="margin-top:26px" action="https://formsubmit.co/bernhard.spitzwieser@gmx.at" method="POST">
-          <input type="hidden" name="_subject" value="Neue Anfrage über brassdorfer.at">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://bernispitzwieser.github.io/danke/">
-          <input type="hidden" name="_blacklist" value="bitcoin, crypto, casino, spam">
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-          <div class="frow">
-            <label>Vorname<input type="text" name="vorname" autocomplete="given-name"></label>
-            <label>Nachname<input type="text" name="nachname" autocomplete="family-name"></label>
-          </div>
-          <div class="frow">
-            <label>Email<input type="email" name="email" autocomplete="email" required></label>
-            <label>Telefonnummer<input type="tel" name="tel" autocomplete="tel"></label>
-          </div>
-          <div class="frow">
-            <label>Dauer der Spielzeit<input type="text" name="dauer" placeholder="z. B. 2 Stunden"></label>
-            <label>Stadt<input type="text" name="stadt"></label>
-          </div>
-          <div class="frow">
-            <label>Straße und Hausnummer<input type="text" name="strasse"></label>
-            <label>Postleitzahl<input type="text" name="plz" inputmode="numeric"></label>
-          </div>
-          <label>Nachricht<textarea name="nachricht" required></textarea></label>
-          <div><button class="btn btn-gold" type="submit">Senden</button></div>
-        </form>
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Downloads</h2>
+        <p class="lead">Hier kannst du Bilder, unser Logo und viele weitere Infos herunterladen.</p>
+      </div>
+      <div class="cards3 reveal">
+        <div class="card">
+          <h3>Pressefotos</h3>
+          <p>Band- und Bühnenfotos zur Ankündigung unserer Auftritte.</p>
+          <a class="btn btn-gold" href="https://drive.google.com/drive/folders/146Tj-N04MdJKCmLzXfjzWVCJdFRwZovG" target="_blank" rel="noopener">Presse-Dateien öffnen</a>
+        </div>
+        <div class="card">
+          <h3>Logo</h3>
+          <p>Unser Logo und unsere Pressefotos findet ihr gesammelt in einem Download-Ordner.</p>
+          <a class="btn" href="https://drive.google.com/drive/folders/146Tj-N04MdJKCmLzXfjzWVCJdFRwZovG" target="_blank" rel="noopener">Zum Ordner</a>
+        </div>
+        <div class="card">
+          <h3>Kurztext</h3>
+          <p>„Wir sind die Brassdorfer, eine neunköpfige Brassband aus dem schönen Oberösterreich. Wir verbinden traditionelle Blasmusik mit modernen Brass-Grooves und einzigartigen Arrangements.“</p>
+        </div>
       </div>
 
-      <div class="contact-info reveal">
-        <div class="ci"><span class="ic">✉</span><div><h3>E-Mail-Adresse</h3><p><a href="mailto:brassdorfer@gmx.at">brassdorfer@gmx.at</a></p></div></div>
-        <div class="ci"><span class="ic">☎</span><div><h3>Telefonnummer</h3><p><a href="tel:+436643804114">+43 664 3804114</a></p></div></div>
-        <div class="ci"><span class="ic">♫</span><div><h3>Social Media</h3><div class="social-inline">
-            <a href="https://www.instagram.com/brass_dorfer/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17" cy="7" r="1"></circle></svg><span>Instagram</span></a>
-            <a href="https://www.facebook.com/brassdorfer/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1z"></path></svg><span>Facebook</span></a>
-            <a href="https://www.youtube.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="6" width="18" height="12" rx="4"></rect><path d="M10 9.5v5l5-2.5z"></path></svg><span>YouTube</span></a>
-          </div></div></div>
+      <div class="sec-head reveal" style="margin-top:56px">
+        <h2 style="font-size:1.4rem">Eindrücke</h2>
+      </div>
+      <div class="gallery reveal">
+        <a href="../img/galerie-1.jpg" target="_blank" rel="noopener"><img src="../img/galerie-1.jpg" alt="Brassdorfer live auf der Bühne" loading="lazy"></a>
+        <a href="../img/galerie-2.jpg" target="_blank" rel="noopener"><img src="../img/galerie-2.jpg" alt="Konzertfoto der Brassdorfer" loading="lazy"></a>
+        <a href="../img/galerie-3.jpg" target="_blank" rel="noopener"><img src="../img/galerie-3.jpg" alt="Die Brassdorfer beim Auftritt" loading="lazy"></a>
+        <a href="../img/band-gruppe.jpg" target="_blank" rel="noopener"><img src="../img/band-gruppe.jpg" alt="Gruppenfoto der Brassdorfer" loading="lazy"></a>
+        <a href="../img/galerie-5.jpg" target="_blank" rel="noopener"><img src="../img/galerie-5.jpg" alt="Bühnenstimmung" loading="lazy"></a>
+        <a href="../img/hero-presse.jpg" target="_blank" rel="noopener"><img src="../img/hero-presse.jpg" alt="Publikum und Band" loading="lazy"></a>
       </div>
     </div>
   </section>

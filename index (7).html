@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#111214">
-<title>Kontakt | Brassdorfer</title>
-<meta name="description" content="Schreib uns einfach unverbindlich eine Nachricht und wir melden uns bei Dir!">
+<title>Über uns | Brassdorfer</title>
+<meta name="description" content="Wir sind die Brassdorfer, eine neunköpfige Brassband aus dem schönen Oberösterreich.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -300,67 +300,79 @@ details[open] .chev{transform:none;color:var(--gold)}
     <button class="burger" aria-expanded="false" aria-controls="menu">☰</button>
     <ul class="menu" id="menu">
       <li><a href="../">Home</a></li>
-      <li><a href="../ueber-uns/">Über uns</a></li>
+      <li><a href="./" aria-current="page">Über uns</a></li>
       <li><a href="../events/">Events</a></li>
       <li><a href="../presse/">Presse</a></li>
-      <li><a href="./" aria-current="page">Kontakt</a></li>
-      <li style="margin-left:6px"><a class="btn btn-gold" href="#anfrage">Anfragen</a></li>
+      <li><a href="../kontakt/">Kontakt</a></li>
+      <li style="margin-left:6px"><a class="btn btn-gold" href="../kontakt/#anfrage">Anfragen</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
 
-  <section class="hero small" style="--hero: url('../img/hero-kontakt.jpg')">
+  <section class="hero small" style="--hero: url('../img/hero-events.jpg')">
     <div class="wrap hero-in">
       <p class="tag">… des brasst!</p>
-      <h1>Kontakt</h1>
+      <h1>Über uns</h1>
     </div>
   </section>
 
-  <section class="sec" id="anfrage">
-    <div class="wrap cols" style="align-items:flex-start">
+  <section class="sec">
+    <div class="wrap cols">
       <div class="reveal">
-        <h2>Schreibt uns</h2>
-        <p class="lead">Interesse geweckt? Schreib uns einfach, wir melden uns bei dir!</p>
-
-        <!-- FORMULAR (FormSubmit): sendet Website-Anfragen an Bernhard.
-             Wichtig: Beim ersten Test-Versand muss die Zieladresse einmal bestätigt werden. -->
-        <form style="margin-top:26px" action="https://formsubmit.co/bernhard.spitzwieser@gmx.at" method="POST">
-          <input type="hidden" name="_subject" value="Neue Anfrage über brassdorfer.at">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://bernispitzwieser.github.io/danke/">
-          <input type="hidden" name="_blacklist" value="bitcoin, crypto, casino, spam">
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-          <div class="frow">
-            <label>Vorname<input type="text" name="vorname" autocomplete="given-name"></label>
-            <label>Nachname<input type="text" name="nachname" autocomplete="family-name"></label>
-          </div>
-          <div class="frow">
-            <label>Email<input type="email" name="email" autocomplete="email" required></label>
-            <label>Telefonnummer<input type="tel" name="tel" autocomplete="tel"></label>
-          </div>
-          <div class="frow">
-            <label>Dauer der Spielzeit<input type="text" name="dauer" placeholder="z. B. 2 Stunden"></label>
-            <label>Stadt<input type="text" name="stadt"></label>
-          </div>
-          <div class="frow">
-            <label>Straße und Hausnummer<input type="text" name="strasse"></label>
-            <label>Postleitzahl<input type="text" name="plz" inputmode="numeric"></label>
-          </div>
-          <label>Nachricht<textarea name="nachricht" required></textarea></label>
-          <div><button class="btn btn-gold" type="submit">Senden</button></div>
-        </form>
+        <h2>Brassdorfer</h2>
+        <p class="lead">Wir sind die Brassdorfer, neun Musikerinnen und Musiker aus dem Innviertel in Oberösterreich. Auf der Bühne spielen wir Brass mit Kraft, Groove und echter Spielfreude. Unser Repertoire reicht von Klassikern der Blasmusik bis zu modernen Arrangements. Ob Festivals, Stadtfeste oder private Feiern: wir sind dabei.</p>
+        <p class="lead" style="margin-top:12px">Musik ist unsere Leidenschaft, und die Bühne teilen wir am liebsten mit euch.</p>
       </div>
+      <div class="reveal">
+        <img class="framed" src="../img/band-gruppe.jpg" alt="Die Brassdorfer" loading="lazy">
+      </div>
+    </div>
+  </section>
 
-      <div class="contact-info reveal">
-        <div class="ci"><span class="ic">✉</span><div><h3>E-Mail-Adresse</h3><p><a href="mailto:brassdorfer@gmx.at">brassdorfer@gmx.at</a></p></div></div>
-        <div class="ci"><span class="ic">☎</span><div><h3>Telefonnummer</h3><p><a href="tel:+436643804114">+43 664 3804114</a></p></div></div>
-        <div class="ci"><span class="ic">♫</span><div><h3>Social Media</h3><div class="social-inline">
-            <a href="https://www.instagram.com/brass_dorfer/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17" cy="7" r="1"></circle></svg><span>Instagram</span></a>
-            <a href="https://www.facebook.com/brassdorfer/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1z"></path></svg><span>Facebook</span></a>
-            <a href="https://www.youtube.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="6" width="18" height="12" rx="4"></rect><path d="M10 9.5v5l5-2.5z"></path></svg><span>YouTube</span></a>
-          </div></div></div>
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Unsere Bandmitglieder</h2>
+      </div>
+      <div class="members">
+        <article class="member reveal">
+          <img src="../img/portrait-tobias.jpg" alt="Tobias Schnaitl – Trompete und Gesang" loading="lazy">
+          <div class="mb"><h3>Tobias Schnaitl</h3><p class="role">Trompete und Gesang</p><p>Auch wenn Tobias Tomaten über alles hasst, sieht er ansonsten selten rot. Tobias ist spätestens nach seinem ersten Entspannungs-Schluck Bier bei egal welchem Auftritt direkt Herr der Lage und arrangiert sich nicht nur mit jedem Brautpaar, Veranstalter und Tontechniker, sondern auch unsere Stücke perfekt bis ins Detail.</p></div>
+        </article>
+        <article class="member reveal">
+          <img src="../img/portrait-patricia.jpg" alt="Patricia Habl – Trompete und Gesang" loading="lazy">
+          <div class="mb"><h3>Patricia Habl</h3><p class="role">Trompete und Gesang</p><p>Aufgrund ihrer Größe leicht zu übersehen aber niemals zu überhören. Wie man sie in aller Kürze beschreiben könnte: ein musikalisches Talent mit optimaler Raumausnutzung. Neben ihren Gesangs- und Trompeten-Künsten ist wohl ihre größte Stärke, bei 8 (jungen) Burschen nicht die Nerven zu verlieren.</p></div>
+        </article>
+        <article class="member reveal">
+          <img src="../img/portrait-bernhard.jpg" alt="Bernhard Spitzwieser – Trompete" loading="lazy">
+          <div class="mb"><h3>Bernhard Spitzwieser</h3><p class="role">Trompete</p><p>Unser Legionär aus St. Radegund konnte früh seinen Traum verwirklichen und in den Brassdorfer Stammkader eintreten. Trotz zahlreicher Verletzungen war es ihm irgendwie möglich, sich in der wilden Welt der Trompeter zu behaupten und auch zu beweisen: die Betreuung der Lichttechnik hat er im kleinen Finger.</p></div>
+        </article>
+        <article class="member reveal">
+          <img src="../img/portrait-michael-auer.jpg" alt="Michael Auer – Tenorhorn" loading="lazy">
+          <div class="mb"><h3>Michael Auer</h3><p class="role">Tenorhorn</p><p>Er ist der Obstler in der Spritzerflasche, der die PS richtig auf die Straße bringt. Michi hat Talent für Zwei, übt für Drei und bejammert dafür seinen Ansatz viermal so viel. Außerdem umfasst sein Verantwortungsbereich möglicherweise den wichtigsten Teil überhaupt: er ist Reiseorganisator für unsere Bandausflüge.</p></div>
+        </article>
+        <article class="member reveal">
+          <img src="../img/portrait-dominik.jpg" alt="Dominik Esterbauer – Posaune" loading="lazy">
+          <div class="mb"><h3>Dominik Esterbauer</h3><p class="role">Posaune</p><p>Der Mann vom Tarsdorfer Hochplateau. Selbst Reinhold Messner schaffte bisher nicht den Aufstieg in diese unerforschte Gegend. Dank seines Aufwachsens in dieser abgeschiedenen Region konnte er seine Fähigkeiten in Band-Management, Excel-Skills und Posaunen-Performance zur Höchstform entwickeln.</p></div>
+        </article>
+        <article class="member reveal">
+          <img src="../img/portrait-thomas.jpg" alt="Thomas Wengler – Bassposaune" loading="lazy">
+          <div class="mb"><h3>Thomas Wengler</h3><p class="role">Bassposaune</p><p>Unser Bassposaunist ist ein sympathisches Überraschungsei – niemand weiß, ob man ihn zuerst am Fußballplatz, hinter dem Laptop oder im Proberaum antrifft. In der Musik hat er seinen Glauben in der Dreifaltigkeit verankert: Laut – Tief – Schub.</p></div>
+        </article>
+        <article class="member reveal">
+          <img src="../img/portrait-daniel.jpg" alt="Daniel Lipp – Tenorhorn und Posaune" loading="lazy">
+          <div class="mb"><h3>Daniel Lipp</h3><p class="role">Tenorhorn und Posaune</p><p>Sein Motto: „The Sky is the limit“ – dieses bezieht sich bei ihm nicht nur auf die Körpergröße, sondern er ist auch ein Überflieger auf der Posaune – weswegen er bei uns meist das Tenorhorn spielt.</p></div>
+        </article>
+        <article class="member reveal">
+          <img src="../img/portrait-ralph.jpg" alt="Ralph Buchholzer – Tuba" loading="lazy">
+          <div class="mb"><h3>Ralph Buchholzer</h3><p class="role">Tuba</p><p>Ralph ist als Pinzgauer die Höhen gewohnt, als Tubist fühlt er sich allerdings in den Tiefen wohler, weswegen er sich offiziell auch als Subwoofer identifiziert. Da er mit seiner Energie sein Instrument oft zum Glühen bringt, kommt er – gut vorbereitet – gleich mit 2 Tuben zum Auftritt, um Verbrennungen zu vermeiden. Als Berufssoldat kennt er keine Furcht, außer: Geburtstagsfeiern in St. Radegund.</p></div>
+        </article>
+        <article class="member reveal">
+          <img src="../img/portrait-michael-h.jpg" alt="Michael Helmberger – Schlagzeug" loading="lazy">
+          <div class="mb"><h3>Michael Helmberger</h3><p class="role">Schlagzeug</p><p>In seiner frühen Kindheit fiel er in einen Kessel mit Zaubertrank (oder Opas Bierfass – die Überlieferung ist hier sehr ungenau), danach wurde er jahrelang immer wieder im Stall aufgefunden, wo er Ringkämpfe mit Stieren austrug. Aus der Not heraus kauften ihm seine Eltern ein Schlagzeug, was den Beginn seiner einzigartigen Karriere markierte und auch die Tierarztkosten senkte.</p></div>
+        </article>
       </div>
     </div>
   </section>
