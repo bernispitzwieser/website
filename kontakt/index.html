@@ -287,17 +287,14 @@ html,body{max-width:100%;overflow-x:hidden}
         <h2>Schreibt uns</h2>
         <p class="lead">Wir haben dein Interesse geweckt oder du willst mehr von uns wissen? Schreib uns einfach unverbindlich eine Nachricht und wir melden uns bei Dir!</p>
 
-        <!-- Im Wix-Editor: hier euer bestehendes Wix-Formular einfügen – Felder bleiben gleich, nur das Design (dunkle Felder, goldener Senden-Button) anpassen -->
-        <!-- ════════════════════════════════════════════════════════
-             FORMULAR (Web3Forms): In der Zeile darunter euren
-             persönlichen Schlüssel von https://web3forms.com einfügen!
-             ════════════════════════════════════════════════════════ -->
-        <form style="margin-top:26px" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="HIER-EUREN-SCHLUESSEL-EINFUEGEN">
-          <input type="hidden" name="subject" value="Neue Anfrage über brassdorfer.at">
-          <input type="hidden" name="from_name" value="Website brassdorfer.at">
-          <input type="hidden" name="redirect" value="https://www.brassdorfer.at/danke/">
-          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <!-- FORMULAR (FormSubmit): sendet Website-Anfragen an Bernhard.
+             Wichtig: Beim ersten Test-Versand muss die Zieladresse einmal bestätigt werden. -->
+        <form style="margin-top:26px" action="https://formsubmit.co/bernhard.spitzwieser@gmx.at" method="POST">
+          <input type="hidden" name="_subject" value="Neue Anfrage über brassdorfer.at">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://bernispitzwieser.github.io/danke/">
+          <input type="hidden" name="_blacklist" value="bitcoin, crypto, casino, spam">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <div class="frow">
             <label>Vorname<input type="text" name="vorname" autocomplete="given-name"></label>
             <label>Nachname<input type="text" name="nachname" autocomplete="family-name"></label>
