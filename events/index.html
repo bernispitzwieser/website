@@ -285,57 +285,10 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="wrap">
       <div class="sec-head reveal">
         <h2>Kommende Auftritte</h2>
-        <p class="lead">Hier findest du Auftritte und Veranstaltungen, bei denen ihr uns unter anderem hören könnt. Wir freuen uns darauf, live für euch zu spielen. Schau regelmäßig vorbei, um keine Termine zu verpassen! <em>Tipp: Termin anklicken für Ort und Details.</em></p>
+        <p class="lead">Hier findest du Auftritte und Veranstaltungen, bei denen ihr uns unter anderem hören könnt. Wir freuen uns darauf, live für euch zu spielen. Schau regelmäßig vorbei, um keine Termine zu verpassen! <em>Tipp: Termin anklicken für weitere Infos.</em></p>
       </div>
       <div class="events reveal">
-        <!-- ▼ TERMIN-BLOCK: Für einen neuen Termin diesen Block kopieren und Datum/Titel/Ort anpassen ▼ -->
-        <details data-date="2026-06-12" class="ev next">
-          <summary>
-            <span class="ev-date"><span class="d">12</span><span class="m">Juni</span></span>
-            <span class="ev-title"><h3>Musikfest Moosdorf</h3><span class="hint">Ort</span></span>
-            <span class="badge">Nächster Auftritt</span>
-          </summary>
-          <div class="ev-body">
-            <div class="row"><span><b>Ort:</b> AT-5141 Moosdorf, Oberösterreich</span></div>
-          </div>
-        </details>
-        <!-- ▲ Ende Termin-Block ▲ -->
-        <!-- ▼ TERMIN-BLOCK: Für einen neuen Termin diesen Block kopieren und Datum/Titel/Ort anpassen ▼ -->
-        <details data-date="2026-07-03" class="ev">
-          <summary>
-            <span class="ev-date"><span class="d">03</span><span class="m">Juli</span></span>
-            <span class="ev-title"><h3>Waldfest Lamprechtshausen</h3><span class="hint">Ort</span></span>
-            <span class="chev" aria-hidden="true">Mehr Infos</span>
-          </summary>
-          <div class="ev-body">
-            <div class="row"><span><b>Ort:</b> AT-5112 Lamprechtshausen, Salzburg</span></div>
-          </div>
-        </details>
-        <!-- ▲ Ende Termin-Block ▲ -->
-        <!-- ▼ TERMIN-BLOCK: Für einen neuen Termin diesen Block kopieren und Datum/Titel/Ort anpassen ▼ -->
-        <details data-date="2026-09-06" class="ev">
-          <summary>
-            <span class="ev-date"><span class="d">06</span><span class="m">Sep</span></span>
-            <span class="ev-title"><h3>Kornmandlfest Lochen</h3><span class="hint">Ort</span></span>
-            <span class="chev" aria-hidden="true">Mehr Infos</span>
-          </summary>
-          <div class="ev-body">
-            <div class="row"><span><b>Ort:</b> AT-5221 Lochen am See, Oberösterreich</span></div>
-          </div>
-        </details>
-        <!-- ▲ Ende Termin-Block ▲ -->
-        <!-- ▼ TERMIN-BLOCK: Für einen neuen Termin diesen Block kopieren und Datum/Titel/Ort anpassen ▼ -->
-        <details data-date="2026-09-11" class="ev">
-          <summary>
-            <span class="ev-date"><span class="d">11</span><span class="m">Sep</span></span>
-            <span class="ev-title"><h3>FF-Fest Hochburg-Ach</h3><span class="hint">Ort</span></span>
-            <span class="chev" aria-hidden="true">Mehr Infos</span>
-          </summary>
-          <div class="ev-body">
-            <div class="row"><span><b>Ort:</b> AT-5122 Hochburg-Ach, Oberösterreich</span></div>
-          </div>
-        </details>
-        <!-- ▲ Ende Termin-Block ▲ -->
+        <div data-events-list ></div>
       </div>
 
       <div class="sec-head reveal" style="margin-top:56px">
@@ -412,6 +365,63 @@ var b=document.querySelector('.burger'),m=document.querySelector('.menu');
 if(b){b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)})}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+</script>
+
+<script src="../auftritte.js"></script>
+
+<script>
+(function(){
+  const monthShort = ["Jan","Feb","März","Apr","Mai","Juni","Juli","Aug","Sep","Okt","Nov","Dez"];
+
+  function escapeHtml(value){
+    return String(value || "").replace(/[&<>"]/g, function(ch){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[ch];
+    });
+  }
+
+  function parseDate(value){
+    const parts = String(value || "").split("-").map(Number);
+    return new Date(parts[0], (parts[1] || 1) - 1, parts[2] || 1);
+  }
+
+  function upcomingEvents(){
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    return (window.BRASSDORFER_AUFTRITTE || [])
+      .map(ev => ({...ev, _date: parseDate(ev.datum)}))
+      .filter(ev => ev._date >= today)
+      .sort((a,b) => a._date - b._date);
+  }
+
+  function eventHtml(ev, index){
+    const day = String(ev._date.getDate()).padStart(2,"0");
+    const month = monthShort[ev._date.getMonth()];
+    const info = (ev.info || "").trim();
+    const isNext = index === 0;
+    const action = isNext ? '<span class="badge">Nächster Auftritt</span>' : '<span class="chev" aria-hidden="true">Mehr Infos</span>';
+    const body = info ? `<div class="ev-body"><div class="row"><span>${escapeHtml(info)}</span></div></div>` : `<div class="ev-body"><div class="row"><span>Weitere Infos folgen.</span></div></div>`;
+    return `<details data-date="${escapeHtml(ev.datum)}" class="ev${isNext ? ' next' : ''}">
+      <summary>
+        <span class="ev-date"><span class="d">${day}</span><span class="m">${month}</span></span>
+        <span class="ev-title"><h3>${escapeHtml(ev.titel)}</h3></span>
+        ${action}
+      </summary>
+      ${body}
+    </details>`;
+  }
+
+  function renderEvents(){
+    document.querySelectorAll("[data-events-list]").forEach(function(container){
+      const limit = container.dataset.eventsLimit ? Number(container.dataset.eventsLimit) : Infinity;
+      const events = upcomingEvents().slice(0, limit);
+      container.innerHTML = events.length
+        ? events.map(eventHtml).join("")
+        : '<p class="lead">Aktuell sind keine kommenden Auftritte eingetragen.</p>';
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", renderEvents);
+})();
 </script>
 
 </body>
