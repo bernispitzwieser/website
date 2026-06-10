@@ -266,90 +266,89 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 
-/* Bildplatzierung – Feinschliff 2026-06
-   Ziel: Desktop bleibt großflächig, Handy wirkt weniger abgeschnitten und weniger "Foto oben/Text unten". */
+/* Bildplatzierung – Feinschliff nach Wix-Zuschnitt
+   Orientierung: Die alten Wix-Bilder waren als zentrierte 16:7/3:2-Crops eingebunden.
+   Deshalb werden Inhaltsbilder nicht mehr künstlich hochgezogen; Galerien und Heroes
+   bleiben zentriert und ruhig. */
 .hero{overflow:hidden}
 .hero::before{
   background-position:var(--hero-pos, center 28%);
-  transform:scale(1.015);
+  background-size:cover;
+  transform:none;
   transform-origin:center;
 }
-.hero.hero-home{--hero-pos:center 24%;--hero-mobile-pos:center 18%}
-.hero.small{--hero-pos:center 31%;--hero-mobile-pos:center 30%}
+.hero.hero-home{--hero-pos:center 28%; --hero-mobile-pos:center 28%}
+.hero.small{--hero-pos:center 28%; --hero-mobile-pos:center 28%}
 
 .cols img.framed{
   width:100%;
-  min-height:360px;
-  max-height:520px;
-  object-fit:cover;
-  object-position:var(--img-pos, center 34%);
+  height:auto;
+  min-height:0;
+  max-height:none;
+  object-fit:contain;
+  object-position:center center;
 }
-.member img{object-position:center 22%}
-.gallery img{object-position:center 34%}
+.member img{
+  object-position:var(--member-pos, center center);
+}
+.gallery img{
+  aspect-ratio:3/2;
+  object-position:center center;
+}
 
 @media(max-width:860px){
   .cols img.framed{
-    min-height:auto;
-    max-height:none;
-    aspect-ratio:16/10;
-    object-position:var(--img-mobile-pos, center 32%);
+    aspect-ratio:auto;
+    object-fit:contain;
+    object-position:center center;
   }
 }
 
 @media(max-width:680px){
   .hero::before{
-    background-position:var(--hero-mobile-pos, center 30%);
+    background-position:var(--hero-mobile-pos, center 28%);
     background-size:cover;
-    transform:scale(1.02);
+    transform:none;
   }
   .hero.small{
-    min-height:clamp(310px,48svh,420px);
+    min-height:clamp(300px,46svh,410px);
   }
   .hero.small .hero-in{
-    padding:96px 0 44px;
+    padding:96px 0 42px;
   }
 
   .hero.hero-home{
-    min-height:clamp(590px,82svh,700px);
+    min-height:clamp(570px,80svh,680px);
     display:flex;
     align-items:flex-end;
   }
   .hero.hero-home::before{
-    inset:0;
-    height:auto;
-    background-position:var(--hero-mobile-pos, center 18%);
+    background-position:var(--hero-mobile-pos, center 28%);
     background-size:cover;
   }
   .hero.hero-home::after{
-    inset:0;
-    height:auto;
-    background:linear-gradient(180deg,rgba(17,18,20,.16),rgba(17,18,20,.08) 30%,rgba(17,18,20,.66) 68%,rgba(17,18,20,.98));
+    background:linear-gradient(180deg,rgba(17,18,20,.24),rgba(17,18,20,.10) 30%,rgba(17,18,20,.70) 68%,rgba(17,18,20,.98));
   }
   .hero.hero-home .hero-in{
-    padding:150px 0 44px;
+    padding:140px 0 40px;
   }
 
-  .cols img.framed{
-    aspect-ratio:4/3;
-    object-position:var(--img-mobile-pos, center 30%);
-  }
   .member img{
-    aspect-ratio:4/5;
-    object-position:center 18%;
+    aspect-ratio:3/4;
+    object-position:var(--member-mobile-pos, center center);
   }
 }
 
 @media(max-width:480px){
   .hero.hero-home{
-    min-height:clamp(560px,80svh,660px);
+    min-height:clamp(540px,78svh,650px);
   }
   .hero.hero-home .hero-in{
-    padding:140px 0 38px;
+    padding:132px 0 36px;
   }
   .hero.small{
-    min-height:clamp(285px,44svh,380px);
+    min-height:clamp(280px,42svh,370px);
   }
-  .cols img.framed{aspect-ratio:1.22/1}
 }
 
 </style>
@@ -376,7 +375,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 <main>
 
-  <section class="hero hero-home" style="--hero: url('img/hero-home.jpg'); --hero-pos:center 24%; --hero-mobile-pos:center 19%">
+  <section class="hero hero-home" style="--hero: url('img/hero-home.jpg'); --hero-pos:center 28%; --hero-mobile-pos:center 28%">
     <div class="wrap hero-in">
       <p class="tag">… des brasst!</p>
       <h1>Brassdorfer</h1>
