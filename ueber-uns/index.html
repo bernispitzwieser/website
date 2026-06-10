@@ -210,13 +210,15 @@ html,body{max-width:100%;overflow-x:hidden}
   .hero{min-height:calc(100svh - 82px);align-items:flex-end}
   .hero.small{min-height:46svh}
   .hero::before{
-    background-position:58% top;
-    transform:scale(1.01);
+    /* Handy: breites Gruppenfoto nicht mehr heranzoomen, sondern in voller Breite zeigen */
+    background-position:center top;
+    background-size:100% auto;
+    transform:none;
   }
   .hero::after{
-    background:linear-gradient(180deg,rgba(17,18,20,.28),rgba(17,18,20,.18) 35%,rgba(17,18,20,.92) 82%,rgba(17,18,20,.99));
+    background:linear-gradient(180deg,rgba(17,18,20,.12),rgba(17,18,20,.08) 28%,rgba(17,18,20,.78) 58%,rgba(17,18,20,.99));
   }
-  .hero-in{padding:clamp(160px,31svh,230px) 0 46px}
+  .hero-in{padding:clamp(220px,58vw,285px) 0 46px}
   .hero-content{max-width:calc(100vw - 36px)}
   .hero .tag{font-size:.68rem;letter-spacing:.14em;line-height:1.25;margin-bottom:8px;max-width:100%}
   .hero h1{
