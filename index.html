@@ -351,6 +351,45 @@ html,body{max-width:100%;overflow-x:hidden}
   }
 }
 
+
+
+/* Mobile-Hero-Bilder: eigene schmalere Zuschnitte, damit die Fotos am Handy nicht zu breit/flach wirken */
+@media(max-width:680px){
+  .hero::before{
+    background-image:var(--hero-mobile, var(--hero));
+    background-position:var(--hero-mobile-pos, center center);
+    background-size:cover;
+    background-repeat:no-repeat;
+  }
+  .hero.hero-home{
+    min-height:clamp(560px,78svh,670px);
+  }
+  .hero.hero-home .hero-in{
+    padding:clamp(150px,38svh,250px) 0 38px;
+  }
+  .hero.small{
+    min-height:clamp(320px,46svh,430px);
+  }
+  .hero.small .hero-in{
+    padding:clamp(112px,28svh,190px) 0 38px;
+  }
+  .cols img.framed{
+    width:min(100%,560px);
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .cta{
+    background-image:linear-gradient(rgba(17,18,20,.86),rgba(17,18,20,.94)),var(--cta-mobile, var(--cta, none));
+    background-size:cover;
+    background-position:center center;
+  }
+}
+@media(max-width:480px){
+  .hero.hero-home{
+    min-height:clamp(540px,76svh,650px);
+  }
+}
+
 </style>
 </head>
 <body>
@@ -375,7 +414,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 <main>
 
-  <section class="hero hero-home" style="--hero: url('img/hero-home.jpg'); --hero-pos:center center; --hero-mobile-pos:center center">
+  <section class="hero hero-home" style="--hero: url('img/hero-home.jpg'); --hero-mobile: url('img/hero-home-mobile.jpg'); --hero-pos:center 45%; --hero-mobile-pos:center 45%">
     <div class="wrap hero-in">
       <p class="tag">… des brasst!</p>
       <h1>Brassdorfer</h1>
@@ -397,7 +436,7 @@ html,body{max-width:100%;overflow-x:hidden}
         <p style="margin-top:24px"><a class="btn" href="ueber-uns/">Über uns</a></p>
       </div>
       <div class="reveal">
-        <img class="framed" style="--img-pos:center 36%; --img-mobile-pos:center 30%" src="img/band-gruppe.jpg" alt="Die Brassdorfer auf der Bühne" loading="lazy">
+        <img class="framed" style="--img-pos:center 46%; --img-mobile-pos:center 45%" src="img/band-gruppe.jpg" alt="Die Brassdorfer auf der Bühne" loading="lazy">
       </div>
     </div>
   </section>
@@ -414,7 +453,7 @@ html,body{max-width:100%;overflow-x:hidden}
     </div>
   </section>
 
-  <section class="cta" style="--cta: url('img/hero-presse.jpg')">
+  <section class="cta" style="--cta: url('img/cta-presse-events.jpg')">
     <h2 class="reveal">Wir haben euch überzeugt?</h2>
     <p class="reveal">Schreibt uns einfach eine unverbindliche Nachricht, wir melden uns bei euch!</p>
     <a class="btn btn-gold reveal" href="kontakt/#anfrage">Kontakt</a>

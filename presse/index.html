@@ -351,6 +351,45 @@ html,body{max-width:100%;overflow-x:hidden}
   }
 }
 
+
+
+/* Mobile-Hero-Bilder: eigene schmalere Zuschnitte, damit die Fotos am Handy nicht zu breit/flach wirken */
+@media(max-width:680px){
+  .hero::before{
+    background-image:var(--hero-mobile, var(--hero));
+    background-position:var(--hero-mobile-pos, center center);
+    background-size:cover;
+    background-repeat:no-repeat;
+  }
+  .hero.hero-home{
+    min-height:clamp(560px,78svh,670px);
+  }
+  .hero.hero-home .hero-in{
+    padding:clamp(150px,38svh,250px) 0 38px;
+  }
+  .hero.small{
+    min-height:clamp(320px,46svh,430px);
+  }
+  .hero.small .hero-in{
+    padding:clamp(112px,28svh,190px) 0 38px;
+  }
+  .cols img.framed{
+    width:min(100%,560px);
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .cta{
+    background-image:linear-gradient(rgba(17,18,20,.86),rgba(17,18,20,.94)),var(--cta-mobile, var(--cta, none));
+    background-size:cover;
+    background-position:center center;
+  }
+}
+@media(max-width:480px){
+  .hero.hero-home{
+    min-height:clamp(540px,76svh,650px);
+  }
+}
+
 </style>
 </head>
 <body>
@@ -375,7 +414,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 <main>
 
-  <section class="hero small" style="--hero: url('../img/hero-presse.jpg'); --hero-pos:center center; --hero-mobile-pos:center center">
+  <section class="hero small" style="--hero: url('../img/hero-presse.jpg'); --hero-mobile: url('../img/hero-presse-mobile.jpg'); --hero-pos:center 48%; --hero-mobile-pos:center 48%; --hero-pos:center center; --hero-mobile-pos:center center">
     <div class="wrap hero-in">
       <p class="tag">… des brasst!</p>
       <h1>Presse &amp; Downloads</h1>
@@ -409,22 +448,22 @@ html,body{max-width:100%;overflow-x:hidden}
         <h2 style="font-size:1.4rem">Eindrücke</h2>
       </div>
       <div class="gallery reveal">
-        <a href="../img/gallery/full/gallery-01.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-01.jpg" alt="Brassdorfer Gruppenfoto mit Instrumenten" loading="lazy"></a>
-        <a href="../img/gallery/full/gallery-02.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-02.jpg" alt="Brassdorfer Gruppenfoto am Berg" loading="lazy"></a>
-        <a href="../img/gallery/full/gallery-03.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-03.jpg" alt="Brassdorfer mit erhobenen Instrumenten" loading="lazy"></a>
-        <a href="../img/gallery/full/gallery-04.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-04.jpg" alt="Brassdorfer Sprungfoto" loading="lazy"></a>
-        <a href="../img/gallery/full/gallery-05.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-05.jpg" alt="Brassdorfer Spaßfoto" loading="lazy"></a>
-        <a href="../img/gallery/full/gallery-06.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-06.jpg" alt="Brassdorfer Gruppenfoto am Sonnenuntergang" loading="lazy"></a>
-        <a href="../img/gallery/full/gallery-07.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-07.jpg" alt="Brassdorfer klassisches Pressefoto" loading="lazy"></a>
-        <a href="../img/gallery/full/gallery-08.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-08.jpg" alt="Brassdorfer Rückenansicht im Sonnenuntergang" loading="lazy"></a>
-        <a href="../img/gallery/full/gallery-09.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-09.jpg" alt="Brassdorfer Rückenansicht mit Logo-Shirts" loading="lazy"></a>
-        <a href="../img/gallery/full/gallery-10.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-10.jpg" alt="Brassdorfer mit Instrumenten in Abendstimmung" loading="lazy"></a>
-        <a href="../img/gallery/full/gallery-11.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-11.jpg" alt="Brassdorfer Gruppenfoto im Hochformat" loading="lazy"></a>
-        <a href="../img/gallery/full/gallery-12.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-12.jpg" alt="Brassdorfer beim Gespräch im Hochformat" loading="lazy"></a>
-        <a href="../img/gallery/full/gallery-13.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-13.jpg" alt="Brassdorfer stoßen gemeinsam an" loading="lazy"></a>
-        <a href="../img/gallery/full/gallery-14.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-14.jpg" alt="Brassdorfer Foto 0132" loading="lazy"></a>
-        <a href="../img/gallery/full/gallery-15.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-15.jpg" alt="Brassdorfer Foto 0145" loading="lazy"></a>
-        <a href="../img/gallery/full/gallery-16.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-16.jpg" alt="Brassdorfer Foto 0187" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-01.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-01.jpg" alt="Pressefoto der Brassdorfer" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-02.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-02.jpg" alt="Die Brassdorfer beim Auftritt" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-03.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-03.jpg" alt="Brassdorfer Gruppenfoto" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-04.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-04.jpg" alt="Brassdorfer bei Sonnenuntergang" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-05.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-05.jpg" alt="Brassdorfer Bandfoto" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-06.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-06.jpg" alt="Brassdorfer mit Blasinstrumenten" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-07.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-07.jpg" alt="Brassdorfer in Bewegung" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-08.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-08.jpg" alt="Brassdorfer auf der Wiese" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-09.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-09.jpg" alt="Brassdorfer Gruppenmoment" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-10.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-10.jpg" alt="Brassdorfer Bandbild" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-11.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-11.jpg" alt="Brassdorfer Rückenansicht" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-12.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-12.jpg" alt="Brassdorfer Abendstimmung" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-13.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-13.jpg" alt="Brassdorfer sitzend" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-14.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-14.jpg" alt="Brassdorfer Gesprächsrunde" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-15.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-15.jpg" alt="Brassdorfer Hochformat" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-16.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-16.jpg" alt="Brassdorfer Detailfoto" loading="lazy"></a>
       </div>
     </div>
   </section>
