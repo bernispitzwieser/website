@@ -38,8 +38,8 @@ h3{font-size:1.15rem;letter-spacing:.05em}
 .hdr{position:sticky;top:0;z-index:50;background:var(--header);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav{max-width:var(--nav-max);margin:0 auto;padding:10px clamp(20px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:16px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand img{width:48px}
-.brand span{font-family:"Oswald",sans-serif;font-weight:600;font-size:1.3rem;letter-spacing:.08em;text-transform:uppercase}
+.brand img{width:46px}
+.brand span{font-family:"Oswald",sans-serif;font-weight:500;font-size:clamp(.95rem,1.25vw,1.12rem);letter-spacing:.14em;text-transform:uppercase;opacity:.88}
 .menu{display:flex;align-items:center;gap:4px;list-style:none}
 .menu a{display:block;padding:10px 13px;font-size:.84rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--text)}
 .menu a:hover{color:var(--gold)}
@@ -60,7 +60,7 @@ h3{font-size:1.15rem;letter-spacing:.05em}
 /* Hero */
 .hero{position:relative;min-height:74vh;display:flex;align-items:flex-end;isolation:isolate}
 .hero.small{min-height:42vh}
-.hero::before{content:"";position:absolute;inset:0;background:var(--hero) center 28%/cover no-repeat;z-index:-2;filter:grayscale(18%)}
+.hero::before{content:"";position:absolute;inset:0;background:var(--hero) var(--hero-pos, center 28%)/cover no-repeat;z-index:-2;filter:grayscale(18%)}
 .hero::after{content:"";position:absolute;inset:0;background:var(--hero-overlay);z-index:-1}
 .hero-in{width:100%;padding:80px 0 56px}
 .hero .tag{font-family:"Oswald",sans-serif;font-weight:500;letter-spacing:.3em;text-transform:uppercase;font-size:.95rem;color:var(--gold)}
@@ -181,7 +181,7 @@ html,body{max-width:100%;overflow-x:hidden}
   .wrap{padding-left:18px;padding-right:18px}
   .nav{padding-left:16px;padding-right:16px}
   .brand img{width:42px}
-  .brand span{font-size:1.08rem;letter-spacing:.06em}
+  .brand span{font-size:.9rem;letter-spacing:.11em;opacity:.84}
   .hero{min-height:62vh;background-position:center top}
   .hero.small{min-height:34vh}
   .hero::before{background-position:center top}
@@ -243,12 +243,18 @@ html,body{max-width:100%;overflow-x:hidden}
   h2{font-size:clamp(1.55rem,8vw,2.2rem);line-height:1.05}
   .lead{font-size:1rem;line-height:1.6}
 }
+
+@media(max-width:480px){
+  .brand{gap:9px}
+  .brand img{width:38px}
+  .brand span{display:inline;font-size:.82rem;letter-spacing:.08em;font-weight:500;opacity:.9;max-width:120px;white-space:nowrap}
+}
 @media(max-width:380px){
-  .brand span{font-size:.98rem}
   .brand img{width:38px}
   .hero h1{font-size:clamp(1.9rem,10vw,2.35rem)}
   .cta-row{grid-template-columns:1fr}
 }
+
 
 
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -257,6 +263,7 @@ html,body{max-width:100%;overflow-x:hidden}
 .soc a[aria-label="YouTube"] svg rect{fill:none;stroke:currentColor}.soc a[aria-label="YouTube"] svg path{fill:currentColor;stroke:none}
 .social-inline{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}.social-inline a{display:inline-flex;align-items:center;gap:8px;color:var(--muted);text-decoration:none}.social-inline svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}.social-inline a:hover{color:var(--gold)}
 .legal-text{color:var(--muted);display:grid;gap:16px}.legal-text h2{color:var(--text);font-size:1.45rem;margin-top:10px}.legal-text h3{color:var(--gold);margin-top:10px}.legal-text ul{padding-left:22px;display:grid;gap:6px}.legal-text a{color:var(--text)}.legal-text a:hover{color:var(--gold)}
+
 
 
 /* Bildplatzierung – Feinschliff nach Wix-Zuschnitt
@@ -368,7 +375,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 <main>
 
-  <section class="hero small" style="--hero: url('https://static.wixstatic.com/media/40d91f_29d81b2fd9e64ec1b07784a8f5c3e9d8~mv2.jpg/v1/fill/w_1920,h_900,al_c,q_85,enc_auto/h.jpg')">
+  <section class="hero small" style="--hero: url('../img/hero-presse.jpg'); --hero-pos:center center; --hero-mobile-pos:center center">
     <div class="wrap hero-in">
       <p class="tag">… des brasst!</p>
       <h1>Presse &amp; Downloads</h1>
@@ -402,12 +409,22 @@ html,body{max-width:100%;overflow-x:hidden}
         <h2 style="font-size:1.4rem">Eindrücke</h2>
       </div>
       <div class="gallery reveal">
-        <a href="https://static.wixstatic.com/media/40d91f_51cc7ca720bd4324b9223aaa9fb42826~mv2.jpg/v1/fill/w_2000,h_1333,al_c,q_90,enc_auto/full.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/40d91f_51cc7ca720bd4324b9223aaa9fb42826~mv2.jpg/v1/fill/w_800,h_534,al_c,q_85,enc_auto/t.jpg" alt="Brassdorfer live auf der Bühne" loading="lazy"></a>
-        <a href="https://static.wixstatic.com/media/40d91f_a55efe9e72b845b082d55edce749e897~mv2.jpg/v1/fill/w_2000,h_1333,al_c,q_90,enc_auto/full.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/40d91f_a55efe9e72b845b082d55edce749e897~mv2.jpg/v1/fill/w_800,h_534,al_c,q_85,enc_auto/t.jpg" alt="Konzertfoto der Brassdorfer" loading="lazy"></a>
-        <a href="https://static.wixstatic.com/media/40d91f_6651501af4534e4d845603ee061d21d5~mv2.jpg/v1/fill/w_2000,h_1333,al_c,q_90,enc_auto/full.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/40d91f_6651501af4534e4d845603ee061d21d5~mv2.jpg/v1/fill/w_800,h_534,al_c,q_85,enc_auto/t.jpg" alt="Die Brassdorfer beim Auftritt" loading="lazy"></a>
-        <a href="https://static.wixstatic.com/media/40d91f_1e85d2945c874cd0bd0b669724e67b25~mv2.jpg/v1/fill/w_2000,h_1333,al_c,q_90,enc_auto/full.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/40d91f_1e85d2945c874cd0bd0b669724e67b25~mv2.jpg/v1/fill/w_800,h_534,al_c,q_85,enc_auto/t.jpg" alt="Gruppenfoto der Brassdorfer" loading="lazy"></a>
-        <a href="https://static.wixstatic.com/media/40d91f_414baa1b465e4479a28455e08b31a93b~mv2.jpg/v1/fill/w_2000,h_1333,al_c,q_90,enc_auto/full.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/40d91f_414baa1b465e4479a28455e08b31a93b~mv2.jpg/v1/fill/w_800,h_534,al_c,q_85,enc_auto/t.jpg" alt="Bühnenstimmung" loading="lazy"></a>
-        <a href="https://static.wixstatic.com/media/40d91f_29d81b2fd9e64ec1b07784a8f5c3e9d8~mv2.jpg/v1/fill/w_2000,h_1333,al_c,q_90,enc_auto/full.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/40d91f_29d81b2fd9e64ec1b07784a8f5c3e9d8~mv2.jpg/v1/fill/w_800,h_534,al_c,q_85,enc_auto/t.jpg" alt="Publikum und Band" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-01.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-01.jpg" alt="Brassdorfer Gruppenfoto mit Instrumenten" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-02.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-02.jpg" alt="Brassdorfer Gruppenfoto am Berg" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-03.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-03.jpg" alt="Brassdorfer mit erhobenen Instrumenten" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-04.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-04.jpg" alt="Brassdorfer Sprungfoto" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-05.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-05.jpg" alt="Brassdorfer Spaßfoto" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-06.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-06.jpg" alt="Brassdorfer Gruppenfoto am Sonnenuntergang" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-07.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-07.jpg" alt="Brassdorfer klassisches Pressefoto" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-08.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-08.jpg" alt="Brassdorfer Rückenansicht im Sonnenuntergang" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-09.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-09.jpg" alt="Brassdorfer Rückenansicht mit Logo-Shirts" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-10.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-10.jpg" alt="Brassdorfer mit Instrumenten in Abendstimmung" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-11.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-11.jpg" alt="Brassdorfer Gruppenfoto im Hochformat" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-12.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-12.jpg" alt="Brassdorfer beim Gespräch im Hochformat" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-13.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-13.jpg" alt="Brassdorfer stoßen gemeinsam an" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-14.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-14.jpg" alt="Brassdorfer Foto 0132" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-15.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-15.jpg" alt="Brassdorfer Foto 0145" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-16.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-16.jpg" alt="Brassdorfer Foto 0187" loading="lazy"></a>
       </div>
     </div>
   </section>
