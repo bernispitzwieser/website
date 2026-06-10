@@ -248,6 +248,32 @@ html,body{max-width:100%;overflow-x:hidden}
   .cta-row{grid-template-columns:1fr}
 }
 
+
+/* Kompromiss fürs Handy: Hero-Foto als kompakter Bildbereich oben, Text direkt darunter */
+@media(max-width:680px){
+  .hero.hero-home{
+    --mobile-photo-h:clamp(235px,62vw,330px);
+    min-height:auto;
+    display:block;
+    align-items:initial;
+    overflow:hidden;
+  }
+  .hero.hero-home::before{
+    inset:0 0 auto 0;
+    height:var(--mobile-photo-h);
+    background-position:center top;
+    background-size:cover;
+  }
+  .hero.hero-home::after{
+    inset:0 0 auto 0;
+    height:calc(var(--mobile-photo-h) + 90px);
+    background:linear-gradient(180deg,rgba(17,18,20,.08),rgba(17,18,20,.06) 48%,rgba(17,18,20,.70) 78%,rgba(17,18,20,1));
+  }
+  .hero.hero-home .hero-in{
+    padding:calc(var(--mobile-photo-h) + 30px) 0 44px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -272,7 +298,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 <main>
 
-  <section class="hero" style="--hero: url('https://static.wixstatic.com/media/40d91f_a2c41331e8a04eafbf2fd5009c135c66~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_85,enc_auto/hero.jpg')">
+  <section class="hero hero-home" style="--hero: url('https://static.wixstatic.com/media/40d91f_a2c41331e8a04eafbf2fd5009c135c66~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_85,enc_auto/hero.jpg')">
     <div class="wrap hero-in">
       <p class="tag">… des brasst!</p>
       <h1>Brassdorfer</h1>
