@@ -662,6 +662,85 @@ form{
   object-position:center center;
 }
 
+
+
+
+/* === HANDY HERO WIE ÜBER UNS: Hero bleibt Hero, aber ruhiger zugeschnitten === */
+@media(max-width:760px){
+  .hero{
+    min-height:68svh !important;
+    display:flex !important;
+    align-items:flex-end !important;
+    overflow:hidden !important;
+  }
+
+  .hero.small{
+    min-height:44svh !important;
+  }
+
+  .hero::before{
+    background-image:var(--hero-mobile, var(--hero)) !important;
+    background-size:cover !important;
+    background-position:var(--hero-mobile-pos, center center) !important;
+    background-repeat:no-repeat !important;
+  }
+
+  .hero::after{
+    background:linear-gradient(180deg,rgba(17,18,20,.34) 0%,rgba(17,18,20,.10) 35%,rgba(17,18,20,.52) 70%,#111214 100%) !important;
+  }
+
+  .hero-in{
+    padding:clamp(90px,18vh,138px) 0 36px !important;
+  }
+
+  .hero .tag{
+    font-size:.72rem !important;
+    letter-spacing:.18em !important;
+  }
+
+  .hero h1{
+    font-size:clamp(2.35rem,11.5vw,3.45rem) !important;
+    line-height:.96 !important;
+    letter-spacing:.015em !important;
+    max-width:100% !important;
+  }
+
+  .hero.small h1{
+    font-size:clamp(2.18rem,10.5vw,3.1rem) !important;
+  }
+
+  .hero p.lead{
+    font-size:1rem !important;
+    line-height:1.5 !important;
+    max-width:33ch !important;
+    margin-bottom:22px !important;
+  }
+
+  .cta-row{
+    width:100% !important;
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+    gap:10px !important;
+  }
+
+  .cta-row .btn{
+    width:100% !important;
+    min-width:0 !important;
+    text-align:center !important;
+    white-space:nowrap !important;
+    padding:12px 8px !important;
+    font-size:.72rem !important;
+    letter-spacing:.055em !important;
+  }
+}
+
+@media(max-width:380px){
+  .cta-row .btn{
+    font-size:.66rem !important;
+    padding:11px 6px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -686,7 +765,7 @@ form{
 
 <main>
 
-  <section class="hero small" style="--hero: url('../img/galerie-1.jpg'); --hero-pos:center 38%; --hero-mobile-pos:center top; --hero-mobile-size:contain">
+  <section class="hero small" style="--hero: url('../img/galerie-1.jpg'); --hero-pos:center 38%; --hero-mobile-pos:center center">
     <div class="wrap hero-in">
       <p class="tag">… des brasst!</p>
       <h1>Über uns</h1>
@@ -713,7 +792,7 @@ form{
       </div>
       <div class="members">
         <article class="member reveal member-tobias" data-member="tobias">
-          <img src="../img/portrait-tobias.jpg" alt="Tobias Schnaitl – Trompete und Gesang" loading="lazy">
+          <img src="../img/portrait-bernhard.jpg" alt="Tobias Schnaitl" loading="lazy">
           <div class="mb"><h3>Tobias Schnaitl</h3><p class="role">Trompete und Gesang</p><p>Auch wenn Tobias Tomaten über alles hasst, sieht er ansonsten selten rot. Tobias ist spätestens nach seinem ersten Entspannungs-Schluck Bier bei egal welchem Auftritt direkt Herr der Lage und arrangiert sich nicht nur mit jedem Brautpaar, Veranstalter und Tontechniker, sondern auch unsere Stücke perfekt bis ins Detail.</p></div>
         </article>
 <article class="member reveal member-patricia" data-member="patricia">
@@ -721,7 +800,7 @@ form{
           <div class="mb"><h3>Patricia Habl</h3><p class="role">Trompete und Gesang</p><p>Aufgrund ihrer Größe leicht zu übersehen aber niemals zu überhören. Wie man sie in aller Kürze beschreiben könnte: ein musikalisches Talent mit optimaler Raumausnutzung. Neben ihren Gesangs- und Trompeten-Künsten ist wohl ihre größte Stärke, bei 8 (jungen) Burschen nicht die Nerven zu verlieren.</p></div>
         </article>
 <article class="member reveal member-bernhard" data-member="bernhard">
-          <img src="../img/portrait-bernhard.jpg" alt="Bernhard Spitzwieser – Trompete" loading="lazy">
+          <img src="../img/portrait-tobias.jpg" alt="Bernhard Spitzwieser" loading="lazy">
           <div class="mb"><h3>Bernhard Spitzwieser</h3><p class="role">Trompete</p><p>Unser Legionär aus St. Radegund konnte früh seinen Traum verwirklichen und in den Brassdorfer Stammkader eintreten. Trotz zahlreicher Verletzungen war es ihm irgendwie möglich, sich in der wilden Welt der Trompeter zu behaupten und auch zu beweisen: die Betreuung der Lichttechnik hat er im kleinen Finger.</p></div>
         </article>
 <article class="member reveal member-michael-auer">
