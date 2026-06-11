@@ -1792,6 +1792,55 @@ form{
   .hero .hero-in p.lead,.hero .hero-in .lead-mobile{text-align:left!important;margin-left:0!important;margin-right:auto!important}
   .sec .btn{display:block;width:100%;text-align:center}
 }
+
+/* === HOME: Handy-Hero-Text wieder mittig === */
+@media(max-width:760px){
+  .hero.hero-home p.lead,
+  .hero.hero-home .lead,
+  .hero.hero-home .lead-mobile{
+    text-align:center !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+}
+
+
+/* === FOOTER: Social-Icons sauber anzeigen === */
+footer .soc a{
+  color:var(--muted) !important;
+}
+
+footer .soc a:hover{
+  color:var(--gold) !important;
+  border-color:var(--gold) !important;
+}
+
+footer .soc a[aria-label="Instagram"] svg,
+footer .soc a[aria-label="Instagram"] svg *{
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.8 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+
+footer .soc a[aria-label="Facebook"] svg,
+footer .soc a[aria-label="Facebook"] svg *{
+  fill:currentColor !important;
+  stroke:none !important;
+}
+
+footer .soc a[aria-label="YouTube"] svg rect{
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.8 !important;
+}
+
+footer .soc a[aria-label="YouTube"] svg path{
+  fill:currentColor !important;
+  stroke:none !important;
+}
+
 </style>
 </head>
 <body>
@@ -1837,8 +1886,8 @@ form{
     <div class="wrap cols">
       <div class="reveal">
         <h2>Unsere Bandmitglieder</h2>
-        <p class="lead">Spaß, gute Laune und das Publikum mit Musik begeistern: das sind unsere Grundsätze. Brass-Tradition und moderner Groove in einem.</p>
-        <p class="lead" style="margin-top:12px">Lasst euch von unserem Sound mitreißen, wir freuen uns auf euch!</p>
+        <p class="lead">Mit energiegeladenen Brass-Arrangements, mitreißenden Rhythmen und viel Spielfreude bringen wir frischen Wind in jede Veranstaltung. Unsere Musik verbindet Tradition mit modernem Groove und sorgt für unvergessliche Momente.</p>
+        <p class="lead" style="margin-top:12px">Lasst euch von unserem Sound mitreißen – wir freuen uns auf euch!</p>
         <p style="margin-top:24px"><a class="btn home-neutral-btn home-about-btn" href="ueber-uns/">Über uns</a></p>
       </div>
       <div class="reveal">

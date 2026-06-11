@@ -1133,6 +1133,43 @@ form{
   .hero .hero-in p.lead,.hero .hero-in .lead-mobile{text-align:left!important;margin-left:0!important;margin-right:auto!important}
   .sec .btn{display:block;width:100%;text-align:center}
 }
+
+/* === FOOTER: Social-Icons sauber anzeigen === */
+footer .soc a{
+  color:var(--muted) !important;
+}
+
+footer .soc a:hover{
+  color:var(--gold) !important;
+  border-color:var(--gold) !important;
+}
+
+footer .soc a[aria-label="Instagram"] svg,
+footer .soc a[aria-label="Instagram"] svg *{
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.8 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+
+footer .soc a[aria-label="Facebook"] svg,
+footer .soc a[aria-label="Facebook"] svg *{
+  fill:currentColor !important;
+  stroke:none !important;
+}
+
+footer .soc a[aria-label="YouTube"] svg rect{
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.8 !important;
+}
+
+footer .soc a[aria-label="YouTube"] svg path{
+  fill:currentColor !important;
+  stroke:none !important;
+}
+
 </style>
 </head>
 <body>
