@@ -1246,6 +1246,82 @@ form{
   align-items:center !important;
 }
 
+
+/* === HOME MOBILE HERO + CTA ENDKORREKTUR === */
+@media(max-width:760px){
+  /* Noch etwas weiter herauszoomen und minimal nach rechts schieben */
+  .hero.hero-home::before{
+    background-size:auto 82% !important;
+    background-position:54% top !important;
+    background-color:#111214 !important;
+  }
+
+  /* Etwas weniger Abstand zwischen Bild/Titel und dem Lead-Text */
+  .hero.hero-home .hero-in{
+    padding-top:0 !important;
+    padding-bottom:30px !important;
+  }
+
+  .hero.hero-home p.lead{
+    text-align:center !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    margin-top:16px !important;
+    margin-bottom:20px !important;
+    max-width:34ch !important;
+  }
+
+  .hero.hero-home .cta-row{
+    width:calc(100% - 40px) !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+}
+
+/* Home ganz unten: Kontaktbutton exakt mittig, ohne Einfluss alter .cta/.btn-Regeln */
+#home-kontakt-cta{
+  display:block !important;
+  text-align:center !important;
+}
+
+#home-kontakt-cta .cta-inner{
+  display:block !important;
+  width:100% !important;
+  max-width:var(--max) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  text-align:center !important;
+}
+
+#home-kontakt-cta .cta-actions{
+  width:100% !important;
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  margin:26px auto 0 !important;
+  text-align:center !important;
+}
+
+#home-kontakt-cta .cta-actions .btn{
+  flex:0 0 auto !important;
+  width:220px !important;
+  min-width:220px !important;
+  max-width:220px !important;
+  margin:0 auto !important;
+  display:inline-flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  text-align:center !important;
+}
+
+@media(max-width:760px){
+  #home-kontakt-cta .cta-actions .btn{
+    width:220px !important;
+    min-width:220px !important;
+    max-width:220px !important;
+  }
+}
+
 </style>
 </head>
 <body>
