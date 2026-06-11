@@ -10,11 +10,11 @@
 <meta property="og:image" content="https://bernispitzwieser.github.io/website/img/hero-home.jpg">
 <meta property="og:type" content="website">
 <meta name="description" content="Hier kannst du Bilder, unser Logo und viele weitere Infos herunterladen.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="../img/logo.png">
 <style>
+@font-face{font-family:"Oswald";src:url("../fonts/Oswald.ttf") format("truetype");font-weight:200 700;font-display:swap}
+@font-face{font-family:"Inter";src:url("../fonts/Inter.ttf") format("truetype");font-weight:100 900;font-display:swap}
+
 :root{
   --bg:#111214; --bg2:#17181b; --card:#1d1f23; --line:rgba(255,255,255,.09);
   --text:#f1efe9; --muted:#a3a39c;
@@ -1251,6 +1251,11 @@ form{
   .collage .crow{gap:8px}
   .collage{gap:8px}
 }
+
+.hinweis{position:fixed;left:12px;right:12px;bottom:12px;z-index:200;background:#1d1f23;border:1px solid rgba(212,168,67,.5);border-radius:10px;padding:14px 16px;display:none;gap:12px;align-items:center;flex-wrap:wrap;font-size:.88rem;box-shadow:0 8px 30px rgba(0,0,0,.5)}
+.hinweis p{margin:0;flex:1 1 260px}
+.hinweis .btn{padding:9px 18px;font-size:.78rem}
+@media(min-width:861px){.hinweis{left:auto;max-width:520px}}
 </style>
 </head>
 <body class="page-presse">
@@ -1316,8 +1321,8 @@ form{
         </div>
         <div class="crow">
           <a style="--r:1.5" href="../img/gallery/full/gallery-01.jpg" target="_blank" rel="noopener"><img src="../img/gallery/full/gallery-01.jpg" alt="Die Brassdorfer mit erhobenen Instrumenten in der Abenddämmerung" loading="lazy"></a>
-          <a style="--r:0.667" href="../img/gallery/full/gallery-15.jpg" target="_blank" rel="noopener"><img src="../img/gallery/full/gallery-15.jpg" alt="Gruppenbild in der Abenddämmerung" loading="lazy"></a>
-          <a style="--r:1.5" href="../img/gallery/full/gallery-12.jpg" target="_blank" rel="noopener"><img src="../img/gallery/full/gallery-12.jpg" alt="Die Band in der blauen Stunde mit Blick ins Tal" loading="lazy"></a>
+          <a style="--r:0.667" href="../img/presse/buehne-duo-schwarzweiss.jpg" target="_blank" rel="noopener"><img src="../img/presse/buehne-duo-schwarzweiss.jpg" alt="Tobias und Patricia von der Bühne aus in Schwarzweiß" loading="lazy"></a>
+          <a style="--r:1.5" href="../img/gallery/full/gallery-11.jpg" target="_blank" rel="noopener"><img src="../img/gallery/full/gallery-11.jpg" alt="Die Band von hinten in der Abenddämmerung" loading="lazy"></a>
         </div>
       </div>
       <div class="collage collage-mobile reveal">
@@ -1330,7 +1335,7 @@ form{
           <a style="--r:1.5" href="../img/presse/schlagzeug-buehne.jpg" target="_blank" rel="noopener"><img src="../img/presse/schlagzeug-buehne.jpg" alt="Schlagzeug auf der Bühne mit Brassdorfer Logo" loading="lazy"></a>
         </div>
         <div class="crow">
-          <a style="--r:0.667" href="../img/gallery/full/gallery-15.jpg" target="_blank" rel="noopener"><img src="../img/gallery/full/gallery-15.jpg" alt="Gruppenbild in der Abenddämmerung" loading="lazy"></a>
+          <a style="--r:0.667" href="../img/presse/buehne-duo-schwarzweiss.jpg" target="_blank" rel="noopener"><img src="../img/presse/buehne-duo-schwarzweiss.jpg" alt="Tobias und Patricia von der Bühne aus in Schwarzweiß" loading="lazy"></a>
           <a style="--r:1.5" href="../img/gallery/full/gallery-01.jpg" target="_blank" rel="noopener"><img src="../img/gallery/full/gallery-01.jpg" alt="Die Brassdorfer mit erhobenen Instrumenten in der Abenddämmerung" loading="lazy"></a>
         </div>
       </div>
@@ -1385,5 +1390,20 @@ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isInter
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 </script>
 
+
+<!-- Datenschutz-Hinweis (einmalig, wird im Browser gemerkt) -->
+<div class="hinweis" id="hinweis" role="dialog" aria-label="Datenschutzhinweis">
+  <p>Diese Website verwendet keine Tracking-Cookies. Beim Absenden des Kontaktformulars werden deine Angaben zur Bearbeitung übertragen – Details in der <a href="../datenschutz/">Datenschutzerklärung</a>.</p>
+  <button class="btn btn-gold" id="hinweis-ok" type="button">Alles klar</button>
+</div>
+<script>
+(function(){try{
+  if(!localStorage.getItem('bd-hinweis-ok')){
+    var h=document.getElementById('hinweis');h.style.display='flex';
+    document.getElementById('hinweis-ok').addEventListener('click',function(){
+      localStorage.setItem('bd-hinweis-ok','1');h.style.display='none';});
+  }
+}catch(e){}})();
+</script>
 </body>
 </html>

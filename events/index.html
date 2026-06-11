@@ -10,11 +10,11 @@
 <meta property="og:image" content="https://bernispitzwieser.github.io/website/img/hero-home.jpg">
 <meta property="og:type" content="website">
 <meta name="description" content="Hier findest du Auftritte und Veranstaltungen, bei denen ihr uns hören könnt.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="../img/logo.png">
 <style>
+@font-face{font-family:"Oswald";src:url("../fonts/Oswald.ttf") format("truetype");font-weight:200 700;font-display:swap}
+@font-face{font-family:"Inter";src:url("../fonts/Inter.ttf") format("truetype");font-weight:100 900;font-display:swap}
+
 :root{
   --bg:#111214; --bg2:#17181b; --card:#1d1f23; --line:rgba(255,255,255,.09);
   --text:#f1efe9; --muted:#a3a39c;
@@ -1122,6 +1122,11 @@ form{
   }
 }
 
+
+.hinweis{position:fixed;left:12px;right:12px;bottom:12px;z-index:200;background:#1d1f23;border:1px solid rgba(212,168,67,.5);border-radius:10px;padding:14px 16px;display:none;gap:12px;align-items:center;flex-wrap:wrap;font-size:.88rem;box-shadow:0 8px 30px rgba(0,0,0,.5)}
+.hinweis p{margin:0;flex:1 1 260px}
+.hinweis .btn{padding:9px 18px;font-size:.78rem}
+@media(min-width:861px){.hinweis{left:auto;max-width:520px}}
 </style>
 </head>
 <body>
@@ -1234,5 +1239,20 @@ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 <script src="../auftritte.js"></script>
 
 
+
+<!-- Datenschutz-Hinweis (einmalig, wird im Browser gemerkt) -->
+<div class="hinweis" id="hinweis" role="dialog" aria-label="Datenschutzhinweis">
+  <p>Diese Website verwendet keine Tracking-Cookies. Beim Absenden des Kontaktformulars werden deine Angaben zur Bearbeitung übertragen – Details in der <a href="../datenschutz/">Datenschutzerklärung</a>.</p>
+  <button class="btn btn-gold" id="hinweis-ok" type="button">Alles klar</button>
+</div>
+<script>
+(function(){try{
+  if(!localStorage.getItem('bd-hinweis-ok')){
+    var h=document.getElementById('hinweis');h.style.display='flex';
+    document.getElementById('hinweis-ok').addEventListener('click',function(){
+      localStorage.setItem('bd-hinweis-ok','1');h.style.display='none';});
+  }
+}catch(e){}})();
+</script>
 </body>
 </html>
