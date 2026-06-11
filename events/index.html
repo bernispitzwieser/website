@@ -1075,6 +1075,53 @@ form{
   }
 }
 
+
+/* === HOME HERO BUTTON FEEDBACK + DESKTOP HERO FEINSCHLIFF === */
+
+/* Feedback nur für die zwei obersten Home-Hero-Buttons */
+.hero.hero-home .cta-row .btn{
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease,
+    background-color .18s ease,
+    color .18s ease !important;
+}
+
+.hero.hero-home .cta-row .btn:hover{
+  transform:translateY(-2px) !important;
+  box-shadow:0 12px 30px rgba(0,0,0,.28) !important;
+}
+
+.hero.hero-home .cta-row .btn:active{
+  transform:translateY(0) scale(.98) !important;
+  box-shadow:0 6px 16px rgba(0,0,0,.22) !important;
+}
+
+.hero.hero-home .cta-row .btn.btn-gold:hover{
+  background:#e0b84e !important;
+  border-color:#e0b84e !important;
+  color:#111214 !important;
+}
+
+.hero.hero-home .cta-row .btn:not(.btn-gold):hover{
+  background:rgba(212,168,67,.13) !important;
+  border-color:rgba(212,168,67,.9) !important;
+  color:#fff !important;
+}
+
+/* Nur Desktop/Laptop: Unterseiten-Heros etwas größer/einheitlicher.
+   Handy bleibt unverändert. Home bleibt unverändert. */
+@media(min-width:761px){
+  .hero.small{
+    min-height:56vh !important;
+  }
+
+  .hero.small .hero-in{
+    padding-bottom:54px !important;
+  }
+}
+
 </style>
 </head>
 <body>
