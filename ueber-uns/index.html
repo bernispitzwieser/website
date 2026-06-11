@@ -1083,6 +1083,19 @@ form{
   }
 }
 
+
+/* === ÜBER UNS: dezenter Abstand nach Überschrift === */
+.about-intro h2,
+.sec h2 + p.lead{
+  /* Fallback bleibt unten spezifisch überschrieben */
+}
+@media(min-width:1px){
+  .sec .wrap > h2 + p.lead,
+  .sec h2 + p.lead{
+    margin-top:10px !important;
+  }
+}
+
 </style>
 </head>
 <body>

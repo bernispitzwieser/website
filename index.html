@@ -1199,6 +1199,53 @@ form{
   }
 }
 
+
+/* === HOME HERO + UNTERER KONTAKT-BUTTON: FINALER FEINSCHLIFF === */
+@media(max-width:760px){
+  /* Home-Hero-Bild am Handy ca. 10 % weniger stark gezoomt */
+  .hero.hero-home::before{
+    background-size:auto 90% !important;
+    background-position:center top !important;
+    background-color:#111214 !important;
+  }
+
+  /* Claim und Titel wieder etwas weiter nach unten */
+  .hero-home-title-mobile{
+    top:calc(58svh - 120px) !important;
+  }
+}
+
+/* Home: unterer Kontakt-Button im Abschnitt „Wir haben euch überzeugt?“ exakt zentriert */
+.home-bottom-cta .cta-inner{
+  width:100% !important;
+  max-width:var(--max) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  text-align:center !important;
+}
+
+.home-bottom-cta .cta-actions{
+  width:100% !important;
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  margin-top:26px !important;
+}
+
+.home-bottom-cta .cta-actions .btn{
+  width:auto !important;
+  min-width:220px !important;
+  max-width:260px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  display:inline-flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+}
+
 </style>
 </head>
 <body>
