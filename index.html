@@ -1673,30 +1673,31 @@ form{
 }
 
 
-/* === HOME: Sekundäre Buttons einheitlich === */
-.home-secondary-btn{
+/* === HOME: neutrale Buttons für Über uns + Alle Termine ansehen === */
+/* bewusst ohne Goldrand, damit sie sich von den Hero-Buttons unterscheiden */
+.home-neutral-btn{
   display:inline-flex !important;
   align-items:center !important;
   justify-content:center !important;
-  min-width:220px !important;
+  min-width:196px !important;
   height:54px !important;
   padding:0 28px !important;
   border-radius:var(--r) !important;
-  background:rgba(17,18,20,.36) !important;
-  border-color:rgba(212,168,67,.42) !important;
+  background:transparent !important;
+  border:1px solid rgba(241,239,233,.18) !important;
   color:#f1efe9 !important;
   text-align:center !important;
   box-sizing:border-box !important;
 }
 
-.home-secondary-btn:hover{
-  background:rgba(212,168,67,.12) !important;
-  border-color:rgba(212,168,67,.82) !important;
+.home-neutral-btn:hover{
+  background:rgba(255,255,255,.045) !important;
+  border-color:rgba(241,239,233,.38) !important;
   color:#fff !important;
 }
 
 @media(max-width:760px){
-  .home-secondary-btn{
+  .home-neutral-btn{
     width:auto !important;
     min-width:196px !important;
     max-width:260px !important;
@@ -1750,7 +1751,7 @@ form{
         <h2>Unsere Bandmitglieder</h2>
         <p class="lead">Spaß, gute Laune und das Publikum mit Musik begeistern: das sind unsere Grundsätze. Brass-Tradition und moderner Groove in einem.</p>
         <p class="lead" style="margin-top:12px">Lasst euch von unserem Sound mitreißen, wir freuen uns auf euch!</p>
-        <p style="margin-top:24px"><a class="btn home-secondary-btn" href="ueber-uns/">Über uns</a></p>
+        <p style="margin-top:24px"><a class="btn home-neutral-btn" href="ueber-uns/">Über uns</a></p>
       </div>
       <div class="reveal">
         <img class="framed" style="--img-pos:center 46%; --img-mobile-pos:center 45%" src="img/band-gruppe.jpg" alt="Die Brassdorfer auf der Bühne" loading="lazy">
@@ -1766,7 +1767,7 @@ form{
       <div class="events reveal">
         <div data-events-list data-events-limit="2"></div>
       </div>
-      <p style="margin-top:24px" class="reveal"><a class="btn home-secondary-btn" href="events/">Alle Termine ansehen</a></p>
+      <p style="margin-top:24px" class="reveal"><a class="btn home-neutral-btn" href="events/">Alle Termine ansehen</a></p>
     </div>
   </section>
 
