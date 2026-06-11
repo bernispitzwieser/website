@@ -1195,6 +1195,37 @@ form{
   }
 }
 
+
+/* === TEST: Home-Hero am Handy weniger abgeschnitten === */
+/* Nur Startseite + nur Handy. Desktop bleibt unverändert. */
+@media(max-width:760px){
+  .hero.hero-home{
+    padding-top:60svh !important;
+  }
+
+  .hero.hero-home::before{
+    height:60svh !important;
+    background-image:var(--hero) !important;
+    background-size:100% auto !important;
+    background-position:center top !important;
+    background-repeat:no-repeat !important;
+    background-color:#111214 !important;
+  }
+
+  .hero.hero-home::after{
+    height:60svh !important;
+    background:linear-gradient(180deg,rgba(17,18,20,.12) 0%,rgba(17,18,20,.04) 38%,rgba(17,18,20,.58) 74%,#111214 100%) !important;
+  }
+
+  .hero.hero-home .tag{
+    top:calc(60svh - 142px) !important;
+  }
+
+  .hero.hero-home h1{
+    top:calc(60svh - 106px) !important;
+  }
+}
+
 </style>
 </head>
 <body>
