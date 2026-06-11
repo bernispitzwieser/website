@@ -1169,6 +1169,40 @@ form button[type="submit"],
   }
 }
 
+
+
+/* === KONTAKT: Social-Icons wieder neutral/weiß, Mail/Telefon wie gewünscht === */
+.contact-info .ci:nth-child(1) .ic,
+.contact-info .ci:nth-child(2) .ic{
+  color:var(--gold) !important;
+}
+
+.social-inline a,
+.social-inline a span{
+  color:var(--muted) !important;
+}
+.social-inline svg{
+  color:currentColor !important;
+  stroke:currentColor !important;
+  fill:none !important;
+}
+.social-inline a[href*="facebook"] svg{
+  fill:currentColor !important;
+  stroke:none !important;
+}
+.social-inline a[href*="youtube"] svg rect{
+  fill:none !important;
+  stroke:currentColor !important;
+}
+.social-inline a[href*="youtube"] svg path{
+  fill:currentColor !important;
+  stroke:none !important;
+}
+.social-inline a:hover,
+.social-inline a:hover span{
+  color:var(--gold) !important;
+}
+
 </style>
 </head>
 <body class="page-kontakt">
@@ -1236,8 +1270,8 @@ form button[type="submit"],
       </div>
 
       <div class="contact-info reveal">
-        <div class="ci"><span class="ic">✉</span><div><h3>E-Mail-Adresse</h3><p><a href="mailto:brassdorfer@gmx.at">brassdorfer@gmx.at</a></p></div></div>
-        <div class="ci"><span class="ic">☎</span><div><h3>Telefonnummer</h3><p><a href="tel:+436643804114">+43 664 3804114</a></p></div></div>
+        <div class="ci"><span class="ic">&#9993;&#65038;</span><div><h3>E-Mail-Adresse</h3><p><a href="mailto:brassdorfer@gmx.at">brassdorfer@gmx.at</a></p></div></div>
+        <div class="ci"><span class="ic">&#9742;&#65038;</span><div><h3>Telefonnummer</h3><p><a href="tel:+436643804114">+43 664 3804114</a></p></div></div>
         <div class="ci"><span class="ic">♫</span><div><h3>Social Media</h3><div class="social-inline">
             <a href="https://www.instagram.com/brass_dorfer/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17" cy="7" r="1"></circle></svg><span>Instagram</span></a>
             <a href="https://www.facebook.com/brassdorfer/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1z"></path></svg><span>Facebook</span></a>
