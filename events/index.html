@@ -1130,7 +1130,6 @@ form{
 
 /* ─── Finaler Mobil-Feinschliff ─── */
 @media(max-width:680px){
-  .hero .hero-in p.lead,.hero .hero-in .lead-mobile{text-align:left!important;margin-left:0!important;margin-right:auto!important}
   .sec .btn{display:block;width:100%;text-align:center}
 }
 
@@ -1197,6 +1196,14 @@ footer .soc a[aria-label="YouTube"] svg *{
   stroke:none !important;
 }
 
+
+/* ─── Mobil: Hero-Buttons – ein klarer Haupt-Button, Events als dezenter Link ─── */
+@media(max-width:680px){
+  .hero .cta-row{display:grid;grid-template-columns:1fr;gap:6px;justify-items:stretch}
+  .hero .cta-row .btn-gold{width:100%;text-align:center;padding:15px 18px}
+  .hero .cta-row .btn:not(.btn-gold){background:none;border:none;width:auto;justify-self:center;padding:10px 14px;font-size:.78rem;letter-spacing:.1em;color:#e6e3da;text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--gold)}
+  .hero .cta-row .btn:not(.btn-gold)::after{content:" →"}
+}
 </style>
 </head>
 <body>
