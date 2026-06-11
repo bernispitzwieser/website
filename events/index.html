@@ -1036,6 +1036,45 @@ form{
   }
 }
 
+
+/* === CTA final: Kontaktbutton wie funktionierende Button-Zeilen === */
+.cta .cta-inner{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  width:100% !important;
+}
+
+.cta .cta-actions{
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  width:100% !important;
+  margin-top:26px !important;
+  text-align:center !important;
+}
+
+.cta .cta-actions .btn{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:auto !important;
+  min-width:220px !important;
+  max-width:260px !important;
+  margin:0 auto !important;
+  text-align:center !important;
+  transform:none !important;
+}
+
+@media(max-width:760px){
+  .cta .cta-actions .btn{
+    min-width:220px !important;
+    max-width:260px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1088,9 +1127,13 @@ form{
   </section>
 
   <section class="cta">
-    <h2 class="reveal">Ihr plant selbst ein Fest?</h2>
-    <p class="reveal">Schreibt uns einfach eine unverbindliche Nachricht und wir melden uns bei euch!</p>
-    <p class="cta-button-wrap reveal"><a class="btn btn-gold" href="../kontakt/#anfrage">Kontakt</a></p>
+    <div class="wrap cta-inner">
+      <h2 class="reveal">Ihr plant selbst ein Fest?</h2>
+      <p class="reveal">Schreibt uns einfach eine unverbindliche Nachricht und wir melden uns bei euch!</p>
+      <div class="cta-actions reveal">
+        <a class="btn btn-gold" href="../kontakt/#anfrage">Kontakt</a>
+      </div>
+    </div>
   </section>
 
 </main>
