@@ -1457,6 +1457,221 @@ form{
   color:var(--text) !important;
 }
 
+
+/* === REPARATUR: Home-Hero-Buttons normal, Sonderbutton nur unten === */
+@media(max-width:760px){
+  /* Hero kompakt und breit, nicht zu hoch */
+  .hero.hero-home{
+    min-height:0 !important;
+    height:auto !important;
+    display:block !important;
+    padding-top:48svh !important;
+    background:#111214 !important;
+    overflow:hidden !important;
+  }
+
+  .hero.hero-home::before{
+    height:48svh !important;
+    inset:0 0 auto 0 !important;
+    bottom:auto !important;
+    background-image:var(--hero) !important;
+    background-size:cover !important;
+    background-position:40% center !important;
+    background-repeat:no-repeat !important;
+    background-color:#111214 !important;
+  }
+
+  .hero.hero-home::after{
+    height:48svh !important;
+    inset:0 0 auto 0 !important;
+    bottom:auto !important;
+    background:linear-gradient(180deg,rgba(17,18,20,.22) 0%,rgba(17,18,20,.06) 35%,rgba(17,18,20,.50) 76%,#111214 100%) !important;
+  }
+
+  .hero-home-title-mobile{
+    display:block !important;
+    position:absolute !important;
+    left:0 !important;
+    right:0 !important;
+    top:calc(48svh - 112px) !important;
+    z-index:3 !important;
+    pointer-events:none !important;
+  }
+
+  .hero.hero-home .hero-in{
+    position:static !important;
+    padding:0 0 26px !important;
+    background:#111214 !important;
+  }
+
+  .hero.hero-home .hero-in > .tag,
+  .hero.hero-home .hero-in > h1{
+    display:none !important;
+  }
+
+  .hero.hero-home p.lead{
+    text-align:center !important;
+    margin:16px auto 18px !important;
+    max-width:34ch !important;
+    line-height:1.46 !important;
+  }
+
+  .hero.hero-home .cta-row{
+    width:calc(100% - 40px) !important;
+    margin:0 auto !important;
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+    gap:12px !important;
+  }
+
+  .hero.hero-home .cta-row .btn{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:none !important;
+    height:54px !important;
+    margin:0 !important;
+    padding:0 10px !important;
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    border-radius:var(--r) !important;
+    box-sizing:border-box !important;
+    transform:none !important;
+  }
+}
+
+/* Sonderbutton wirklich nur unten verwenden */
+.hero.hero-home .cta-row .home-bottom-btn{
+  all:unset !important;
+}
+
+/* Falls all:unset greift, direkt wieder normale Hero-Button-Optik herstellen */
+.hero.hero-home .cta-row .home-bottom-btn{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:100% !important;
+  height:54px !important;
+  border-radius:var(--r) !important;
+  border:1px solid var(--cta-border) !important;
+  background:var(--cta-bg) !important;
+  color:var(--text) !important;
+  font-family:inherit !important;
+  font-weight:700 !important;
+  font-size:.72rem !important;
+  letter-spacing:.055em !important;
+  text-transform:uppercase !important;
+  text-decoration:none !important;
+  box-sizing:border-box !important;
+}
+
+/* Unterer Home-Kontaktbutton fix */
+#home-kontakt-cta .cta-actions{
+  width:100% !important;
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  margin:26px auto 0 !important;
+}
+
+#home-kontakt-cta .home-bottom-btn{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:220px !important;
+  min-width:220px !important;
+  max-width:220px !important;
+  height:54px !important;
+  margin:0 auto !important;
+  padding:0 24px !important;
+  border-radius:var(--r) !important;
+  border:1px solid var(--cta-border) !important;
+  background:var(--cta-bg) !important;
+  color:var(--text) !important;
+  font-family:inherit !important;
+  font-weight:700 !important;
+  font-size:.85rem !important;
+  letter-spacing:.08em !important;
+  line-height:1.25 !important;
+  text-transform:uppercase !important;
+  text-decoration:none !important;
+  text-align:center !important;
+  box-sizing:border-box !important;
+  transform:none !important;
+}
+
+
+/* === FINAL: Hero-Buttons normal, unterer Kontakt-Button separat zentriert === */
+
+/* Obere Hero-Buttons: explizit wieder normale zweispaltige Button-Reihe */
+@media(max-width:760px){
+  .hero.hero-home .cta-row{
+    width:calc(100% - 40px) !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+    gap:12px !important;
+  }
+
+  .hero.hero-home .cta-row .btn{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:none !important;
+    margin:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    box-sizing:border-box !important;
+  }
+}
+
+/* Unterer CTA-Button: keine .cta-row, keine .btn-Klasse, daher keine 2-Spalten-Verschiebung */
+#home-kontakt-cta{
+  text-align:center !important;
+}
+
+#home-kontakt-cta .home-bottom-actions{
+  width:100% !important;
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  margin:26px auto 0 !important;
+  padding:0 !important;
+  text-align:center !important;
+}
+
+#home-kontakt-cta .home-bottom-btn{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:220px !important;
+  min-width:220px !important;
+  max-width:220px !important;
+  height:54px !important;
+  margin:0 auto !important;
+  padding:0 24px !important;
+  border-radius:var(--r) !important;
+  border:1px solid var(--cta-border) !important;
+  background:var(--cta-bg) !important;
+  color:var(--text) !important;
+  font-family:inherit !important;
+  font-weight:700 !important;
+  font-size:.85rem !important;
+  letter-spacing:.08em !important;
+  line-height:1.25 !important;
+  text-transform:uppercase !important;
+  text-decoration:none !important;
+  text-align:center !important;
+  box-sizing:border-box !important;
+  transform:none !important;
+}
+
+#home-kontakt-cta .home-bottom-btn:hover{
+  background:var(--cta-hover) !important;
+  border-color:rgba(212,168,67,.72) !important;
+}
+
 </style>
 </head>
 <body>
@@ -1492,7 +1707,7 @@ form{
       <p class="lead lead-desktop">Neun Musiker, ein unverkennbarer Sound: Brass, Groove und Stimmung für jedes Fest.</p>
       <p class="lead lead-mobile">Neun Musiker, ein unverkennbarer Sound: Brass, Groove und Stimmung für jedes Fest.</p>
       <div class="cta-row">
-        <a class="home-bottom-btn" href="kontakt/#anfrage">Kontakt</a>
+        <a class="btn btn-gold" href="kontakt/#anfrage">Kontakt</a>
         <a class="btn" href="events/">Unsere Events</a>
       </div>
     </div>
@@ -1565,11 +1780,11 @@ form{
   ▲ Ende Video-Abschnitt -->
 
 
-  <section class="cta" style="--cta: url('img/cta-presse-events.jpg')">
+  <section class="cta home-bottom-cta" id="home-kontakt-cta" style="--cta: url('img/cta-presse-events.jpg')">
     <h2 class="reveal">Wir haben euch überzeugt?</h2>
     <p class="reveal">Schreibt uns einfach eine unverbindliche Nachricht, wir melden uns bei euch!</p>
-    <div class="cta-row reveal" style="justify-content:center">
-      <a class="btn btn-gold" href="kontakt/#anfrage">Kontakt</a>
+    <div class="home-bottom-actions reveal">
+      <a class="home-bottom-btn" href="kontakt/#anfrage">Kontakt</a>
     </div>
   </section>
 
