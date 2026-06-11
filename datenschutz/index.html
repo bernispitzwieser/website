@@ -931,6 +931,35 @@ form{
   filter:grayscale(1) saturate(0) !important;
 }
 
+
+/* === FINALER CTA-KONTAKT-BUTTON FIX === */
+.cta{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  text-align:center !important;
+}
+
+.cta > .btn,
+.cta a.btn{
+  align-self:center !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  display:inline-flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  text-align:center !important;
+}
+
+@media(max-width:760px){
+  .cta > .btn,
+  .cta a.btn{
+    width:280px !important;
+    max-width:calc(100vw - 64px) !important;
+    min-width:0 !important;
+  }
+}
+
 </style>
 </head>
 <body>

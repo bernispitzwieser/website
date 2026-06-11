@@ -1026,6 +1026,47 @@ form{
   filter:grayscale(1) saturate(0) !important;
 }
 
+
+/* === FINALER CTA-KONTAKT-BUTTON FIX === */
+.cta{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  text-align:center !important;
+}
+
+.cta > .btn,
+.cta a.btn{
+  align-self:center !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  display:inline-flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  text-align:center !important;
+}
+
+@media(max-width:760px){
+  .cta > .btn,
+  .cta a.btn{
+    width:280px !important;
+    max-width:calc(100vw - 64px) !important;
+    min-width:0 !important;
+  }
+}
+
+
+/* === PRESSE BUTTONS WIE HOME-OUTLINE === */
+.press-outline-btn{
+  background:rgba(17,18,20,.36) !important;
+  border-color:rgba(212,168,67,.58) !important;
+  color:#f1efe9 !important;
+}
+.press-outline-btn:hover{
+  border-color:rgba(212,168,67,.9) !important;
+  background:rgba(212,168,67,.12) !important;
+}
+
 </style>
 </head>
 <body>
@@ -1067,12 +1108,12 @@ form{
         <div class="card">
           <h3>Pressefotos</h3>
           <p>Band- und Bühnenfotos zur Ankündigung unserer Auftritte.</p>
-          <a class="btn btn-gold" href="https://drive.google.com/drive/folders/146Tj-N04MdJKCmLzXfjzWVCJdFRwZovG" target="_blank" rel="noopener">Fotos &amp; Logo öffnen</a>
+          <a class="btn press-outline-btn" href="https://drive.google.com/drive/folders/146Tj-N04MdJKCmLzXfjzWVCJdFRwZovG" target="_blank" rel="noopener">Fotos &amp; Logo öffnen</a>
         </div>
         <div class="card">
           <h3>Logo</h3>
           <p>Unser Logo und unsere Pressefotos findet ihr gesammelt in einem Download-Ordner.</p>
-          <a class="btn" href="https://drive.google.com/drive/folders/146Tj-N04MdJKCmLzXfjzWVCJdFRwZovG" target="_blank" rel="noopener">Logo öffnen</a>
+          <a class="btn press-outline-btn" href="https://drive.google.com/drive/folders/146Tj-N04MdJKCmLzXfjzWVCJdFRwZovG" target="_blank" rel="noopener">Logo öffnen</a>
         </div>
         <div class="card">
           <h3>Kurztext</h3>
