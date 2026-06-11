@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kontakt | Brassdorfer</title>
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<meta property="og:title" content="Kontakt | Brassdorfer">
+<meta property="og:description" content="Schreib uns einfach unverbindlich eine Nachricht und wir melden uns bei Dir!">
+<meta property="og:image" content="https://bernispitzwieser.github.io/website/img/hero-home.jpg">
+<meta property="og:type" content="website">
 <meta name="description" content="Schreib uns einfach unverbindlich eine Nachricht und wir melden uns bei Dir!">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -182,12 +187,6 @@ html,body{max-width:100%;overflow-x:hidden}
   .nav{padding-left:16px;padding-right:16px}
   .brand img{width:42px}
   .brand span{font-size:.9rem;letter-spacing:.11em;opacity:.84}
-  .hero{min-height:62vh;background-position:center top}
-  .hero.small{min-height:34vh}
-  .hero::before{background-position:center top}
-  .hero-in{padding:58px 0 42px}
-  .hero .tag{font-size:.78rem;letter-spacing:.16em}
-  h1{font-size:clamp(2rem,12vw,3rem)}
   .cta-row{gap:10px}
   .btn{max-width:100%;padding:12px 18px;font-size:.78rem;white-space:normal;text-align:center}
   details.ev summary{grid-template-columns:62px minmax(0,1fr);gap:12px;padding:16px}
@@ -206,43 +205,7 @@ html,body{max-width:100%;overflow-x:hidden}
 /* Finaler Mobile-Hero-Fix: Desktop bleibt unverändert, Handy wird gezielt entschärft */
 .hero-content{max-width:760px}
 .lead-mobile{display:none}
-@media(max-width:680px){
-  .hdr{position:sticky}
-  .nav{min-height:82px}
-  .hero{min-height:calc(100svh - 82px);align-items:flex-end}
-  .hero.small{min-height:46svh}
-  .hero::before{
-    /* Handy: breites Gruppenfoto nicht mehr heranzoomen, sondern in voller Breite zeigen */
-    background-position:center top;
-    background-size:100% auto;
-    transform:none;
-  }
-  .hero::after{
-    background:linear-gradient(180deg,rgba(17,18,20,.12),rgba(17,18,20,.08) 28%,rgba(17,18,20,.78) 58%,rgba(17,18,20,.99));
-  }
-  .hero-in{padding:clamp(220px,58vw,285px) 0 46px}
-  .hero-content{max-width:calc(100vw - 36px)}
-  .hero .tag{font-size:.68rem;letter-spacing:.14em;line-height:1.25;margin-bottom:8px;max-width:100%}
-  .hero h1{
-    font-size:clamp(2.05rem,10.6vw,2.75rem);
-    line-height:.96;
-    letter-spacing:.01em;
-    margin:6px 0 12px;
-    max-width:calc(100vw - 36px);
-    white-space:normal;
-    word-break:normal;
-    overflow-wrap:normal;
-  }
-  .hero p.lead{font-size:.98rem;line-height:1.5;max-width:30ch;margin-bottom:20px}
-  .lead-desktop{display:none!important}
-  .lead-mobile{display:block!important}
-  .cta-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:calc(100vw - 36px)}
-  .cta-row .btn{display:flex;align-items:center;justify-content:center;min-height:52px;padding:11px 12px;font-size:.74rem;letter-spacing:.06em;line-height:1.2}
-  .sec{padding:48px 0}
-  .sec-head{margin-bottom:26px}
-  h2{font-size:clamp(1.55rem,8vw,2.2rem);line-height:1.05}
-  .lead{font-size:1rem;line-height:1.6}
-}
+
 
 @media(max-width:480px){
   .brand{gap:9px}
@@ -303,96 +266,74 @@ html,body{max-width:100%;overflow-x:hidden}
   }
 }
 
-@media(max-width:680px){
-  .hero::before{
-    background-position:var(--hero-mobile-pos, center 28%);
-    background-size:cover;
-    transform:none;
-  }
-  .hero.small{
-    min-height:clamp(300px,46svh,410px);
-  }
-  .hero.small .hero-in{
-    padding:96px 0 42px;
-  }
 
-  .hero.hero-home{
-    min-height:clamp(570px,80svh,680px);
-    display:flex;
-    align-items:flex-end;
-  }
-  .hero.hero-home::before{
-    background-position:var(--hero-mobile-pos, center 28%);
-    background-size:cover;
-  }
-  .hero.hero-home::after{
-    background:linear-gradient(180deg,rgba(17,18,20,.24),rgba(17,18,20,.10) 30%,rgba(17,18,20,.70) 68%,rgba(17,18,20,.98));
-  }
-  .hero.hero-home .hero-in{
-    padding:140px 0 40px;
-  }
 
-  .member img{
-    aspect-ratio:3/4;
-    object-position:var(--member-mobile-pos, center center);
-  }
-}
 
-@media(max-width:480px){
-  .hero.hero-home{
-    min-height:clamp(540px,78svh,650px);
-  }
-  .hero.hero-home .hero-in{
-    padding:132px 0 36px;
-  }
-  .hero.small{
-    min-height:clamp(280px,42svh,370px);
-  }
-}
 
 
 
 /* Mobile-Hero-Bilder: eigene schmalere Zuschnitte, damit die Fotos am Handy nicht zu breit/flach wirken */
-@media(max-width:680px){
-  .hero::before{
-    background-image:var(--hero-mobile, var(--hero));
-    background-position:var(--hero-mobile-pos, center center);
-    background-size:cover;
-    background-repeat:no-repeat;
-  }
-  .hero.hero-home{
-    min-height:clamp(560px,78svh,670px);
-  }
-  .hero.hero-home .hero-in{
-    padding:clamp(150px,38svh,250px) 0 38px;
-  }
-  .hero.small{
-    min-height:clamp(320px,46svh,430px);
-  }
-  .hero.small .hero-in{
-    padding:clamp(112px,28svh,190px) 0 38px;
-  }
-  .cols img.framed{
-    width:min(100%,560px);
-    margin-left:auto;
-    margin-right:auto;
-  }
-  .cta{
-    background-image:linear-gradient(rgba(17,18,20,.86),rgba(17,18,20,.94)),var(--cta-mobile, var(--cta, none));
-    background-size:cover;
-    background-position:center center;
-  }
-}
-@media(max-width:480px){
-  .hero.hero-home{
-    min-height:clamp(540px,76svh,650px);
-  }
-}
+
+
 
 .hero-in{text-shadow:0 2px 18px rgba(0,0,0,.45)}
 .ev-body .row b{color:var(--text)}
 body{overflow-x:hidden}
-@media(max-width:680px){.badge{display:none}details.ev summary{grid-template-columns:60px 1fr auto;gap:12px}.ev-date{padding-right:12px}.ev-date .d{font-size:1.55rem}}
+
+
+/* ─── Mobile (konsolidiert – ersetzt die früheren Einzel-Blöcke) ─── */
+html{overflow-x:clip}
+body{overflow-x:clip}
+.hero.small::after{background:linear-gradient(180deg,rgba(17,18,20,.35) 0%,rgba(17,18,20,.12) 26%,rgba(17,18,20,.62) 62%,#111214 94%)}
+@media(max-width:680px){
+  .lead-desktop{display:none!important}
+  .lead-mobile{display:block!important}
+  .hero::before{
+    background-image:var(--hero-mobile, var(--hero));
+    background-position:var(--hero-mobile-pos, center 35%);
+    background-size:cover;
+    background-repeat:no-repeat;
+  }
+  .hero{min-height:min(78svh,640px)}
+  .hero .hero-in{padding:44svh 20px 36px;margin:0;width:100%;box-sizing:border-box}
+  .hero.small{min-height:min(44svh,400px)}
+  .hero.small .hero-in{padding:21svh 20px 32px}
+  .hero::after{background:linear-gradient(180deg,rgba(17,18,20,.30) 0%,rgba(17,18,20,.06) 30%,rgba(17,18,20,.55) 70%,#111214 100%)}
+  .hero.small::after{background:linear-gradient(180deg,rgba(17,18,20,.32) 0%,rgba(17,18,20,.10) 28%,rgba(17,18,20,.6) 64%,#111214 96%)}
+  .hero .tag{font-size:.72rem;letter-spacing:.18em}
+  .hero h1{font-size:clamp(2rem,11vw,2.8rem);overflow-wrap:break-word;max-width:100%}
+  .hero p.lead{font-size:1rem;max-width:34ch}
+  .cta-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
+  .cta-row .btn{display:flex;align-items:center;justify-content:center;min-height:50px;padding:11px 12px;font-size:.76rem;letter-spacing:.05em}
+  .member img{object-position:var(--member-mobile-pos, center 25%)}
+  .cta{background-image:linear-gradient(rgba(17,18,20,.86),rgba(17,18,20,.94)),var(--cta-mobile,var(--cta,none));background-size:cover;background-position:center}
+}
+@media(max-width:380px){
+  .cta-row{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(1.85rem,10.5vw,2.3rem)}
+}
+
+.gallery a:first-child{grid-column:span 2;grid-row:span 2}
+.gallery a:first-child img{height:100%;aspect-ratio:auto}
+.gallery a{display:block}
+.gallery img{height:100%}
+.insta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.insta img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px;border:1px solid var(--line);transition:transform .18s}
+.insta a:hover img{transform:scale(1.03)}
+@media(max-width:680px){.insta{gap:8px}}
+
+@media(min-width:861px){
+  .gallery a:first-child{grid-column:span 2;grid-row:span 2}
+  .gallery a:first-child img{height:100%;aspect-ratio:auto}
+}
+
+.insta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0 26px}
+.insta-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px;border:1px solid var(--line);transition:transform .18s}
+.insta-grid a:hover img{transform:scale(1.03)}
+.insta-handle{color:var(--gold);font-weight:600;text-decoration:none}
+details.ev.next .hint::before{content:"Nächster Auftritt · ";color:var(--gold);font-weight:600}
+.ev.next .ev-date .d{color:var(--gold)}
+.next-label{color:var(--gold);font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
 </style>
 </head>
 <body>
@@ -417,7 +358,7 @@ body{overflow-x:hidden}
 
 <main>
 
-  <section class="hero small" style="--hero: url('../img/hero-kontakt.jpg'); --hero-mobile: url('../img/hero-kontakt-mobile.jpg'); --hero-pos:center center; --hero-mobile-pos:center center">
+  <section class="hero small" style="--hero: url('../img/hero-kontakt.jpg'); --hero-mobile: url('../img/hero-kontakt-mobile.jpg'); --hero-pos:center 35%; --hero-mobile-pos:center 28%">
     <div class="wrap hero-in">
       <p class="tag">… des brasst!</p>
       <h1>Kontakt</h1>
@@ -432,11 +373,12 @@ body{overflow-x:hidden}
 
         <!-- FORMULAR (FormSubmit): sendet Website-Anfragen an Bernhard.
              Wichtig: Beim ersten Test-Versand muss die Zieladresse einmal bestätigt werden. -->
-        <form style="margin-top:26px" action="https://formsubmit.co/bernhard.spitzwieser@gmx.at" method="POST">
-          <input type="hidden" name="_subject" value="Neue Anfrage über brassdorfer.at">
+        <form style="margin-top:26px" action="https://formsubmit.co/brassdorfer@gmx.at" method="POST">
+                    <input type="hidden" name="_subject" value="Neue Anfrage über brassdorfer.at">
           <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://bernispitzwieser.github.io/danke/">
-          <input type="hidden" name="_blacklist" value="bitcoin, crypto, casino, spam">
+          <input type="hidden" name="_next" value="https://bernispitzwieser.github.io/website/danke/">
+          <input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_blacklist" value="bitcoin, crypto, casino, spam">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <div class="frow">
             <label>Vorname<input type="text" name="vorname" autocomplete="given-name"></label>
