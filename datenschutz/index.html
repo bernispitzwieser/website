@@ -343,146 +343,325 @@ details.ev.next .hint::before{content:"Nächster Auftritt · ";color:var(--gold)
   .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px;gap:10px}
 }
 
-/* === FINAL HANDY-KORREKTUR 2: nur responsive Zuschnitt/Layout, keine Bildzuordnung geändert === */
-html,body{overflow-x:hidden}
+/* ─── Feinschliff 2026-06: getrennte Desktop-/Handy-Bildwirkung ─── */
+.hero::before{
+  background-size:var(--hero-size, cover) !important;
+}
+@media(max-width:680px){
+  .hero::before{
+    background-size:var(--hero-mobile-size, cover) !important;
+    background-repeat:var(--hero-mobile-repeat, no-repeat) !important;
+  }
+  .hero.hero-home{
+    min-height:min(72svh,620px);
+  }
+  .hero.hero-home .hero-in{
+    padding-top:42svh;
+  }
+}
 
-/* Mobile: Hero-Bilder nicht seitlich wegschneiden */
+/* Presse-Galerie: Desktop 3×3, Handy/Tablet 2×4 statt einzelnes letztes Bild */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  align-items:stretch;
+}
+.gallery a,
+.gallery a.big,
+.gallery a.tall,
+.gallery a:first-child{
+  grid-column:auto !important;
+  grid-row:auto !important;
+  display:block;
+}
+.gallery img,
+.gallery a:first-child img{
+  width:100%;
+  height:100%;
+  aspect-ratio:3/2 !important;
+  object-fit:cover;
+  object-position:center center;
+}
+@media(max-width:860px){
+  .gallery{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+  .gallery a:nth-child(n+9){
+    display:none;
+  }
+}
+
+/* Kontakt: Formular großflächig, Kontaktdaten darunter */
+.contact-layout{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:30px !important;
+  align-items:start;
+}
+.contact-layout form{
+  width:100%;
+  max-width:none;
+}
+.contact-layout textarea{
+  min-height:190px;
+}
+.contact-layout .contact-info{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.contact-hero{
+  min-height:52vh;
+}
+@media(max-width:760px){
+  .contact-layout .contact-info{
+    grid-template-columns:1fr;
+  }
+}
+@media(max-width:680px){
+  .contact-hero{
+    min-height:min(34svh,320px) !important;
+  }
+  .contact-hero .hero-in{
+    padding:15svh 20px 30px !important;
+  }
+  .contact-layout textarea{
+    min-height:150px;
+  }
+}
+
+/* CTA ohne zweiten Button sauber zentrieren */
+.cta .cta-row .btn:only-child{
+  max-width:260px;
+  margin-inline:auto;
+}
+
+/* Mitglieder-Reihenfolge bleibt im HTML; mobile Darstellung bleibt einspaltig */
+
+
+/* === FINAL MOBILE FEINSCHLIFF === */
+
+/* Hero: mobile weniger Zoom, bessere Lesbarkeit, keine abgeschnittenen Buttons */
 @media(max-width:680px){
   .hero{
-    min-height:62svh !important;
-    overflow:hidden !important;
+    min-height:68svh;
+    overflow:hidden;
   }
   .hero.small{
-    min-height:38svh !important;
+    min-height:42svh;
   }
   .hero::before{
     background-image:var(--hero-mobile, var(--hero)) !important;
-    background-size:100% auto !important;
-    background-position:center top !important;
-    background-repeat:no-repeat !important;
+    background-position:var(--hero-mobile-pos, center center) !important;
+    background-size:cover !important;
   }
-  .hero::after{
-    background:linear-gradient(180deg,rgba(17,18,20,.08) 0%,rgba(17,18,20,.12) 28%,rgba(17,18,20,.58) 57%,#111214 100%) !important;
-  }
-  .hero.small::after{
-    background:linear-gradient(180deg,rgba(17,18,20,.08) 0%,rgba(17,18,20,.16) 32%,rgba(17,18,20,.70) 70%,#111214 100%) !important;
-  }
-  .hero .hero-in,
   .hero-in{
-    width:100% !important;
-    max-width:100% !important;
-    padding:31svh 20px 34px !important;
-    margin:0 !important;
-    box-sizing:border-box !important;
-  }
-  .hero.small .hero-in{
-    padding:18svh 20px 30px !important;
-  }
-  .hero .tag{
-    font-size:.70rem !important;
-    letter-spacing:.16em !important;
-    max-width:calc(100vw - 40px) !important;
+    padding:clamp(95px,20vh,150px) 0 36px !important;
   }
   .hero h1{
-    font-size:clamp(2.05rem,9.6vw,2.85rem) !important;
-    line-height:.98 !important;
-    letter-spacing:.01em !important;
-    max-width:calc(100vw - 40px) !important;
-    overflow-wrap:break-word !important;
-    word-break:normal !important;
+    font-size:clamp(2.55rem,13vw,3.75rem) !important;
+    line-height:.96 !important;
+    letter-spacing:.018em !important;
+    max-width:100%;
+    overflow-wrap:normal;
+  }
+  .hero .tag{
+    font-size:.72rem !important;
+    letter-spacing:.18em !important;
   }
   .hero p.lead{
-    font-size:.98rem !important;
-    line-height:1.48 !important;
+    font-size:1rem !important;
+    line-height:1.52 !important;
     max-width:31ch !important;
-    margin-bottom:20px !important;
+    margin-bottom:22px !important;
   }
   .cta-row{
     display:grid !important;
-    grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+    grid-template-columns:1fr 1fr !important;
     gap:10px !important;
     width:100% !important;
-    max-width:100% !important;
-    overflow:hidden !important;
   }
   .cta-row .btn{
     width:100% !important;
-    min-width:0 !important;
-    min-height:48px !important;
-    display:flex !important;
-    align-items:center !important;
-    justify-content:center !important;
     text-align:center !important;
-    padding:10px 7px !important;
-    font-size:.72rem !important;
-    letter-spacing:.045em !important;
+    padding:12px 10px !important;
+    font-size:.76rem !important;
+    letter-spacing:.06em !important;
     white-space:nowrap !important;
   }
 }
-@media(max-width:370px){
-  .hero h1{font-size:clamp(1.9rem,9vw,2.55rem)!important}
-  .cta-row .btn{font-size:.66rem!important;padding-left:5px!important;padding-right:5px!important}
+@media(max-width:390px){
+  .cta-row .btn{
+    font-size:.7rem !important;
+    padding:11px 7px !important;
+    letter-spacing:.045em !important;
+  }
 }
 
-/* Kontakt: Desktop besser positioniert, Formular volle Breite, Kontaktdaten darunter */
-.contact-hero::before{background-size:cover!important;background-position:center 62%!important}
-#anfrage .wrap.cols{
-  display:grid !important;
+/* Auf Seiten-Heros am Handy nicht zu stark beschneiden */
+@media(max-width:680px){
+  .hero.small::before{
+    background-size:cover !important;
+    background-position:var(--hero-mobile-pos, center center) !important;
+  }
+}
+
+/* Kontakt: Formular volle Breite, Kontaktdaten darunter */
+.contact-layout,
+.contact-grid,
+.kontakt-grid{
+  display:grid;
   grid-template-columns:1fr !important;
   gap:28px !important;
-  align-items:start !important;
 }
-#anfrage form{
+.contact-form,
+.form-card,
+form{
   width:100% !important;
   max-width:none !important;
 }
-#anfrage .contact-info{
+.contact-info{
   width:100% !important;
   max-width:none !important;
 }
 @media(min-width:900px){
-  #anfrage .frow{grid-template-columns:1fr 1fr !important}
-}
-@media(max-width:680px){
-  .contact-hero{min-height:34svh!important}
-  .contact-hero .hero-in{padding:17svh 20px 28px!important}
+  .contact-layout,
+  .contact-grid,
+  .kontakt-grid{
+    grid-template-columns:1fr !important;
+  }
+  form{
+    max-width:none !important;
+  }
+  .frow{
+    grid-template-columns:1fr 1fr !important;
+  }
 }
 
-/* Presse: Rechteckige Galerie ohne einzelnes letztes Bild */
+/* Presse-Galerie: sauberes Rechteck, kein einzelnes letztes Bild */
 .gallery{
   grid-template-columns:repeat(3,1fr) !important;
 }
-.gallery a{
-  display:block !important;
-  grid-column:auto !important;
-  grid-row:auto !important;
-}
-.gallery a:nth-child(n+10){
+.gallery a:nth-child(n+10),
+.gallery img:nth-child(n+10){
   display:none !important;
-}
-.gallery img{
-  width:100% !important;
-  height:100% !important;
-  aspect-ratio:3/2 !important;
-  object-fit:cover !important;
 }
 @media(max-width:760px){
   .gallery{
     grid-template-columns:repeat(2,1fr) !important;
   }
-  .gallery a:nth-child(n+9){
+  .gallery a:nth-child(n+9),
+  .gallery img:nth-child(n+9){
     display:none !important;
   }
 }
+.gallery img{
+  aspect-ratio:3/2 !important;
+  object-fit:cover !important;
+}
 
-/* Mitglieder-Reihenfolge zusätzlich per CSS abgesichert */
-.members .member:has(img[src*="portrait-tobias"]),
+/* Mitglieder-Reihenfolge: Tobias, Patricia, Bernhard */
+.members .member[data-member="tobias"],
 .members .member.member-tobias{order:1!important}
-.members .member:has(img[src*="portrait-patricia"]),
+.members .member[data-member="patricia"],
 .members .member.member-patricia{order:2!important}
-.members .member:has(img[src*="portrait-bernhard"]),
+.members .member[data-member="bernhard"],
 .members .member.member-bernhard{order:3!important}
-.members .member:has(img[src*="portrait-michael-auer"]){order:4!important}
+
+
+/* === RESPONSIVE FINALFIX: Mobile-Bilder & Mitglieder === */
+
+/* Desktop bleibt wie bestehend; ab Tablet/Handy werden Hero-Bilder weniger brutal gecroppt. */
+@media(max-width:760px){
+  .hero{
+    min-height:68svh;
+    overflow:hidden;
+  }
+  .hero.small{
+    min-height:44svh;
+  }
+  .hero::before{
+    background-image:var(--hero-mobile, var(--hero)) !important;
+    background-position:var(--hero-mobile-pos, center center) !important;
+    background-size:var(--hero-mobile-size, contain) !important;
+    background-repeat:no-repeat !important;
+    background-color:#111214 !important;
+  }
+  .hero::after{
+    background:linear-gradient(180deg,rgba(17,18,20,.18) 0%,rgba(17,18,20,.08) 36%,rgba(17,18,20,.48) 68%,#111214 100%) !important;
+  }
+  .hero-in{
+    padding:clamp(110px,22vh,170px) 0 34px !important;
+  }
+  .hero h1{
+    font-size:clamp(2.45rem,12vw,3.55rem) !important;
+    line-height:.96 !important;
+    letter-spacing:.015em !important;
+    max-width:100%;
+  }
+  .hero.small h1{
+    font-size:clamp(2.35rem,11vw,3.25rem) !important;
+  }
+  .hero p.lead{
+    font-size:.98rem !important;
+    line-height:1.5 !important;
+    max-width:32ch !important;
+  }
+  .cta-row{
+    width:100% !important;
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+    gap:10px !important;
+  }
+  .cta-row .btn{
+    width:100% !important;
+    min-width:0 !important;
+    text-align:center !important;
+    white-space:nowrap !important;
+    padding:12px 8px !important;
+    font-size:.72rem !important;
+    letter-spacing:.055em !important;
+  }
+}
+@media(max-width:380px){
+  .cta-row .btn{
+    font-size:.66rem !important;
+    padding:11px 6px !important;
+  }
+}
+
+/* Mitglieder-Seite: fixes Raster und fixe Reihenfolge */
+.members{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+}
+.member.member-tobias{order:1!important}
+.member.member-patricia{order:2!important}
+.member.member-bernhard{order:3!important}
+.member.member-michael-auer{order:4!important}
+.member.member-daniel{order:5!important}
+.member.member-dominik{order:6!important}
+.member.member-thomas{order:7!important}
+.member.member-michael-helmberger{order:8!important}
+.member.member-ralf{order:9!important}
+
+@media(max-width:980px){
+  .members{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+@media(max-width:620px){
+  .members{
+    grid-template-columns:1fr !important;
+  }
+}
+
+/* Mitgliederbilder mobil nicht zusätzlich verreißen */
+.member img{
+  object-position:center center;
+}
 
 </style>
 </head>
