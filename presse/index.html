@@ -440,6 +440,136 @@ details.ev.next .hint::before{content:"Nächster Auftritt · ";color:var(--gold)
 
 /* Mitglieder-Reihenfolge bleibt im HTML; mobile Darstellung bleibt einspaltig */
 
+
+/* === FINAL MOBILE FEINSCHLIFF === */
+
+/* Hero: mobile weniger Zoom, bessere Lesbarkeit, keine abgeschnittenen Buttons */
+@media(max-width:680px){
+  .hero{
+    min-height:68svh;
+    overflow:hidden;
+  }
+  .hero.small{
+    min-height:42svh;
+  }
+  .hero::before{
+    background-image:var(--hero-mobile, var(--hero)) !important;
+    background-position:var(--hero-mobile-pos, center center) !important;
+    background-size:cover !important;
+  }
+  .hero-in{
+    padding:clamp(95px,20vh,150px) 0 36px !important;
+  }
+  .hero h1{
+    font-size:clamp(2.55rem,13vw,3.75rem) !important;
+    line-height:.96 !important;
+    letter-spacing:.018em !important;
+    max-width:100%;
+    overflow-wrap:normal;
+  }
+  .hero .tag{
+    font-size:.72rem !important;
+    letter-spacing:.18em !important;
+  }
+  .hero p.lead{
+    font-size:1rem !important;
+    line-height:1.52 !important;
+    max-width:31ch !important;
+    margin-bottom:22px !important;
+  }
+  .cta-row{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:10px !important;
+    width:100% !important;
+  }
+  .cta-row .btn{
+    width:100% !important;
+    text-align:center !important;
+    padding:12px 10px !important;
+    font-size:.76rem !important;
+    letter-spacing:.06em !important;
+    white-space:nowrap !important;
+  }
+}
+@media(max-width:390px){
+  .cta-row .btn{
+    font-size:.7rem !important;
+    padding:11px 7px !important;
+    letter-spacing:.045em !important;
+  }
+}
+
+/* Auf Seiten-Heros am Handy nicht zu stark beschneiden */
+@media(max-width:680px){
+  .hero.small::before{
+    background-size:cover !important;
+    background-position:var(--hero-mobile-pos, center center) !important;
+  }
+}
+
+/* Kontakt: Formular volle Breite, Kontaktdaten darunter */
+.contact-layout,
+.contact-grid,
+.kontakt-grid{
+  display:grid;
+  grid-template-columns:1fr !important;
+  gap:28px !important;
+}
+.contact-form,
+.form-card,
+form{
+  width:100% !important;
+  max-width:none !important;
+}
+.contact-info{
+  width:100% !important;
+  max-width:none !important;
+}
+@media(min-width:900px){
+  .contact-layout,
+  .contact-grid,
+  .kontakt-grid{
+    grid-template-columns:1fr !important;
+  }
+  form{
+    max-width:none !important;
+  }
+  .frow{
+    grid-template-columns:1fr 1fr !important;
+  }
+}
+
+/* Presse-Galerie: sauberes Rechteck, kein einzelnes letztes Bild */
+.gallery{
+  grid-template-columns:repeat(3,1fr) !important;
+}
+.gallery a:nth-child(n+10),
+.gallery img:nth-child(n+10){
+  display:none !important;
+}
+@media(max-width:760px){
+  .gallery{
+    grid-template-columns:repeat(2,1fr) !important;
+  }
+  .gallery a:nth-child(n+9),
+  .gallery img:nth-child(n+9){
+    display:none !important;
+  }
+}
+.gallery img{
+  aspect-ratio:3/2 !important;
+  object-fit:cover !important;
+}
+
+/* Mitglieder-Reihenfolge: Tobias, Patricia, Bernhard */
+.members .member[data-member="tobias"],
+.members .member.member-tobias{order:1!important}
+.members .member[data-member="patricia"],
+.members .member.member-patricia{order:2!important}
+.members .member[data-member="bernhard"],
+.members .member.member-bernhard{order:3!important}
+
 </style>
 </head>
 <body>
@@ -464,7 +594,7 @@ details.ev.next .hint::before{content:"Nächster Auftritt · ";color:var(--gold)
 
 <main>
 
-  <section class="hero small" style="--hero: url('../img/hero-presse.jpg'); --hero-mobile: url('../img/hero-presse-mobile.jpg'); --hero-pos:center 40%; --hero-mobile-pos:center top; --hero-mobile-size:100% auto">
+  <section class="hero small" style="--hero: url('../img/hero-presse.jpg'); --hero-mobile: url('../img/hero-presse-mobile.jpg'); --hero-pos:center 40%; --hero-mobile-pos:center top; --hero-mobile-size:100% auto; --hero-mobile:url('../img/hero-presse-mobile.jpg'); --hero-mobile-pos:center center">
     <div class="wrap hero-in">
       <p class="tag">… des brasst!</p>
       <h1>Presse &amp; Downloads</h1>

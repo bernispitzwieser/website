@@ -439,6 +439,136 @@ details.ev.next .hint::before{content:"Nächster Auftritt · ";color:var(--gold)
 
 /* Mitglieder-Reihenfolge bleibt im HTML; mobile Darstellung bleibt einspaltig */
 
+
+/* === FINAL MOBILE FEINSCHLIFF === */
+
+/* Hero: mobile weniger Zoom, bessere Lesbarkeit, keine abgeschnittenen Buttons */
+@media(max-width:680px){
+  .hero{
+    min-height:68svh;
+    overflow:hidden;
+  }
+  .hero.small{
+    min-height:42svh;
+  }
+  .hero::before{
+    background-image:var(--hero-mobile, var(--hero)) !important;
+    background-position:var(--hero-mobile-pos, center center) !important;
+    background-size:cover !important;
+  }
+  .hero-in{
+    padding:clamp(95px,20vh,150px) 0 36px !important;
+  }
+  .hero h1{
+    font-size:clamp(2.55rem,13vw,3.75rem) !important;
+    line-height:.96 !important;
+    letter-spacing:.018em !important;
+    max-width:100%;
+    overflow-wrap:normal;
+  }
+  .hero .tag{
+    font-size:.72rem !important;
+    letter-spacing:.18em !important;
+  }
+  .hero p.lead{
+    font-size:1rem !important;
+    line-height:1.52 !important;
+    max-width:31ch !important;
+    margin-bottom:22px !important;
+  }
+  .cta-row{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:10px !important;
+    width:100% !important;
+  }
+  .cta-row .btn{
+    width:100% !important;
+    text-align:center !important;
+    padding:12px 10px !important;
+    font-size:.76rem !important;
+    letter-spacing:.06em !important;
+    white-space:nowrap !important;
+  }
+}
+@media(max-width:390px){
+  .cta-row .btn{
+    font-size:.7rem !important;
+    padding:11px 7px !important;
+    letter-spacing:.045em !important;
+  }
+}
+
+/* Auf Seiten-Heros am Handy nicht zu stark beschneiden */
+@media(max-width:680px){
+  .hero.small::before{
+    background-size:cover !important;
+    background-position:var(--hero-mobile-pos, center center) !important;
+  }
+}
+
+/* Kontakt: Formular volle Breite, Kontaktdaten darunter */
+.contact-layout,
+.contact-grid,
+.kontakt-grid{
+  display:grid;
+  grid-template-columns:1fr !important;
+  gap:28px !important;
+}
+.contact-form,
+.form-card,
+form{
+  width:100% !important;
+  max-width:none !important;
+}
+.contact-info{
+  width:100% !important;
+  max-width:none !important;
+}
+@media(min-width:900px){
+  .contact-layout,
+  .contact-grid,
+  .kontakt-grid{
+    grid-template-columns:1fr !important;
+  }
+  form{
+    max-width:none !important;
+  }
+  .frow{
+    grid-template-columns:1fr 1fr !important;
+  }
+}
+
+/* Presse-Galerie: sauberes Rechteck, kein einzelnes letztes Bild */
+.gallery{
+  grid-template-columns:repeat(3,1fr) !important;
+}
+.gallery a:nth-child(n+10),
+.gallery img:nth-child(n+10){
+  display:none !important;
+}
+@media(max-width:760px){
+  .gallery{
+    grid-template-columns:repeat(2,1fr) !important;
+  }
+  .gallery a:nth-child(n+9),
+  .gallery img:nth-child(n+9){
+    display:none !important;
+  }
+}
+.gallery img{
+  aspect-ratio:3/2 !important;
+  object-fit:cover !important;
+}
+
+/* Mitglieder-Reihenfolge: Tobias, Patricia, Bernhard */
+.members .member[data-member="tobias"],
+.members .member.member-tobias{order:1!important}
+.members .member[data-member="patricia"],
+.members .member.member-patricia{order:2!important}
+.members .member[data-member="bernhard"],
+.members .member.member-bernhard{order:3!important}
+
 </style>
 </head>
 <body>
@@ -463,7 +593,7 @@ details.ev.next .hint::before{content:"Nächster Auftritt · ";color:var(--gold)
 
 <main>
 
-  <section class="hero small" style="--hero: url('../img/galerie-1.jpg'); --hero-mobile: url('../img/galerie-1.jpg'); --hero-pos:center 38%; --hero-mobile-pos:center 35%">
+  <section class="hero small" style="--hero: url('../img/galerie-1.jpg'); --hero-mobile: url('../img/galerie-1.jpg'); --hero-pos:center 38%; --hero-mobile-pos:center 35%; --hero-mobile-pos:center center">
     <div class="wrap hero-in">
       <p class="tag">… des brasst!</p>
       <h1>Über uns</h1>
@@ -489,15 +619,15 @@ details.ev.next .hint::before{content:"Nächster Auftritt · ";color:var(--gold)
         <h2>Unsere Bandmitglieder</h2>
       </div>
       <div class="members">
-        <article class="member reveal">
+        <article class="member reveal" data-member="tobias">
           <img src="../img/portrait-tobias.jpg" alt="Tobias Schnaitl – Trompete und Gesang" loading="lazy">
           <div class="mb"><h3>Tobias Schnaitl</h3><p class="role">Trompete und Gesang</p><p>Auch wenn Tobias Tomaten über alles hasst, sieht er ansonsten selten rot. Tobias ist spätestens nach seinem ersten Entspannungs-Schluck Bier bei egal welchem Auftritt direkt Herr der Lage und arrangiert sich nicht nur mit jedem Brautpaar, Veranstalter und Tontechniker, sondern auch unsere Stücke perfekt bis ins Detail.</p></div>
         </article>
-        <article class="member reveal">
+        <article class="member reveal" data-member="patricia">
           <img src="../img/portrait-patricia.jpg" alt="Patricia Habl – Trompete und Gesang" loading="lazy">
           <div class="mb"><h3>Patricia Habl</h3><p class="role">Trompete und Gesang</p><p>Aufgrund ihrer Größe leicht zu übersehen aber niemals zu überhören. Wie man sie in aller Kürze beschreiben könnte: ein musikalisches Talent mit optimaler Raumausnutzung. Neben ihren Gesangs- und Trompeten-Künsten ist wohl ihre größte Stärke, bei 8 (jungen) Burschen nicht die Nerven zu verlieren.</p></div>
         </article>
-        <article class="member reveal">
+        <article class="member reveal" data-member="bernhard">
           <img src="../img/portrait-bernhard.jpg" alt="Bernhard Spitzwieser – Trompete" loading="lazy">
           <div class="mb"><h3>Bernhard Spitzwieser</h3><p class="role">Trompete</p><p>Unser Legionär aus St. Radegund konnte früh seinen Traum verwirklichen und in den Brassdorfer Stammkader eintreten. Trotz zahlreicher Verletzungen war es ihm irgendwie möglich, sich in der wilden Welt der Trompeter zu behaupten und auch zu beweisen: die Betreuung der Lichttechnik hat er im kleinen Finger.</p></div>
         </article>
