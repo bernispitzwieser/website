@@ -1267,6 +1267,10 @@ form button[type="submit"],
           <label>Nachricht *<textarea name="nachricht" required></textarea></label>
           <div><button class="btn btn-gold" type="submit">Senden</button></div>
         </form>
+        <div id="form-error" style="display:none;margin-top:14px;padding:14px 16px;border:1px solid #a2362e;border-radius:8px;background:rgba(162,54,46,.12);font-size:.95rem">
+          Hoppla – das Senden hat gerade nicht geklappt. Bitte versuch es gleich nochmal oder schreib uns direkt:
+          <a id="form-mailto" href="mailto:brassdorfer@gmx.at">brassdorfer@gmx.at</a>
+        </div>
       </div>
 
       <div class="contact-info reveal">
@@ -1329,5 +1333,48 @@ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isInter
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 </script>
 
+
+<script>
+/* Robustes Formular: sendet per Skript an FormSubmit; bei Fehler erscheint eine
+   Meldung mit Mail-Fallback. Ohne JavaScript greift weiter der normale Versand. */
+(function(){
+  var form = document.querySelector('form[action*="formsubmit"]');
+  if(!form || !window.fetch) return;
+  form.addEventListener('submit', function(ev){
+    if(!form.checkValidity()) return; // Browser zeigt Pflichtfeld-Hinweise
+    ev.preventDefault();
+    var btn = form.querySelector('[type="submit"], button');
+    var old = btn ? btn.textContent : '';
+    if(btn){ btn.disabled = true; btn.textContent = 'Wird gesendet …'; }
+    var err = document.getElementById('form-error');
+    var ctrl = new AbortController();
+    var timer = setTimeout(function(){ ctrl.abort(); }, 12000);
+    fetch('https://formsubmit.co/ajax/brassdorfer@gmx.at', {
+      method:'POST', body:new FormData(form),
+      headers:{'Accept':'application/json'}, signal:ctrl.signal
+    }).then(function(r){
+      clearTimeout(timer);
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      return r.json();
+    }).then(function(){
+      window.location.href = '../danke/';
+    }).catch(function(){
+      clearTimeout(timer);
+      if(btn){ btn.disabled = false; btn.textContent = old; }
+      if(err){
+        var d = new FormData(form);
+        var body = ['Anfrage über die Website (Formular-Fallback):','',
+          'Name: '+(d.get('vorname')||'')+' '+(d.get('nachname')||''),
+          'E-Mail: '+(d.get('email')||''), 'Telefon: '+(d.get('tel')||''),
+          'Nachricht:', d.get('nachricht')||''].join('\n');
+        var m = document.getElementById('form-mailto');
+        if(m) m.href = 'mailto:brassdorfer@gmx.at?subject='+encodeURIComponent('Anfrage über brassdorfer.at')+'&body='+encodeURIComponent(body);
+        err.style.display = 'block';
+        err.scrollIntoView({behavior:'smooth', block:'center'});
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>

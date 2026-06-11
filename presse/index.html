@@ -1237,6 +1237,20 @@ form{
   }
 }
 
+
+/* ─── Foto-Collage: volle Bilder, keine Zuschnitte, schließt als Rechteck ab ─── */
+.collage{display:flex;flex-direction:column;gap:12px}
+.collage .crow{display:flex;gap:12px}
+.collage a{display:block;min-width:0;flex-grow:var(--r);flex-basis:0;border-radius:8px;overflow:hidden}
+.collage img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--line);transition:transform .18s}
+.collage a:hover img{transform:scale(1.02)}
+.collage-mobile{display:none}
+@media(max-width:700px){
+  .collage-desktop{display:none}
+  .collage-mobile{display:flex}
+  .collage .crow{gap:8px}
+  .collage{gap:8px}
+}
 </style>
 </head>
 <body class="page-presse">
@@ -1287,15 +1301,38 @@ form{
       </div>
 
       <div class="sec-head reveal" style="margin-top:56px">
-        <h2 style="font-size:1.4rem">Eindrücke</h2>
+        <h2 style="font-size:1.4rem">Band &amp; Bühne</h2>
       </div>
-      <div class="gallery press-gallery reveal">
-        <a href="../img/presse/sitzrunde-berg.jpg" target="_blank" rel="noopener" style="--img-pos:center 38%"><img src="../img/presse/sitzrunde-berg.jpg" alt="Brassdorfer in entspannter Runde auf der Wiese" loading="lazy"></a>
-        <a href="../img/presse/patricia-getragen.jpg" target="_blank" rel="noopener" style="--img-pos:center 42%"><img src="../img/presse/patricia-getragen.jpg" alt="Brassdorfer Gruppenfoto mit Patricia in der Mitte" loading="lazy"></a>
-        <a href="../img/presse/bandgruppe-berg.jpg" target="_blank" rel="noopener" style="--img-pos:center 42%"><img src="../img/presse/bandgruppe-berg.jpg" alt="Brassdorfer Gruppenbild auf der Bergwiese" loading="lazy"></a>
-        <a href="../img/presse/schlagzeug-buehne.jpg" target="_blank" rel="noopener" style="--img-pos:center 48%"><img src="../img/presse/schlagzeug-buehne.jpg" alt="Schlagzeug auf der Bühne mit Brassdorfer Logo" loading="lazy"></a>
-        <a href="../img/presse/posaune-buehne.jpg" target="_blank" rel="noopener" style="--img-pos:center 38%"><img src="../img/presse/posaune-buehne.jpg" alt="Brassdorfer Musiker mit Posaune auf der Bühne" loading="lazy"></a>
-        <a href="../img/presse/cap-schwarzweiss.jpg" target="_blank" rel="noopener" style="--img-pos:center 44%"><img src="../img/presse/cap-schwarzweiss.jpg" alt="Brassdorfer Kappe in Schwarzweiß" loading="lazy"></a>
+            <div class="collage collage-desktop reveal">
+        <div class="crow">
+          <a style="--r:0.667" href="../img/presse/sitzrunde-berg.jpg" target="_blank" rel="noopener"><img src="../img/presse/sitzrunde-berg.jpg" alt="Brassdorfer in entspannter Runde auf der Wiese" loading="lazy"></a>
+          <a style="--r:1.5" href="../img/presse/patricia-getragen.jpg" target="_blank" rel="noopener"><img src="../img/presse/patricia-getragen.jpg" alt="Brassdorfer Gruppenfoto mit Patricia in der Mitte" loading="lazy"></a>
+          <a style="--r:0.667" href="../img/presse/bandgruppe-berg.jpg" target="_blank" rel="noopener"><img src="../img/presse/bandgruppe-berg.jpg" alt="Brassdorfer Gruppenbild auf der Bergwiese" loading="lazy"></a>
+        </div>
+        <div class="crow">
+          <a style="--r:0.667" href="../img/presse/posaune-buehne.jpg" target="_blank" rel="noopener"><img src="../img/presse/posaune-buehne.jpg" alt="Brassdorfer Musiker mit Posaune auf der Bühne" loading="lazy"></a>
+          <a style="--r:1.5" href="../img/presse/schlagzeug-buehne.jpg" target="_blank" rel="noopener"><img src="../img/presse/schlagzeug-buehne.jpg" alt="Schlagzeug auf der Bühne mit Brassdorfer Logo" loading="lazy"></a>
+          <a style="--r:0.667" href="../img/presse/cap-schwarzweiss.jpg" target="_blank" rel="noopener"><img src="../img/presse/cap-schwarzweiss.jpg" alt="Brassdorfer Kappe in Schwarzweiß" loading="lazy"></a>
+        </div>
+        <div class="crow">
+          <a style="--r:1.5" href="../img/gallery/full/gallery-01.jpg" target="_blank" rel="noopener"><img src="../img/gallery/full/gallery-01.jpg" alt="Die Brassdorfer mit erhobenen Instrumenten in der Abenddämmerung" loading="lazy"></a>
+          <a style="--r:0.667" href="../img/gallery/full/gallery-15.jpg" target="_blank" rel="noopener"><img src="../img/gallery/full/gallery-15.jpg" alt="Gruppenbild in der Abenddämmerung" loading="lazy"></a>
+          <a style="--r:1.5" href="../img/gallery/full/gallery-12.jpg" target="_blank" rel="noopener"><img src="../img/gallery/full/gallery-12.jpg" alt="Die Band in der blauen Stunde mit Blick ins Tal" loading="lazy"></a>
+        </div>
+      </div>
+      <div class="collage collage-mobile reveal">
+        <div class="crow">
+          <a style="--r:0.667" href="../img/presse/sitzrunde-berg.jpg" target="_blank" rel="noopener"><img src="../img/presse/sitzrunde-berg.jpg" alt="Brassdorfer in entspannter Runde auf der Wiese" loading="lazy"></a>
+          <a style="--r:1.5" href="../img/presse/patricia-getragen.jpg" target="_blank" rel="noopener"><img src="../img/presse/patricia-getragen.jpg" alt="Brassdorfer Gruppenfoto mit Patricia in der Mitte" loading="lazy"></a>
+        </div>
+        <div class="crow">
+          <a style="--r:0.667" href="../img/presse/posaune-buehne.jpg" target="_blank" rel="noopener"><img src="../img/presse/posaune-buehne.jpg" alt="Brassdorfer Musiker mit Posaune auf der Bühne" loading="lazy"></a>
+          <a style="--r:1.5" href="../img/presse/schlagzeug-buehne.jpg" target="_blank" rel="noopener"><img src="../img/presse/schlagzeug-buehne.jpg" alt="Schlagzeug auf der Bühne mit Brassdorfer Logo" loading="lazy"></a>
+        </div>
+        <div class="crow">
+          <a style="--r:0.667" href="../img/gallery/full/gallery-15.jpg" target="_blank" rel="noopener"><img src="../img/gallery/full/gallery-15.jpg" alt="Gruppenbild in der Abenddämmerung" loading="lazy"></a>
+          <a style="--r:1.5" href="../img/gallery/full/gallery-01.jpg" target="_blank" rel="noopener"><img src="../img/gallery/full/gallery-01.jpg" alt="Die Brassdorfer mit erhobenen Instrumenten in der Abenddämmerung" loading="lazy"></a>
+        </div>
       </div>
     </div>
   </section>
