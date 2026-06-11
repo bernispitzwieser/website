@@ -872,6 +872,22 @@ form{
   }
 }
 
+
+/* === CTA Button Zentrierung === */
+.cta{
+  text-align:center;
+}
+.cta .btn{
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+@media(max-width:760px){
+  .cta .btn{
+    display:inline-flex !important;
+    width:min(100%, 280px) !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -925,7 +941,9 @@ form{
             <span class="ev-title"><h3>Hochburg-Acher Wiesenfest</h3><span class="hint">Bereits gespielt</span></span>
             <span class="chev" aria-hidden="true">Mehr Infos</span>
           </summary>
-          <div class="ev-body"><div class="row"><span>Bereits gespielt.</span></div></div>
+          <div class="ev-body">
+            <div class="row"><span><b>Ort:</b> AT-5122 Hochburg-Ach, Oberösterreich</span></div>
+          </div>
         </details>
         <!-- ▲ Ende Termin-Block ▲ -->
       </div>
