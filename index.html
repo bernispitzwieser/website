@@ -1322,6 +1322,141 @@ form{
   }
 }
 
+
+/* === HOME HANDY: sauberer Reset nach finaler Kontrolle === */
+@media(max-width:760px){
+  /* Hero wieder kompakter: breites Bild, nicht zu hoch */
+  .hero.hero-home{
+    min-height:0 !important;
+    height:auto !important;
+    display:block !important;
+    padding-top:50svh !important;
+    background:#111214 !important;
+    overflow:hidden !important;
+  }
+
+  .hero.hero-home::before{
+    height:50svh !important;
+    inset:0 0 auto 0 !important;
+    bottom:auto !important;
+    background-image:var(--hero) !important;
+    background-size:cover !important;
+    /* mehr vom linken Bildbereich sichtbar, rechts darf mehr weg */
+    background-position:42% center !important;
+    background-repeat:no-repeat !important;
+    background-color:#111214 !important;
+  }
+
+  .hero.hero-home::after{
+    height:50svh !important;
+    inset:0 0 auto 0 !important;
+    bottom:auto !important;
+    background:linear-gradient(180deg,rgba(17,18,20,.24) 0%,rgba(17,18,20,.08) 35%,rgba(17,18,20,.50) 76%,#111214 100%) !important;
+  }
+
+  /* Titel wieder auf das Bild, aber nicht zu hoch */
+  .hero-home-title-mobile{
+    display:block !important;
+    position:absolute !important;
+    left:0 !important;
+    right:0 !important;
+    top:calc(50svh - 118px) !important;
+    z-index:3 !important;
+    pointer-events:none !important;
+  }
+
+  .hero-home-title-mobile .tag{
+    font-size:.72rem !important;
+    letter-spacing:.18em !important;
+    margin:0 0 7px !important;
+    color:var(--gold) !important;
+    text-shadow:0 2px 18px rgba(0,0,0,.45) !important;
+  }
+
+  .hero-home-title-mobile h1{
+    margin:0 !important;
+    font-size:clamp(2.35rem,11.5vw,3.35rem) !important;
+    line-height:.96 !important;
+    letter-spacing:.015em !important;
+    color:#f1efe9 !important;
+    text-shadow:0 2px 18px rgba(0,0,0,.45) !important;
+  }
+
+  .hero.hero-home .hero-in{
+    position:static !important;
+    padding:0 0 28px !important;
+    background:#111214 !important;
+  }
+
+  .hero.hero-home .hero-in > .tag,
+  .hero.hero-home .hero-in > h1{
+    display:none !important;
+  }
+
+  .hero.hero-home p.lead{
+    text-align:center !important;
+    margin:18px auto 18px !important;
+    max-width:34ch !important;
+    line-height:1.46 !important;
+  }
+
+  .hero.hero-home .cta-row{
+    width:calc(100% - 40px) !important;
+    margin:0 auto !important;
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+    gap:12px !important;
+  }
+}
+
+/* Unterer Home-Kontaktbutton: komplett unabhängig von .btn/.cta-Regeln */
+.home-bottom-cta,
+#home-kontakt-cta{
+  text-align:center !important;
+}
+
+.home-bottom-cta .cta-actions,
+#home-kontakt-cta .cta-actions{
+  width:100% !important;
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  margin:26px auto 0 !important;
+  text-align:center !important;
+}
+
+.home-bottom-btn{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:220px !important;
+  min-width:220px !important;
+  max-width:220px !important;
+  height:54px !important;
+  margin:0 auto !important;
+  padding:0 24px !important;
+  border-radius:var(--r) !important;
+  border:1px solid var(--cta-border) !important;
+  background:var(--cta-bg) !important;
+  color:var(--text) !important;
+  font-family:inherit !important;
+  font-weight:700 !important;
+  font-size:.85rem !important;
+  letter-spacing:.08em !important;
+  line-height:1.25 !important;
+  text-transform:uppercase !important;
+  text-decoration:none !important;
+  text-align:center !important;
+  box-sizing:border-box !important;
+  transform:none !important;
+}
+
+.home-bottom-btn:hover{
+  background:var(--cta-hover) !important;
+  border-color:rgba(212,168,67,.72) !important;
+  color:var(--text) !important;
+}
+
 </style>
 </head>
 <body>
@@ -1357,7 +1492,7 @@ form{
       <p class="lead lead-desktop">Neun Musiker, ein unverkennbarer Sound: Brass, Groove und Stimmung für jedes Fest.</p>
       <p class="lead lead-mobile">Neun Musiker, ein unverkennbarer Sound: Brass, Groove und Stimmung für jedes Fest.</p>
       <div class="cta-row">
-        <a class="btn btn-gold" href="kontakt/#anfrage">Kontakt</a>
+        <a class="home-bottom-btn" href="kontakt/#anfrage">Kontakt</a>
         <a class="btn" href="events/">Unsere Events</a>
       </div>
     </div>
