@@ -1188,6 +1188,40 @@ form{
   }
 }
 
+
+/* === PRESSE: Downloads auf zwei Kacheln reduziert === */
+.download-grid-two{
+  grid-template-columns:1fr 1fr !important;
+}
+
+.download-grid-two .download-card{
+  min-height:220px !important;
+}
+
+@media(max-width:860px){
+  .download-grid-two{
+    grid-template-columns:1fr !important;
+  }
+}
+
+
+/* === PRESSE: Download-Kacheln 2-spaltig === */
+.cards2{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:22px !important;
+}
+
+.cards2 .card{
+  min-height:220px !important;
+}
+
+@media(max-width:860px){
+  .cards2{
+    grid-template-columns:1fr !important;
+  }
+}
+
 </style>
 </head>
 <body class="page-presse">
@@ -1225,16 +1259,11 @@ form{
         <h2>Downloads</h2>
         <p class="lead">Hier kannst du Bilder, unser Logo und viele weitere Infos herunterladen.</p>
       </div>
-      <div class="cards3 reveal">
+      <div class="cards3 cards2 reveal">
         <div class="card">
-          <h3>Pressefotos</h3>
-          <p>Band- und Bühnenfotos zur Ankündigung unserer Auftritte.</p>
+          <h3>Pressefotos &amp; Logo</h3>
+          <p>Band- und Bühnenfotos sowie unser Logo findet ihr gesammelt in einem Download-Ordner.</p>
           <a class="btn press-outline-btn" href="https://drive.google.com/drive/folders/146Tj-N04MdJKCmLzXfjzWVCJdFRwZovG" target="_blank" rel="noopener">Fotos &amp; Logo öffnen</a>
-        </div>
-        <div class="card">
-          <h3>Logo</h3>
-          <p>Unser Logo und unsere Pressefotos findet ihr gesammelt in einem Download-Ordner.</p>
-          <a class="btn press-outline-btn" href="https://drive.google.com/drive/folders/146Tj-N04MdJKCmLzXfjzWVCJdFRwZovG" target="_blank" rel="noopener">Logo öffnen</a>
         </div>
         <div class="card">
           <h3>Kurztext</h3>
