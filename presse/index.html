@@ -1173,9 +1173,24 @@ form{
   }
 }
 
+
+/* === PRESSE & KONTAKT: Desktop-Hero wieder kompakter === */
+/* Nur Desktop/Laptop, Handy bleibt unverändert. */
+@media(min-width:761px){
+  body.page-presse .hero.small,
+  body.page-kontakt .hero.small{
+    min-height:46vh !important;
+  }
+
+  body.page-presse .hero.small .hero-in,
+  body.page-kontakt .hero.small .hero-in{
+    padding-bottom:30px !important;
+  }
+}
+
 </style>
 </head>
-<body>
+<body class="page-presse">
 
 <header class="hdr">
   <nav class="nav" aria-label="Hauptnavigation">
