@@ -870,6 +870,66 @@ form{
   }
 }
 
+
+/* === HOME BUTTONS + KONTAKT ICONS FEINSCHLIFF === */
+
+/* Home-Hero: erster Button gold, zweiter ruhiger Outline */
+.hero.hero-home .cta-row .btn:not(.btn-gold){
+  background:rgba(17,18,20,.36) !important;
+  border-color:rgba(212,168,67,.58) !important;
+  color:#f1efe9 !important;
+}
+
+/* Handy: Hero-Buttons nicht am linken/rechten Rand kleben lassen */
+@media(max-width:760px){
+  .hero.hero-home .cta-row{
+    width:calc(100% - 40px) !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    gap:12px !important;
+  }
+
+  .hero.hero-home .cta-row .btn{
+    min-width:0 !important;
+    justify-content:center !important;
+    text-align:center !important;
+  }
+}
+
+/* Home-CTA unten: Kontakt-Button wirklich zentriert */
+.cta{
+  text-align:center !important;
+}
+.cta .btn{
+  margin-left:auto !important;
+  margin-right:auto !important;
+  justify-content:center !important;
+}
+@media(max-width:760px){
+  .cta .btn{
+    display:flex !important;
+    width:min(280px, calc(100% - 40px)) !important;
+  }
+}
+
+/* Kontaktseite: Emoji-Icons neutral/schwarzweiß */
+.contact-card .ico,
+.contact-card .icon,
+.info-card .ico,
+.info-card .icon,
+.contact-info .ico,
+.contact-info .icon{
+  filter:grayscale(1) saturate(0) !important;
+  opacity:.82 !important;
+}
+
+/* Fallback, falls Icons einfache Emoji-Spans ohne eigene Klasse sind */
+.kontakt-card span:first-child,
+.contact-card > span:first-child,
+.info-card > span:first-child{
+  filter:grayscale(1) saturate(0) !important;
+}
+
 </style>
 </head>
 <body>
