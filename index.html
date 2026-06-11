@@ -884,6 +884,37 @@ form{
   }
 }
 
+
+
+/* === FEINJUSTIERUNG HERO: Überschrift etwas tiefer === */
+.hero .hero-in{
+  padding-bottom:44px !important;
+}
+.hero.small .hero-in{
+  padding-bottom:30px !important;
+}
+@media(max-width:760px){
+  .hero:not(.hero-home) .hero-in{
+    padding-bottom:24px !important;
+  }
+  .hero.small .hero-in{
+    padding-bottom:22px !important;
+  }
+}
+
+
+
+/* === HOME HERO: Titel im Bild, Text darunter; Titel etwas tiefer === */
+@media(max-width:760px){
+  .hero.hero-home .tag{
+    top:calc(58svh - 140px) !important;
+  }
+
+  .hero.hero-home h1{
+    top:calc(58svh - 102px) !important;
+  }
+}
+
 </style>
 </head>
 <body>
