@@ -7,7 +7,7 @@
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <meta property="og:title" content="Brassdorfer | … des brasst!">
 <meta property="og:description" content="Brassdorfer – Wir verbinden traditionelle Blasmusik mit modernen Brass-Grooves und einzigartigen Arrangements.">
-<meta property="og:image" content="https://bernispitzwieser.github.io/website/img/hero-home.jpg">
+<meta property="og:image" content="https://www.brassdorfer.at/img/hero-home.jpg">
 <meta property="og:type" content="website">
 <meta name="description" content="Brassdorfer – Wir verbinden traditionelle Blasmusik mit modernen Brass-Grooves und einzigartigen Arrangements.">
 
@@ -1848,6 +1848,40 @@ footer .soc a[aria-label="YouTube"] svg path{
   .hero .cta-row .btn:not(.btn-gold){background:none;border:none;width:auto;justify-self:center;padding:10px 14px;font-size:.78rem;letter-spacing:.1em;color:#e6e3da;text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--gold)}
   .hero .cta-row .btn:not(.btn-gold)::after{content:" →"}
 }
+
+/* === FOOTER ICONS: finaler Fix für Handy/Live === */
+/* Der vorherige Instagram-Fix hat SVG-Pfade teilweise als Stroke gezeichnet.
+   Dadurch wirken die Icons am Handy fett/verschwommen. Deshalb hier bewusst:
+   alle Footer-Social-SVGs als saubere gefüllte Icons. */
+footer .soc a{
+  color:var(--muted) !important;
+  border-color:var(--line) !important;
+}
+
+footer .soc a:hover{
+  color:var(--gold) !important;
+  border-color:var(--gold) !important;
+}
+
+footer .soc a svg{
+  width:18px !important;
+  height:18px !important;
+  display:block !important;
+}
+
+footer .soc a svg,
+footer .soc a svg *,
+footer .soc a[aria-label="Instagram"] svg,
+footer .soc a[aria-label="Instagram"] svg *,
+footer .soc a[aria-label="Facebook"] svg,
+footer .soc a[aria-label="Facebook"] svg *,
+footer .soc a[aria-label="YouTube"] svg,
+footer .soc a[aria-label="YouTube"] svg *{
+  fill:currentColor !important;
+  stroke:none !important;
+  stroke-width:0 !important;
+}
+
 </style>
 </head>
 <body>
