@@ -309,10 +309,7 @@ body{overflow-x:clip}
   .member img{object-position:var(--member-mobile-pos, center 25%)}
   .cta{background-image:linear-gradient(rgba(17,18,20,.86),rgba(17,18,20,.94)),var(--cta-mobile,var(--cta,none));background-size:cover;background-position:center}
 }
-@media(max-width:380px){
-  .cta-row{grid-template-columns:1fr}
-  .hero h1{font-size:clamp(1.85rem,10.5vw,2.3rem)}
-}
+
 
 .gallery a:first-child{grid-column:span 2;grid-row:span 2}
 .gallery a:first-child img{height:100%;aspect-ratio:auto}
@@ -335,6 +332,16 @@ body{overflow-x:clip}
 details.ev.next .hint::before{content:"Nächster Auftritt · ";color:var(--gold);font-weight:600}
 .ev.next .ev-date .d{color:var(--gold)}
 .next-label{color:var(--gold);font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+
+/* Galerie: gemischte Kachelgrößen */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:175px;grid-auto-flow:dense;gap:14px}
+.gallery a{display:block;overflow:hidden;border-radius:8px}
+.gallery img{width:100%;height:100%;object-fit:cover;aspect-ratio:auto;border-radius:8px;border:1px solid var(--line)}
+.gallery a.big{grid-column:span 2;grid-row:span 2}
+.gallery a.tall{grid-row:span 2}
+@media(max-width:860px){
+  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px;gap:10px}
+}
 </style>
 </head>
 <body>
@@ -393,11 +400,14 @@ details.ev.next .hint::before{content:"Nächster Auftritt · ";color:var(--gold)
         <h2 style="font-size:1.4rem">Eindrücke</h2>
       </div>
       <div class="gallery reveal">
-        <a href="../img/gallery/full/gallery-01.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-01.jpg" alt="Die Brassdorfer mit erhobenen Instrumenten in der Abenddämmerung" loading="lazy"></a>
-        <a href="../img/gallery/full/gallery-03.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-03.jpg" alt="Ausgelassene Gruppe in Tracht mit Instrumenten" loading="lazy"></a>
+        <a class="big" href="../img/gallery/full/gallery-01.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-01.jpg" alt="Die Brassdorfer mit erhobenen Instrumenten in der Abenddämmerung" loading="lazy"></a>
+        <a class="tall" href="../img/gallery/full/gallery-13.jpg" target="_blank" rel="noopener"><img src="../img/gallery/full/gallery-13.jpg" alt="Gemütliches Beisammensitzen mit Instrumenten" loading="lazy"></a>
         <a href="../img/gallery/full/gallery-05.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-05.jpg" alt="Gruppenfoto der Brassdorfer in Tracht" loading="lazy"></a>
         <a href="../img/gallery/full/gallery-08.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-08.jpg" alt="Sprungfoto mit Instrumenten auf der Wiese" loading="lazy"></a>
+        <a class="tall" href="../img/gallery/full/gallery-16.jpg" target="_blank" rel="noopener"><img src="../img/gallery/full/gallery-16.jpg" alt="Nahaufnahme mit Trompeten" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-03.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-03.jpg" alt="Ausgelassene Gruppe in Tracht mit Instrumenten" loading="lazy"></a>
         <a href="../img/gallery/full/gallery-10.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-10.jpg" alt="Bandfoto auf der Bergwiese" loading="lazy"></a>
+        <a href="../img/gallery/full/gallery-12.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-12.jpg" alt="Die Band in der blauen Stunde mit Blick ins Tal" loading="lazy"></a>
         <a href="../img/gallery/full/gallery-14.jpg" target="_blank" rel="noopener"><img src="../img/gallery/thumb/gallery-14.jpg" alt="Die Band stößt nach dem Auftritt an" loading="lazy"></a>
       </div>
     </div>
