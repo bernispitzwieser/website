@@ -29,7 +29,7 @@ window.BRASSDORFER_AUFTRITTE = [
     info: ""
   },
   {
-    status: "kommend",
+    status: "vergangen",
     datum: "2026-06-12",
     titel: "Musikfest Moosdorf",
     ort: "AT-5141 Moosdorf, Oberösterreich",
@@ -39,7 +39,7 @@ window.BRASSDORFER_AUFTRITTE = [
     status: "kommend",
     datum: "2026-07-03",
     titel: "Waldfest Lamprechtshausen",
-    ort: "AT-5112 Lamprechtshausen, Salzburg",
+    ort: "AT-5112 Lamprechtshausen, SalzburgXX",
     info: ""
   },
   {
