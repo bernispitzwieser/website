@@ -1006,6 +1006,36 @@ form{
   }
 }
 
+
+/* === FINAL: CTA-Kontaktbutton wirklich mittig === */
+.cta{
+  text-align:center !important;
+}
+.cta-button-wrap{
+  width:100% !important;
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  margin:26px auto 0 !important;
+  text-align:center !important;
+}
+.cta-button-wrap .btn{
+  display:inline-flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  width:auto !important;
+  min-width:220px !important;
+  max-width:280px !important;
+  margin:0 auto !important;
+  text-align:center !important;
+}
+@media(max-width:760px){
+  .cta-button-wrap .btn{
+    min-width:220px !important;
+    max-width:260px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1052,18 +1082,7 @@ form{
         <h2 style="font-size:1.4rem">Vergangene Auftritte</h2>
       </div>
       <div class="events reveal">
-        <!-- ▼ TERMIN-BLOCK: Für einen neuen Termin diesen Block kopieren und Datum/Titel/Ort anpassen ▼ -->
-        <details data-date="2026-04-12" class="ev past">
-          <summary>
-            <span class="ev-date"><span class="d">12</span><span class="m">Apr</span></span>
-            <span class="ev-title"><h3>Hochburg-Acher Wiesenfest</h3><span class="hint">Bereits gespielt</span></span>
-            <span class="chev" aria-hidden="true">Mehr Infos</span>
-          </summary>
-          <div class="ev-body">
-            <div class="row"><span><b>Ort:</b> AT-5122 Hochburg-Ach, Oberösterreich</span></div>
-          </div>
-        </details>
-        <!-- ▲ Ende Termin-Block ▲ -->
+        <div data-events-list data-events-status="vergangen"></div>
       </div>
     </div>
   </section>
@@ -1071,7 +1090,7 @@ form{
   <section class="cta">
     <h2 class="reveal">Ihr plant selbst ein Fest?</h2>
     <p class="reveal">Schreibt uns einfach eine unverbindliche Nachricht und wir melden uns bei euch!</p>
-    <a class="btn btn-gold reveal" href="../kontakt/#anfrage">Kontakt</a>
+    <p class="cta-button-wrap reveal"><a class="btn btn-gold" href="../kontakt/#anfrage">Kontakt</a></p>
   </section>
 
 </main>
@@ -1124,65 +1143,6 @@ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 
 <script src="../auftritte.js"></script>
 
-<script>
-(function(){
-  const monthShort = ["Jan","Feb","März","Apr","Mai","Juni","Juli","Aug","Sep","Okt","Nov","Dez"];
-
-  function escapeHtml(value){
-    return String(value || "").replace(/[&<>"]/g, function(ch){
-      return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[ch];
-    });
-  }
-
-  function parseDate(value){
-    const parts = String(value || "").split("-").map(Number);
-    return new Date(parts[0], (parts[1] || 1) - 1, parts[2] || 1);
-  }
-
-  function upcomingEvents(){
-    const today = new Date();
-    today.setHours(0,0,0,0);
-    return (window.BRASSDORFER_AUFTRITTE || [])
-      .map(ev => ({...ev, _date: parseDate(ev.datum)}))
-      .filter(ev => ev._date >= today)
-      .sort((a,b) => a._date - b._date);
-  }
-
-  function eventHtml(ev, index){
-    const day = String(ev._date.getDate()).padStart(2,"0");
-    const month = monthShort[ev._date.getMonth()];
-    const info = (ev.info || "").trim();
-    const isNext = index === 0;
-    const action = '<span class="chev" aria-hidden="true">Mehr Infos</span>';
-    const ort = (ev.ort || "").trim();
-    const rows = [];
-    if (isNext) rows.push('<div class="row"><span class="next-label">Nächster Auftritt</span></div>');
-    if (ort) rows.push(`<div class="row"><span><b>Ort:</b> ${escapeHtml(ort)}</span></div>`);
-    if (info) rows.push(`<div class="row"><span>${escapeHtml(info)}</span></div>`);
-    const body = `<div class="ev-body">${rows.join("") || '<div class="row"><span>Weitere Infos folgen.</span></div>'}</div>`;
-    return `<details data-date="${escapeHtml(ev.datum)}" class="ev${isNext ? ' next' : ''}">
-      <summary>
-        <span class="ev-date"><span class="d">${day}</span><span class="m">${month}</span></span>
-        <span class="ev-title"><h3>${escapeHtml(ev.titel)}</h3></span>
-        ${action}
-      </summary>
-      ${body}
-    </details>`;
-  }
-
-  function renderEvents(){
-    document.querySelectorAll("[data-events-list]").forEach(function(container){
-      const limit = container.dataset.eventsLimit ? Number(container.dataset.eventsLimit) : Infinity;
-      const events = upcomingEvents().slice(0, limit);
-      container.innerHTML = events.length
-        ? events.map(eventHtml).join("")
-        : '<p class="lead">Aktuell sind keine kommenden Auftritte eingetragen.</p>';
-    });
-  }
-
-  document.addEventListener("DOMContentLoaded", renderEvents);
-})();
-</script>
 
 </body>
 </html>
