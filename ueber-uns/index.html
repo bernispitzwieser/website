@@ -741,6 +741,89 @@ form{
   }
 }
 
+
+/* === FINALER TEST: Handy-Hero wie Über uns ===
+   Keine separaten Mobile-Hero-Bilder mehr.
+   Mobile nutzt dasselbe Bild wie Desktop, aber mit geringerer Hero-Höhe.
+*/
+@media(max-width:760px){
+  .hero::before{
+    background-image:var(--hero) !important;
+    background-size:cover !important;
+    background-position:var(--hero-mobile-pos, var(--hero-pos, center center)) !important;
+    background-repeat:no-repeat !important;
+  }
+
+  .hero{
+    min-height:54svh !important;
+    display:flex !important;
+    align-items:flex-end !important;
+    overflow:hidden !important;
+  }
+
+  .hero.hero-home{
+    min-height:58svh !important;
+  }
+
+  .hero.small{
+    min-height:44svh !important;
+  }
+
+  .hero::after{
+    background:linear-gradient(180deg,rgba(17,18,20,.46) 0%,rgba(17,18,20,.14) 35%,rgba(17,18,20,.56) 72%,#111214 100%) !important;
+  }
+
+  .hero-in{
+    padding:clamp(82px,16vh,124px) 0 34px !important;
+  }
+
+  .hero .tag{
+    font-size:.72rem !important;
+    letter-spacing:.18em !important;
+  }
+
+  .hero h1{
+    font-size:clamp(2.35rem,11.5vw,3.45rem) !important;
+    line-height:.96 !important;
+    letter-spacing:.015em !important;
+    max-width:100% !important;
+  }
+
+  .hero.small h1{
+    font-size:clamp(2.18rem,10.5vw,3.1rem) !important;
+  }
+
+  .hero p.lead{
+    font-size:1rem !important;
+    line-height:1.5 !important;
+    max-width:33ch !important;
+    margin-bottom:22px !important;
+  }
+
+  .cta-row{
+    width:100% !important;
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+    gap:10px !important;
+  }
+
+  .cta-row .btn{
+    width:100% !important;
+    min-width:0 !important;
+    text-align:center !important;
+    white-space:nowrap !important;
+    padding:12px 8px !important;
+    font-size:.72rem !important;
+    letter-spacing:.055em !important;
+  }
+}
+@media(max-width:380px){
+  .cta-row .btn{
+    font-size:.66rem !important;
+    padding:11px 6px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -776,8 +859,8 @@ form{
     <div class="wrap cols">
       <div class="reveal">
         <h2>Brassdorfer</h2>
-        <p class="lead">Wir sind die Brassdorfer, neun Musikerinnen und Musiker aus dem Innviertel in Oberösterreich. Auf der Bühne spielen wir Brass mit Kraft, Groove und echter Spielfreude. Unser Repertoire reicht von Klassikern der Blasmusik bis zu modernen Arrangements. Ob Festivals, Stadtfeste oder private Feiern: wir sind dabei.</p>
-        <p class="lead" style="margin-top:12px">Musik ist unsere Leidenschaft, und die Bühne teilen wir am liebsten mit euch.</p>
+        <p class="lead">Wir sind die Brassdorfer, eine neunköpfige Brassband aus dem schönen Oberösterreich. Mit kraftvollen Bläsersätzen, mitreißenden Grooves und jeder Menge Spielfreude bringen wir unsere Musik auf die Bühne – und direkt ins Herz unseres Publikums. Unser Repertoire verbindet traditionelle Brass-Klänge mit modernen Einflüssen und einzigartigen Arrangements. Egal ob auf Festivals, Stadtfesten oder privaten Feiern – wir sorgen für Stimmung und unvergessliche musikalische Erlebnisse.</p>
+        <p class="lead" style="margin-top:12px">Musik ist unsere Leidenschaft, die Bühne unser Zuhause – und das Beste daran? Wir dürfen sie mit euch teilen!</p>
       </div>
       <div class="reveal">
         <img class="framed" style="--img-pos:center 36%; --img-mobile-pos:center 30%" src="../img/band-gruppe.jpg" alt="Die Brassdorfer" loading="lazy">
