@@ -826,7 +826,28 @@ form{
 }
 
 
-/* === HOME HANDY: Titel im Bild, Text & Buttons darunter === */
+/* === FEINJUSTIERUNG HERO: Überschrift etwas tiefer === */
+.hero .hero-in{
+  padding-bottom:44px !important;
+}
+.hero.small .hero-in{
+  padding-bottom:30px !important;
+}
+@media(max-width:760px){
+  .hero:not(.hero-home) .hero-in{
+    padding-bottom:24px !important;
+  }
+  .hero.small .hero-in{
+    padding-bottom:22px !important;
+  }
+}
+
+
+
+
+
+/* === HOME HANDY: Tag + Titel wieder direkt AUF dem Bild === */
+.hero-home-title-mobile{display:none}
 @media(max-width:760px){
   .hero.hero-home{
     min-height:0 !important;
@@ -847,7 +868,34 @@ form{
   .hero.hero-home::after{
     height:58svh !important;
     bottom:auto !important;
-    background:linear-gradient(180deg,rgba(17,18,20,.34) 0%,rgba(17,18,20,.10) 36%,rgba(17,18,20,.64) 78%,#111214 100%) !important;
+    background:linear-gradient(180deg,rgba(17,18,20,.26) 0%,rgba(17,18,20,.08) 34%,rgba(17,18,20,.54) 72%,#111214 100%) !important;
+  }
+
+  .hero-home-title-mobile{
+    display:block !important;
+    position:absolute !important;
+    left:0 !important;
+    right:0 !important;
+    top:calc(58svh - 150px) !important;
+    z-index:3 !important;
+    pointer-events:none !important;
+  }
+
+  .hero-home-title-mobile .tag{
+    font-size:.72rem !important;
+    letter-spacing:.18em !important;
+    margin:0 0 8px !important;
+    color:var(--gold) !important;
+    text-shadow:0 2px 18px rgba(0,0,0,.45);
+  }
+
+  .hero-home-title-mobile h1{
+    margin:0 !important;
+    font-size:clamp(2.35rem,11.5vw,3.45rem) !important;
+    line-height:.96 !important;
+    letter-spacing:.015em !important;
+    color:#f1efe9 !important;
+    text-shadow:0 2px 18px rgba(0,0,0,.45);
   }
 
   .hero.hero-home .hero-in{
@@ -856,21 +904,9 @@ form{
     background:#111214 !important;
   }
 
-  .hero.hero-home .tag,
-  .hero.hero-home h1{
-    position:absolute !important;
-    left:clamp(20px,4vw,48px) !important;
-    right:clamp(20px,4vw,48px) !important;
-    z-index:2 !important;
-  }
-
-  .hero.hero-home .tag{
-    top:calc(58svh - 155px) !important;
-  }
-
-  .hero.hero-home h1{
-    top:calc(58svh - 120px) !important;
-    margin:0 !important;
+  .hero.hero-home .hero-in > .tag,
+  .hero.hero-home .hero-in > h1{
+    display:none !important;
   }
 
   .hero.hero-home p.lead{
@@ -883,38 +919,6 @@ form{
     margin-top:0 !important;
   }
 }
-
-
-
-/* === FEINJUSTIERUNG HERO: Überschrift etwas tiefer === */
-.hero .hero-in{
-  padding-bottom:44px !important;
-}
-.hero.small .hero-in{
-  padding-bottom:30px !important;
-}
-@media(max-width:760px){
-  .hero:not(.hero-home) .hero-in{
-    padding-bottom:24px !important;
-  }
-  .hero.small .hero-in{
-    padding-bottom:22px !important;
-  }
-}
-
-
-
-/* === HOME HERO: Titel im Bild, Text darunter; Titel etwas tiefer === */
-@media(max-width:760px){
-  .hero.hero-home .tag{
-    top:calc(58svh - 140px) !important;
-  }
-
-  .hero.hero-home h1{
-    top:calc(58svh - 102px) !important;
-  }
-}
-
 
 /* === BUTTON FEINSCHLIFF === */
 .btn{
@@ -1195,37 +1199,6 @@ form{
   }
 }
 
-
-/* === TEST: Home-Hero am Handy weniger abgeschnitten === */
-/* Nur Startseite + nur Handy. Desktop bleibt unverändert. */
-@media(max-width:760px){
-  .hero.hero-home{
-    padding-top:60svh !important;
-  }
-
-  .hero.hero-home::before{
-    height:60svh !important;
-    background-image:var(--hero) !important;
-    background-size:100% auto !important;
-    background-position:center top !important;
-    background-repeat:no-repeat !important;
-    background-color:#111214 !important;
-  }
-
-  .hero.hero-home::after{
-    height:60svh !important;
-    background:linear-gradient(180deg,rgba(17,18,20,.12) 0%,rgba(17,18,20,.04) 38%,rgba(17,18,20,.58) 74%,#111214 100%) !important;
-  }
-
-  .hero.hero-home .tag{
-    top:calc(60svh - 142px) !important;
-  }
-
-  .hero.hero-home h1{
-    top:calc(60svh - 106px) !important;
-  }
-}
-
 </style>
 </head>
 <body>
@@ -1251,6 +1224,10 @@ form{
 <main>
 
   <section class="hero hero-home" style="--hero: url('img/hero-home.jpg'); --hero-pos:center 45%; --hero-mobile:url('img/hero-home-mobile.jpg'); --hero-mobile-pos:center center">
+    <div class="wrap hero-home-title-mobile">
+      <p class="tag">… des brasst!</p>
+      <h1>Brassdorfer</h1>
+    </div>
     <div class="wrap hero-in">
       <p class="tag">… des brasst!</p>
       <h1>Brassdorfer</h1>
