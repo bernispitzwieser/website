@@ -825,6 +825,65 @@ form{
   }
 }
 
+
+/* === HOME HANDY: Titel im Bild, Text & Buttons darunter === */
+@media(max-width:760px){
+  .hero.hero-home{
+    min-height:0 !important;
+    display:block !important;
+    padding-top:58svh !important;
+    background:#111214 !important;
+    overflow:hidden !important;
+  }
+
+  .hero.hero-home::before{
+    height:58svh !important;
+    bottom:auto !important;
+    background-image:var(--hero) !important;
+    background-size:cover !important;
+    background-position:var(--hero-mobile-pos, var(--hero-pos, center center)) !important;
+  }
+
+  .hero.hero-home::after{
+    height:58svh !important;
+    bottom:auto !important;
+    background:linear-gradient(180deg,rgba(17,18,20,.34) 0%,rgba(17,18,20,.10) 36%,rgba(17,18,20,.64) 78%,#111214 100%) !important;
+  }
+
+  .hero.hero-home .hero-in{
+    position:static !important;
+    padding:0 0 34px !important;
+    background:#111214 !important;
+  }
+
+  .hero.hero-home .tag,
+  .hero.hero-home h1{
+    position:absolute !important;
+    left:clamp(20px,4vw,48px) !important;
+    right:clamp(20px,4vw,48px) !important;
+    z-index:2 !important;
+  }
+
+  .hero.hero-home .tag{
+    top:calc(58svh - 155px) !important;
+  }
+
+  .hero.hero-home h1{
+    top:calc(58svh - 120px) !important;
+    margin:0 !important;
+  }
+
+  .hero.hero-home p.lead{
+    margin-top:26px !important;
+    margin-bottom:22px !important;
+    max-width:34ch !important;
+  }
+
+  .hero.hero-home .cta-row{
+    margin-top:0 !important;
+  }
+}
+
 </style>
 </head>
 <body>
