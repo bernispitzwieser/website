@@ -1130,6 +1130,45 @@ form button[type="submit"],
   }
 }
 
+
+/* === KONTAKT: nur Email- und Telefon-Icons gold, Social Icons zurück === */
+@media(max-width:760px){
+  /* Social-Media-Icons wieder neutral/weiß */
+  .soc svg,
+  .social svg,
+  .socials svg,
+  footer svg{
+    color:currentColor !important;
+    fill:currentColor !important;
+    stroke:currentColor !important;
+  }
+
+  /* Nur direkte Kontaktinfos: Email + Telefon gold */
+  a[href^="mailto:"] svg,
+  a[href^="tel:"] svg,
+  .contact-info a[href^="mailto:"] svg,
+  .contact-info a[href^="tel:"] svg,
+  .contact-card a[href^="mailto:"] svg,
+  .contact-card a[href^="tel:"] svg,
+  .kontakt-info a[href^="mailto:"] svg,
+  .kontakt-info a[href^="tel:"] svg{
+    color:var(--gold) !important;
+    fill:currentColor !important;
+    stroke:currentColor !important;
+  }
+
+  a[href^="mailto:"] .icon,
+  a[href^="tel:"] .icon,
+  .contact-info a[href^="mailto:"] .icon,
+  .contact-info a[href^="tel:"] .icon,
+  .contact-card a[href^="mailto:"] .icon,
+  .contact-card a[href^="tel:"] .icon,
+  .kontakt-info a[href^="mailto:"] .icon,
+  .kontakt-info a[href^="tel:"] .icon{
+    color:var(--gold) !important;
+  }
+}
+
 </style>
 </head>
 <body class="page-kontakt">
