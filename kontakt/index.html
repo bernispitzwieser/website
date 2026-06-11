@@ -1098,6 +1098,38 @@ form{
   }
 }
 
+
+/* === KONTAKT: Formular-Feinschliff === */
+form button[type="submit"],
+.contact-form button[type="submit"],
+#anfrage button[type="submit"]{
+  min-height:62px !important;
+  padding:0 42px !important;
+  font-size:1rem !important;
+  letter-spacing:.1em !important;
+  border-radius:var(--r) !important;
+}
+
+/* Kontakt-Icons auch am Handy golden */
+@media(max-width:760px){
+  .contact-info svg,
+  .contact-info .icon svg,
+  .contact-card svg,
+  .contact-card .icon svg,
+  .kontakt-info svg,
+  .kontakt-info .icon svg{
+    color:var(--gold) !important;
+    fill:currentColor !important;
+    stroke:currentColor !important;
+  }
+
+  .contact-info .icon,
+  .contact-card .icon,
+  .kontakt-info .icon{
+    color:var(--gold) !important;
+  }
+}
+
 </style>
 </head>
 <body class="page-kontakt">
@@ -1158,7 +1190,6 @@ form{
           </div>
           <div class="frow">
             <label>Straße und Hausnummer<input type="text" name="strasse"></label>
-            <label>Postleitzahl<input type="text" name="plz" inputmode="numeric"></label>
           </div>
           <label>Nachricht *<textarea name="nachricht" required></textarea></label>
           <div><button class="btn btn-gold" type="submit">Senden</button></div>
